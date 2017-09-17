@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <!-- ie 按照 最新的 方式渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 视口 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+    <title> 慢慢买比价网--手机版</title>
+    <link rel="stylesheet" href="../lib/swiper/css/swiper.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../sass/base.scss">
+    <!--导入自己的css-->
+    <link rel="stylesheet" type="text/css" href="./scss/dl_brand.css">
+
+
+    <!--px rem 转换-->
+    <script>
+        document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px';
+    </script>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+    <div class="dl_mmm">
+        <!--头部-->
+        <div class="dl_header">
+            <div class="dl_index_logo fl">
+                <a href="http://m.manmanbuy.com/">
+                    <img src="images/index_logo.png" title="慢慢买比价网--手机版">
+                </a>
+            </div>
+            <div class="dl_downlod fr">
+                <a href="http://m.manmanbuy.com/?o=download"></a>
+            </div>
+        </div>
+        <div class="dl_brand">
+            <div class="dl_top">
+                <div class="dl_nav">
+                    <a href='../dl/dl_index.html'>首页</a>><a href="javascript:void(0)">品牌大全</a>
+                </div>
+                <div class="dl_title">
+                    <h2>热门品牌排行</h2>
+                </div>
+            </div>
+
+            <div class="dl_main swiper-container">
+
+                <!--<div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                </div>
+            </div>-->
+                <div class="dl_content swiper-wrapper">
+                    <ul class="swiper-slide">
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--   底部 通用 样式-->
+    <div class="xx_nav">
+        <div class="nav">
+            <a href="javascript:void(0)">首页 &nbsp;&gt;&nbsp;</a><a href="javascript:void(0)">超值推荐 &nbsp;&gt;&nbsp;</a>亚马逊海外购 Swaro...
+        </div>
+    </div>
+    <!--  广告  -->
+    <div class="xx_ad">
+        <div class="xx_man">
+            <img src="./image/man_logo.png" alt="">
+        </div>
+        <div class="xx_right clearfix">
+            <h3>慢慢买APP</h3>
+            <div class="xx_open">
+                <a href="javascript:void(0)">立即打开</a>
+            </div>
+            <p>专注全网比价,每一次购买都在为你省钱!</p>
+        </div>
+    </div>
+    <div class="xx_foor">
+        <div class="foor_top">
+            <a href="../login/login.html">登录</a>
+            <a href="../login/regester.html">注册</a>
+            <a href="javascript:void(0)">返回顶部</a>
+        </div>
+        <p class="foor_bottom_A"><a href="javascript:void(0)" class="xx_download">手机APP下载</a> <a href="javascript:void(0)">慢慢买手机版</a> -- 掌上比价平台 </p>
+        <p class="foor_bottom_B"><a href="javascript:void(0)">m.manmanbuy.com</a></p>
+    </div>
+
+
+
+</body>
+
+</html>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="../lib/jQuery/jquery-1.12.4.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- 模板引擎 -->
+<script src="../lib/template-web.js/template-web.js"></script>
+<script type='text/html' id='template'>
+    {{each result}}
+    <li class="dl_col"><a href="./php/brand_index.php?id={{$index}}">{{$value.brandTitle}}</a></li>
+    {{/each}}
+</script>
+<script>
+    $(function() {
+        $.ajax({
+            url: 'http://139.199.192.48:9090/api/getbrandtitle',
+            success: function(data) {
+                var resultData = template('template', data);
+                $('.dl_content ul').html(resultData);
+                var mySwiper = new Swiper('.dl_main', {
+                    direction: 'vertical',
+                    slidesPerView: 'auto',
+                    mousewheelControl: true,
+                    freeMode: true,
+                    roundLengths: true, //防止文字模糊
+                })
+            }
+        })
+    })
+</script>
+<!--swiper的js文件-->
+<script src="../lib/swiper/js/swiper.min.js"></script>
+<script>
+</script>
+<!--swiper结束-->
+
+
+
+<script>
+    $(function() {
+        ///  设置底部  点击返回 顶部  事件
+        $(".foor_top a").eq(2).click(function() {
+            console.log(11111)
+            $(window).scrollTop(0);
+        })
+    })
+</script>

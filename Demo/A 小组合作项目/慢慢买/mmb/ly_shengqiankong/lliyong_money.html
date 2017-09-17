@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/liyong_money.css">
+    <link rel="stylesheet" href="../lib/Font-Awesome-3.2.1/css/font-awesome.min.css">
+
+    <title>Document</title>
+</head>
+<script>
+    var width = window.screen.width;
+    document.querySelector("html").style.fontSize = width / 10 + "px";
+</script>
+
+<body>
+    <!--    顶部 区域  -->
+    <div class="xx-header">
+        <div class="header-left">
+            <a href="./index.html" class="icon-angle-left "></a>
+        </div>
+        <h4>国内折扣</h4>
+        <div class="header-right">
+            <a href="javascript:void(0)"></a>
+        </div>
+    </div>
+
+    <!-- 底部 固定 导航栏   -->
+    <div class="ly_buy ">
+        <a href="javascript:void(0)" class="icon-pencil">  评论</a>
+        <a href="javascript:void(0)" class="icon-shopping-cart">  前往购买</a>
+    </div>
+
+    <!--   内容区域   -->
+    <div id="xx_data">
+
+
+    </div>
+
+
+    <!--   底部 通用 样式-->
+    <div class="xx_nav">
+        <div class="nav">
+            <a href="javascript:void(0)">首页 &nbsp;&gt;&nbsp;</a><a href="./xx_discount_A.html">超值推荐 &nbsp;&gt;&nbsp;</a>亚马逊海外购 Swaro...
+        </div>
+    </div>
+    <!--  广告  -->
+    <div class="xx_ad">
+        <div class="xx_man">
+            <img src="./image/man_logo.png" alt="">
+        </div>
+        <div class="xx_right clearfix">
+            <h3>慢慢买APP</h3>
+            <div class="xx_open">
+                <a href="javascript:void(0)">立即打开</a>
+            </div>
+            <p>专注全网比价,每一次购买都在为你省钱!</p>
+        </div>
+    </div>
+    <div class="xx_foor">
+        <div class="foor_top">
+            <a href="../login/login.html">登录</a>
+            <a href="../login/regester.html">注册</a>
+            <a href="javascript:void(0)">返回顶部</a>
+        </div>
+        <p class="foor_bottom_A"><a href="javascript:void(0)" class="xx_download">手机APP下载</a> <a href="javascript:void(0)">慢慢买手机版</a> -- 掌上比价平台 </p>
+        <p class="foor_bottom_B"><a href="javascript:void(0)">m.manmanbuy.com</a></p>
+    </div>
+</body>
+
+</html>
+<script src="../lib/jQuery/jquery-1.12.4.js"></script>
+<script src="../lib/template-web.js/template-web.js"></script>
+<script type="text/html" id="templateData">
+
+    <form name="aspnetForm" method="post" action="./zhekou.aspx?id=1565240&amp;da=904216883" id="aspnetForm">
+        <div>
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTU3Njk0ODY5M2Rk8MgwKIN296Ev4w++xWP/+sxGoKyEYs8eTN5BJo+NVeY=">
+        </div>
+
+        <div>
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="AB6DB01B">
+            <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAWZCKvmgVUcGhQqYBOLTbLSUvDaMpQPQTxqVvX4j14xltfwYIppvsBWDpFQxROxKPLcS8POjyWXdfIvQuQi4Z7Q+H/y3edCz6MJgnTuK6jaPC0wpHrTUulYw9e3FfFDE0/QjLWAUHE99wx/5/aYb1pZ">
+        </div>
+        <div class="container">
+            <div class="cu-content">
+                <h3 class="title">
+                    {{productName}}</h3>
+                <h4>
+                    {{productPrice}}</h4>
+                <div class="info">
+                    <span class="mall">
+                    {{productFrom}}</span> <span class="addtime" style="margin-right: 4px;">
+                        {{productTime}}</span> <span class="author">
+                            {{productTips}}</span>
+                </div>
+                <div class="content clearfix">
+                    <div class="picwrap">
+                        {{#productImgSm}}</div>
+                    <div class="conn">
+                        <p>
+
+                            <!--内容开始-->
+                            {{productInfo}}
+                            <!--内容结束-->
+                            {{#productImg2}}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="golink">
+                    <a href="redirect.aspx?tjid=1565240&amp;y=cu_share" target="_blank"><i class="icon-gobuy"></i>前往购买</a></div>
+            </div>
+
+            <div class="cu-content-pl ui-border-t">
+                <div class="tit">
+                    发表评论</div>
+                <div class="reply">
+                    <div class="form">
+                        <textarea name="ctl00$ContentBody$txt_nr" id="ctl00_ContentBody_txt_nr" rows="3"></textarea>
+                        <input name="ctl00$ContentBody$lbl_fbr" type="hidden" id="ctl00_ContentBody_lbl_fbr" value="手机端网友183***222">
+                        <input name="ctl00$ContentBody$hid_name" type="hidden" id="ctl00_ContentBody_hid_name" value="利仁 LR-D3300 电饼铛(大白)家用可拆洗煎饼铛煎烤机">
+                        <div class="ctrl">
+                            <a href="javascript:void(0)">发表评论</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tit" id="newcomment">
+                    最新评论</div>
+                <div class="list">
+                    <ul>
+                        <li class="ui-border-b">
+                            <div class="userimg"><img src="http://bbs.manmanbuy.com/images/face/none.gif"></div>
+                            <div class="con">
+                                <div class="name clearfix">
+                                    <div class="username">手机端网友183***222</div>
+                                    <div class="time">2017/7/5 9:07:46</div>
+                                </div>
+                                <div class="content">21231231</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</script>
+<script>
+    var csm = {
+            // /**
+            //  * 注意：只能返回一对键值对
+            //  */
+            getValue: function() {
+                var str = window.location.search
+                return {
+                    name: str.match(/^\?([\w]+)\=/)[1],
+                    value: str.match(/\=([\w]+)$/)[1]
+                }
+            }
+        }
+        // $(".ctrl input").click(function() {
+        //     var textarea = $("textarea").html()
+        //     $(".con").append(textarea);
+        // })
+    xx_data();
+    var date;
+    var week;
+    var year;
+    var moon;
+    var hour;
+    var min;
+    var mill;
+    var scrollH;
+    var pageY;
+
+
+
+    //  设置 固定导航栏 回到 评论区位置 并且自动获取焦点
+    $(".ly_buy a").eq(0).click(function() {
+            $(window).scrollTop(400);
+            $("#ctl00_ContentBody_txt_nr").trigger("focus")
+        })
+        ///  设置底部  点击返回 顶部  事件
+    $(".foor_top a").eq(2).click(function() {
+            console.log(11111)
+            $(window).scrollTop(0);
+        })
+        //  封装 ajax 请求  
+    function xx_data() {
+
+        $.ajax({
+            url: "http://139.199.192.48:9090/api/getmoneyctrlproduct",
+            dataType: "json",
+            data: {
+                productid: csm.getValue().value
+            },
+            success: function(data) {
+                // console.log(data);
+                var result = template("templateData", data.result[0]);
+                $("#xx_data").append(result);
+                // $(".cu-content-pl").append(data.result[0].productComment);
+                //   克隆追加 评论 ;
+                $(".ctrl a").on("click", function() {
+                    var $textarea = $("#ctl00_ContentBody_txt_nr").val();
+                    // console.log($textarea);
+                    date = new Date();
+                    mill = date.getMilliseconds();
+                    min = date.getMinutes();
+                    hour = date.getHours();
+                    moon = date.getMonth();
+                    year = date.getFullYear();
+                    week = date.getDate();
+                    var cloneLi = $(".list ul li").clone(true);
+                    cloneLi.find(".time").html(year + "/" + moon + "/" + week + "&nbsp;&nbsp;" + hour + ":" + min + ":" + mill);
+                    cloneLi.find(".content").html($textarea);
+                    $(".list ul").append(cloneLi);
+
+
+                })
+            }
+        })
+    }
+</script>

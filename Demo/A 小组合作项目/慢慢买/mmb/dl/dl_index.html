@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <!-- ie 按照 最新的 方式渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 视口 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+    <title>慢慢买比价网--手机版</title>
+
+    <!-- bootstrap的 样式 -->
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- 兼容 ie9
+    html5shiv html5的新语义标签
+    respond 低版本的ie中 不支持 媒体查询 @media
+   -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="../css/base.css">
+    <!--导入自己的css-->
+    <link rel="stylesheet" type="text/css" href="css/dl_index.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" class="ico" />
+
+    <!--px rem 转换-->
+    <script>
+        document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px';
+    </script>
+</head>
+
+<body>
+    <!--
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$      $$$$$$$$$$$     $$$$$$$$        $$$$$$$$         $$$$
+$$$$   $$$$   $$$$$$$   $$$   $$$$$$   $$$$   $$$$$$   $$$$$$$$$$
+$$$   $$$$$$$$$$$$$$   $$$$$   $$$$$   $$$$$   $$$$$   $$$$$$$$$$
+$$$  $$$$$$$$$$$$$$$  $$$$$$$  $$$$$   $$$$$$  $$$$$        $$$$$
+$$$   $$$$$$$$$$$$$$   $$$$$   $$$$$   $$$$$   $$$$$   $$$$$$$$$$
+$$$$   $$$$   $$$$$$$   $$$   $$$$$$   $$$$   $$$$$$   $$$$$$$$$$
+$$$$$$      $$$$$$$$$$$     $$$$$$$$        $$$$$$$$         $$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+-->
+    <!--顶部广告-->
+    <div class="dl_topBanner">
+        <div class="dl_logo">
+            <img src="http://m.manmanbuy.com/download/images/logo.png" alt="">
+        </div>
+        <div class="dl_title">慢慢买比价客户端
+            <div class="dl_subTitle">
+                <p>掌控价格不在买贵</p>
+                <p>500万人正在使用</p>
+            </div>
+        </div>
+        <div class="dl_btn">
+            <a href="javascript:void(0)" class="dl_close glyphicon glyphicon-remove"></a>
+            <a href="javascript:void(0)" class="dl_download">立即安装</a>
+        </div>
+    </div>
+    <!--头部-->
+    <div class="dl_header">
+        <div class="dl_index_logo fl">
+            <a href="http://m.manmanbuy.com/">
+                <img src="images/index_logo.png" title="慢慢买比价网--手机版">
+            </a>
+        </div>
+        <div class="dl_downlod fr">
+            <a href="http://m.manmanbuy.com/?o=download"></a>
+        </div>
+    </div>
+    <!--首页搜索栏-->
+    <form action="">
+        <div class="dl_search">
+
+            <input type="search" name="" placeholder="请输入你想比价的商品">
+            <input type="button" name="" value="搜索">
+        </div>
+    </form>
+    <!--首页导航-->
+    <div class="dl_nav dl_small">
+        <div class="dl_col row">
+            <!--<div class="col-xs-3">-->
+            <!--<a href="javascript:void(0)">
+                    <img src="images/ic_search.png" alt="">
+                    <p>比价搜索</p>
+            </a>
+            </div>
+            <div class="col-xs-3">.col-md-2</div>
+            <div class="col-xs-3">.col-md-3</div>
+            <div class="col-xs-3">.col-md-4</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <!--超值折扣推荐-->
+    <div class="dl_commend clearfix">
+        <a href="javascript:void(0)">
+            <span>超值折扣推荐</span>
+            <img src="http://www.zuyushop.com/wap/images/more.png" alt="">
+        </a>
+    </div>
+    <!--超值折扣推荐 内容-->
+    <div class="dl_commend_content">
+        <ul>
+            <!--<li>
+                <a href="javascript:void(0)">
+                    <div class="left"><img src="images/header_logo.png" alt=""></div>
+                    <div class="right">
+                        <div class="top_text">皇家古龙 男士香水 50ml <span>19.9元包邮（39.9-20）</span></div>
+                        <div class="bottom_text">
+                            <span class="fl">天猫旗舰店|<i>07-05 13:51</i></span>
+                            <span class="fr">留言</span>
+                        </div>
+                    </div>
+                </a>
+            </li>-->
+        </ul>
+    </div>
+    <!--更多优惠信息-->
+    <div class="more">
+        <a href="">更多优惠信息</a>
+    </div>
+
+
+    <!--**********************************************-->
+    <!--   底部 通用 样式-->
+    <div class="xx_foor">
+        <div class="foor_top">
+            <a href="../login/login.html">登录</a>
+            <a href="../login/regester.html">注册</a>
+            <a href="javascript:void(0)">返回顶部</a>
+        </div>
+        <p class="foor_bottom_A"><a href="javascript:void(0)" class="xx_download">手机APP下载</a> <a href="javascript:void(0)">慢慢买手机版</a> -- 掌上比价平台 </p>
+        <p class="foor_bottom_B"><a href="javascript:void(0)">m.manmanbuy.com</a></p>
+    </div>
+    <!--**********************************************-->
+</body>
+
+</html>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="../lib/jQuery/jquery-1.12.4.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- 模板引擎 -->
+<script src="../lib/template-web.js/template-web.js"></script>
+<!--导航菜单的-->
+<script type='text/html' id='template_index_nav'>
+    {{each result}}
+    <div class="col-xs-3">
+        <a href="{{$value.href}}">
+                    {{#$value.img}}
+                    <p>{{$value.name}}</p>
+        </a>
+    </div>
+    {{/each}}
+</script>
+<script>
+    $(function() {
+        var arr = ["../jlq-mmb/jlq-index.html", "../ly_shengqiankong/index.html", "../xx/xx_discount_A.html", "../jxy_low-price/low-price.html", "../xx/xx_overseas_A.html", "../YHM/Coupons.html", "javascript:void(0)", "javascript:void(0)", "../qsq/qsq.html", "javascript:void(0)", "../dl/dl_nav.html", "../brandMenu/dl_brand.html"];
+
+        $.ajax({
+            url: 'http://139.199.192.48:9090/api/getindexmenu',
+            success: function(data) {
+                console.log(data);
+                for (key in data.result) {
+                    data.result[key].href = arr[key];
+                }
+                console.log(data);
+                var resultData = template('template_index_nav', data);
+                $('.dl_nav .dl_col').html(resultData);
+
+
+
+                var $arr = $('.dl_col').children();
+                $arr.eq(7).click(function(event) {
+                    event.preventDefault();
+                    console.log('hhhhhhh');
+                    if ($('.dl_nav').hasClass('dl_small')) {
+                        $('.dl_nav').removeClass('dl_small').addClass('dl_big');
+                    } else {
+                        $('.dl_nav').removeClass('dl_big').addClass('dl_small');
+                    }
+                })
+            }
+        })
+    })
+</script>
+<!--超值折扣推荐的-->
+<script type='text/html' id='template_commend'>
+    {{each result}}
+    <li>
+        <a href="javascript:void(0)">
+            <div class="left">{{#$value.productImgSm}}</div>
+            <div class="right">
+                <div class="top_text">{{$value.productName}}<span>{{$value.productPinkage}}包邮（39.9-20）</span></div>
+                <div class="bottom_text">
+                    <span class="fl">{{$value.productFrom}}|<i>{{$value.productTime}}</i></span>
+                    <span class="fr glyphicon glyphicon-comment">{{$value.productComCount}}</span>
+                </div>
+            </div>
+        </a>
+    </li>
+    {{/each}}
+</script>
+
+<script>
+    $(function() {
+
+        //    导航链接
+
+
+
+        // 商品详情列表
+        $.ajax({
+            url: 'http://139.199.192.48:9090/api/getmoneyctrl',
+            success: function(data) {
+                console.log(data);
+                var resultData = template('template_commend', data);
+                $('.dl_commend_content ul').html(resultData);
+            }
+        })
+    })
+</script>
+<!--点击返回顶部-->
+<script>
+    $(function() {
+        $('.foor_top a').eq(2).click(function() {
+            console.log('heiheihei');
+            $(window).scrollTop(0);
+        })
+
+    })
+</script>

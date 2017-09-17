@@ -1,0 +1,165 @@
+@import '../../sass/normalize6.0.scss';
+@import '../../sass/base.scss';
+@function p2r ($size) {
+    @return $size/37.5*1rem;
+}
+
+// 头部
+.dl_header {
+    height: p2r(51);
+    background: $bgc;
+    padding-left: p2r(5);
+    .dl_index_logo {
+        padding: p2r(12);
+        a {
+            display: block;
+            width: p2r(186);
+            height: p2r(25);
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .dl_downlod {
+        width: p2r(50);
+        height: 100%;
+        a {
+            display: block;
+            width: p2r(50);
+            height: 100%;
+            text-decoration: none;
+            background: url('../images/header_app.png') no-repeat center center/p2r(34) p2r(34);
+        }
+    }
+}
+
+// 首页搜索栏
+.dl_search {
+    width: 100%;
+    height: p2r(51);
+    padding: p2r(10);
+    position: relative;
+    border-bottom: 1px solid #e6e6e6;
+    input:nth-of-type(1) {
+        width: 100%;
+        height: p2r(31);
+        padding-left: 5%;
+        border-radius: p2r(15);
+        background: #f1f1f1;
+        color: initial;
+        outline: none;
+    }
+    input[type="button"] {
+        width: p2r(63);
+        height: p2r(30);
+        color: #fff;
+        background: $bgc;
+        font-size: p2r(16);
+        border-radius: p2r(15);
+        position: absolute;
+        right: p2r(10);
+        top: p2r(10);
+        outline: none;
+    }
+}
+
+// 导航模块
+.container {
+    // height: 2000px;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif !important; // 顶部导航
+    .nav {
+        ul {
+            display: flex;
+            padding: 0 p2r(10);
+            border-bottom: 1px solid #ccc;
+            border-top: 1px solid #ccc;
+            color: #5a5a5a;
+            li {
+                width: 25%;
+                height: p2r(40);
+                font-size: p2r(14);
+                text-align: center;
+                line-height: p2r(40);
+                .icon-filter {
+                    font-size: p2r(16);
+                    margin-right: p2r(2);
+                }
+            }
+            li:nth-child(1) {
+                color: red;
+            }
+        }
+    } // 商品列表
+    .product-list {
+        ul {
+            li {
+                display: flex;
+                height: p2r(140);
+                padding: p2r(10);
+                .left {
+                    width: p2r(120);
+                    height: p2r(120);
+                    margin-right: p2r(10);
+                    img {
+                        width: p2r(120);
+                    }
+                }
+                .right {
+                    h3 {
+                        font-size: p2r(14);
+                        color: #333;
+                        line-height: p2r(22);
+                    }
+                    span {
+                        font-size: p2r(12);
+                        color: #a1a1a1;
+                    }
+                    span.price {
+                        display: block;
+                        margin-top: p2r(8);
+                        font-size: p2r(14);
+                        color: #ed0000;
+                        i {
+                            font-size: p2r(10);
+                            margin-right: p2r(3);
+                        }
+                    }
+                    footer {
+                        padding-top: p2r(12);
+                    }
+                }
+            }
+        }
+    }
+    .jump {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 p2r(30);
+        span {
+            display: inline-block;
+            width: p2r(82);
+            height: p2r(33);
+            font-size: p2r(14);
+            line-height: p2r(33);
+            background-color: #d4d4d4;
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#f1f1f1), to(#d4d4d4));
+            color: #5a5a5a;
+            text-align: center;
+            border-radius: p2r(10);
+        }
+        select {
+            width: p2r(77);
+            height: p2r(34);
+            border: 1px solid #000;
+            padding: 0 p2r(18);
+            .first,
+            .second {
+                width: p2r(77);
+                height: p2r(34);
+                text-align: center;
+                padding: 0 p2r(20);
+            }
+        }
+    }
+}

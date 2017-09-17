@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>登录</title>
+    <script>
+        document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px'
+    </script>
+    <!--导入基本文件-->
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+</head>
+<style>
+    body {
+        width: 100%;
+        height: 100%;
+        background: url("./img/log.jpg");
+    }
+    
+    .sxk_Header_Box {
+        width: 100%;
+        height: 1.0628rem;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        background-color: #ff841d;
+    }
+    
+    .sxk_Header_Box .goBack a {
+        display: block;
+        width: 1.20773rem;
+        height: 1.0628rem;
+        font-size: 0.5314rem;
+        text-align: center;
+        color: #fff;
+    }
+    
+    .sxk_Header_Box .goBack a i {
+        line-height: 1.0628rem;
+    }
+    
+    .sxk_Header_Box .top-Title h1 {
+        color: #fff;
+        text-align: center;
+        line-height: 1.0628rem;
+        font-size: 0.48309rem;
+        padding: 0;
+        margin: 0;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+    }
+    
+    .sxk_Header_Box .download-App {
+        padding-right: 0.48309rem;
+    }
+    
+    .sxk_Header_Box .download-App a {
+        display: block;
+        width: 1.20773rem;
+        height: 1.0628rem;
+        background-image: url("../images/header_app.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 0.96618rem 0.82126rem;
+    }
+    /* input 单独样式 */
+    
+    .inputBox {
+        position: relative;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        margin-top: 150px;
+        padding-left: 30px;
+    }
+    
+    .inputBox span {
+        font-size: 20px;
+    }
+    
+    .username,
+    .userpsd,
+    .usertxt {
+        width: 60%;
+        height: 40px;
+        text-indent: 2em;
+        border: 1px solid gainsboro;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        color: #bbb;
+    }
+    
+    .btn {
+        width: 100px;
+        height: 50px;
+        background-color: darkorange;
+        border: 1px solid #fff;
+        color: #ffffff;
+    }
+    
+    .bts {
+        width: 100px;
+        height: 50px;
+        background-color: darkorange;
+        border: 1px solid #fff;
+        color: #ffffff;
+    }
+    
+    .inputBox span {
+        font-size: 14px;
+        color: #fff;
+        margin-left: 5px;
+    }
+    
+    .inputBox .btn {
+        position: absolute;
+        bottom: -80%;
+        left: 15%;
+    }
+    
+    .inputBox .bts {
+        position: absolute;
+        bottom: -80%;
+        left: 55%;
+        border-radius: 5px;
+        line-height: 45px;
+        color: #fff;
+    }
+</style>
+
+<body>
+    <!--头部开始-->
+    <header>
+        <div class="sxk_Header_Box">
+            <div class="goBack">
+                <a href="./login.html"><i class="glyphicon glyphicon-menu-left"></i></a>
+            </div>
+            <div class="top-Title">
+                <h1>省钱控 - 注册中心</h1>
+            </div>
+            <div class="download-App">
+                <a href="javascript:void(0)"></a>
+            </div>
+        </div>
+    </header>
+    <!--头部结束-->
+
+    <div class="inputBox">
+        <input class='usertxt' type="text" name="usertxt" value=""><span>注册账号</span><br>
+        <input class='userpsd' type="password" name="userpsd"></span><span>注册密码</span><br>
+        <input class='username' type="text" name="username"><span>真实姓名</span>
+        <input class='btn' type="button" value="我要注册了">
+        <a href="./login.html" class="bts">返回首页</a>
+    </div>
+</body>
+
+</html>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script>
+    $(function() {
+        $('.btn').on('click', function() {
+            $.ajax({
+                url: 'regester.php',
+                type: 'post',
+                data: {
+                    usertxt: $('.usertxt').val(),
+                    userpsd: $('.userpsd').val(),
+                    username: $('.username').val()
+                },
+                success: function(data) {
+                    alert(data);
+                    window.location.href = "login.html";
+                }
+            })
+        })
+    })
+</script>

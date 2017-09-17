@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <!-- ie 按照 最新的 方式渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 视口 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+    <title> 慢慢买比价网--手机版</title>
+
+    <!-- bootstrap的 样式 -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- 兼容 ie9
+    html5shiv html5的新语义标签
+    respond 低版本的ie中 不支持 媒体查询 @media
+   -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+    <link rel="stylesheet" href="lib/swiper/css/swiper.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <!--导入自己的css-->
+    <link rel="stylesheet" type="text/css" href="css/dl_brand.css">
+
+
+    <!--px rem 转换-->
+    <script>
+        document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px';
+    </script>
+</head>
+
+<body>
+    <div class="dl_mmm">
+        <div class="topSearch">什么情况啊</div>
+        <div class="dl_brand">
+            <div class="dl_top">
+                <div class="dl_nav">
+                    <a href="javascript:void(0)">首页</a>><a href="javascript:void(0)">品牌大全</a>
+                </div>
+                <div class="dl_title">
+                    <h2>热门品牌排行</h2>
+                </div>
+            </div>
+
+            <div class="dl_main swiper-container">
+
+                <!--<div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                </div>
+            </div>-->
+                <div class="dl_content swiper-wrapper">
+                    <ul class="swiper-slide">
+
+                    </ul>
+                </div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-1.12.4.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- 模板引擎 -->
+<script src="lib/template-web.js/template-web.js"></script>
+<script type='text/html' id='template'>
+    {{each result}}
+    <li class="dl_col"><a href="javascript:void(0)">{{$value.brandTitle}}</a></li>
+    {{/each}}
+</script>
+<script>
+    $(function () {
+        $.ajax({
+            url: 'http://139.199.192.48:9090/api/getbrandtitle',
+            success: function (data) {
+                console.log(data);
+                var resultData = template('template', data);
+                $('.dl_content ul').html(resultData);
+            }
+        })
+    })
+</script>
+<!--swiper的js文件-->
+<script src="lib/swiper/js/swiper.min.js"></script>
+<script>
+    var mySwiper = new Swiper('.dl_main', {
+        scrollbar: '.swiper-scrollbar',
+        direction: 'vertical',
+        slidesPerView: 'auto',
+        mousewheelControl: true,
+        freeMode: true,
+        roundLengths: true, //防止文字模糊
+
+    })
+</script>
+<!--swiper结束-->

@@ -1,0 +1,229 @@
+@import "../../sass/base.scss";
+$bgc: #FF841D;
+@function p2r($size) {
+    @return ($size/41.4*1rem)
+}
+
+html,
+body {
+    height: 100%;
+}
+
+//  顶部 区域 
+.xx-header {
+    width: 100%;
+    height: p2r(44);
+    position: relative;
+    background-color: $bgc;
+    .header-left {
+        position: absolute;
+        width: p2r(50);
+        height: 100%;
+        left: p2r(10);
+        padding-top: p2r(10);
+        a {
+            width: 100%;
+            height: 100%;
+            display: block;
+            color: #fff;
+            z-index: 100;
+        }
+        a::before {
+            position: absolute;
+            font-size: p2r(24);
+            font-weight: p2r(900)
+        }
+    }
+    h4 {
+        position: absolute;
+        width: 50%;
+        height: p2r(44);
+        font-size: p2r(20);
+        font-weight: bold;
+        text-align: center;
+        line-height: p2r(44);
+        color: #fff;
+        margin-left: p2r(100);
+    }
+    .header-right {
+        position: absolute;
+        width: p2r(50);
+        height: 100%;
+        right: p2r(15);
+        a {
+            display: block;
+            height: 100%;
+            background: url("../image/header_app.png")no-repeat center center /80% 80%;
+        }
+    }
+}
+
+//  内容 区域
+.xx-friend {
+    .fried-ul {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        .border-img {
+            width: 50%;
+            height: 100%;
+            padding-left: p2r(10);
+            padding-top: p2r(10);
+            background-color: #fff;
+            border-right: 1px solid rgba(238, 238, 238, 0.8);
+            border-bottom: 1px solid rgba(238, 238, 238, 0.8);
+            a {
+                width: 100%;
+                height: 100%;
+                .img {
+                    width: p2r(140);
+                    height: p2r(140);
+                    margin: 0 auto;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .title {
+                    height: p2r(36);
+                    overflow: hidden;
+                    font-size: p2r(14);
+                    color: black;
+                    padding-left: p2r(8);
+                    padding-right: p2r(8);
+                }
+                .subtit {
+                    height: p2r(22);
+                    font-size: p2r(12);
+                    color: $bgc;
+                    padding-left: p2r(8);
+                    padding-right: p2r(8);
+                }
+                .info {
+                    height: p2r(40);
+                    line-height: p2r(40);
+                    font-size: p2r(12);
+                    color: gray;
+                    padding-left: p2r(8);
+                    padding-right: p2r(8);
+                }
+            }
+        }
+    }
+}
+
+//  底部 通用  样式
+.xx_nav {
+    width: 100%;
+    height: p2r(46);
+    background-color: #ebebeb;
+    padding-top: p2r(20);
+    .nav {
+        height: p2r(40);
+        font-size: p2r(14);
+        border-top: 1px solid #eeeeee;
+        border-bottom: 1px solid #eeeeee;
+        padding: 0 p2r(10);
+        background-image: linear-gradient(to bottom, white, #eee);
+        a {
+            line-height: p2r(40);
+            color: black;
+        }
+    }
+}
+
+//  广告   
+.xx_ad {
+    width: 100%;
+    height: p2r(84);
+    display: flex;
+    background-color: #434343;
+    padding: p2r(10)p2r(10);
+    margin-top: p2r(16);
+    .xx_man {
+        width: p2r(64);
+        height: p2r(64);
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .xx_right {
+        flex: 1;
+        position: relative;
+        padding-top: p2r(2);
+        padding-left: p2r(10);
+        h3 {
+            width: 100%;
+            font-size: p2r(18);
+            float: left;
+            color: white;
+        }
+        .xx_open {
+            width: p2r(80);
+            height: p2r(28);
+            font-size: p2r(16);
+            background-color: #6db110;
+            text-align: center;
+            line-height: p2r(28);
+            border-radius: p2r(4);
+            position: absolute;
+            right: p2r(2);
+            top: p2r(2);
+            a {
+                color: white;
+                z-index: 998;
+            }
+        }
+        p {
+            font-size: p2r(16);
+            color: #fee6c2;
+            padding-top: p2r(30);
+        }
+    }
+}
+
+.xx_foor {
+    width: 100%;
+    height: p2r(96);
+    padding-top: p2r(2);
+    background-color: #EFEFEF;
+    .foor_top {
+        width: 100%;
+        height: p2r(34);
+        display: flex;
+        border-top: 1px solid #c4c4c4;
+        border-bottom: 1px solid #c4c4c4;
+        a {
+            height: p2r(34);
+            line-height: p2r(34);
+            flex: 1;
+            font-size: p2r(14);
+            color: black;
+            text-align: center;
+        }
+        a:nth-child(2) {
+            border-left: 1px solid #c4c4c4;
+            border-right: 1px solid #c4c4c4;
+        }
+    }
+    .foor_bottom_A {
+        font-size: p2r(12);
+        text-align: center;
+        padding: p2r(10)0 0 p2r(5);
+        a {
+            font-size: p2r(12);
+            color: black;
+        }
+        .xx_download {
+            color: #FF0000;
+        }
+    }
+    .foor_bottom_B {
+        font-size: p2r(12);
+        text-align: center;
+        a {
+            color: black;
+        }
+    }
+}

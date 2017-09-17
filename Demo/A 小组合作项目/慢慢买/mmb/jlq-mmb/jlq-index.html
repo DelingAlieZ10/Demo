@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1.0">
+    <title>比价页</title>
+    <script>
+        document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px';
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+
+<body>
+    <!--比价部分-->
+    <!--头部-->
+    <div class="dl_header">
+        <div class="dl_index_logo fl">
+            <a href="../index.html">
+                <img src="images/index_logo.png" title="慢慢买比价网--手机版">
+            </a>
+        </div>
+        <div class="dl_downlod fr">
+            <a href="http://m.manmanbuy.com/?o=download"></a>
+        </div>
+    </div>
+    <!--首页搜索栏-->
+    <form action="">
+        <div class="dl_search">
+
+            <input type="search" name="" placeholder="请输入你想比价的商品">
+            <input type="button" name="" value="搜索">
+        </div>
+    </form>
+
+    <div class="jlq-layout">
+        <div class="jlq-price">
+            <!--比价分类标题-->
+            <div class="jlq-sorttitle">
+                <!--<p class="fl">
+          <a href="javascript:void(0)">大家电</a>
+        </p>
+        <ul class="jlq-sortlist">
+          <li><a href="javascript:void(0)">平板电脑</a></li>
+        </ul>-->
+            </div>
+        </div>
+    </div>
+    <!--   底部 通用 样式-->
+    <div class="xx_nav">
+        <div class="nav">
+            <a href="../index.html">首页 &nbsp;&gt;&nbsp;</a><a href="javascript:void(0)">超值推荐 &nbsp;&gt;&nbsp;</a>亚马逊海外购 Swaro...
+        </div>
+    </div>
+    <!--  广告  -->
+    <div class="xx_ad">
+        <div class="xx_man">
+            <img src="./image/man_logo.png" alt="">
+        </div>
+        <div class="xx_right clearfix">
+            <h3>慢慢买APP</h3>
+            <div class="xx_open">
+                <a href="javascript:void(0)">立即打开</a>
+            </div>
+            <p>专注全网比价,每一次购买都在为你省钱!</p>
+        </div>
+    </div>
+    <div class="xx_foor">
+        <div class="foor_top">
+            <a href="../login/login.html">登录</a>
+            <a href="../login/regester.html">注册</a>
+            <a href="javascript:void(0)">返回顶部</a>
+        </div>
+        <p class="foor_bottom_A"><a href="javascript:void(0)" class="xx_download">手机APP下载</a> <a href="javascript:void(0)">慢慢买手机版</a> -- 掌上比价平台 </p>
+        <p class="foor_bottom_B"><a href="javascript:void(0)">m.manmanbuy.com</a></p>
+    </div>
+
+
+</body>
+
+</html>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="lib/template-web.js"></script>
+<script type="text/javascript" src="js/jlq-index.js"></script>
+<!--分类标题的模板-->
+<script type='text/html' id='title-template'>
+    {{each result}}
+    <p><a href="javascript:void(0)" data-titleid='{{$value.titleId}}'>{{$value.title}}</a>
+        <ul class="jlq-sortlist clearfix">
+        </ul>
+    </p>
+    {{/each}}
+</script>
+
+<script type='text/html' id='list-template'>
+    {{each result}}
+    <li><a href="jlq-goodslist.html?={{$value.categoryId}}">{{$value.category}}</a></li>
+    {{/each}}
+</script>
+<script>
+    $(function() {
+        ///  设置底部  点击返回 顶部  事件
+        $(".foor_top a").eq(2).click(function() {
+            console.log(11111)
+            $(window).scrollTop(0);
+        })
+    })
+</script>

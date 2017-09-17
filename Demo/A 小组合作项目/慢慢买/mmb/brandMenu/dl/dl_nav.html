@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <!-- ie 按照 最新的 方式渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 视口 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+    <title>商城导航 -- 慢慢买</title>
+
+    <!-- bootstrap的 样式 -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- 兼容 ie9
+    html5shiv html5的新语义标签
+    respond 低版本的ie中 不支持 媒体查询 @media
+   -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <!--导入自己的css-->
+    <link rel="stylesheet" type="text/css" href="css/dl_nav.css">
+
+
+    <!--px rem 转换-->
+    <script>
+        document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px';
+    </script>
+</head>
+
+<body>
+    <!--头部-->
+    <div class="dl_header">
+        <div class="dl_back">
+            <a href="http://m.manmanbuy.com/" class="glyphicon glyphicon-menu-left"></a>
+        </div>
+        <h1>商城导航</h1>
+        <div class="dl_downlod">
+            <a href="http://m.manmanbuy.com/?o=download"></a>
+        </div>
+    </div>
+    <!--内容-->
+    <div class="dl_content">
+        <ul>
+            <li><a href="javascript:void(0)"> 1</a></li>
+            <li><a href="javascript:void(0)"> 2</a></li>
+            <li><a href="javascript:void(0)"> 3</a></li>
+            <li><a href="javascript:void(0)"> 4</a></li>
+            <li><a href="javascript:void(0)"> 5</a></li>
+            <li><a href="javascript:void(0)"> 6</a></li>
+            <li><a href="javascript:void(0)"> 7</a></li>
+            <li><a href="javascript:void(0)"> 8</a></li>
+            <li><a href="javascript:void(0)"> 9</a></li>
+            <li><a href="javascript:void(0)"> 10</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-1.12.4.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- 模板引擎 -->
+<script src="lib/template-web.js/template-web.js"></script>
+<script type='text/html' id='template_getbrandtitle'>
+    {{each result}}
+    <li><a href="{{$value.navHref}}"><img src="{{$value.navImg}}" alt="">{{$value.navTitle}}</a></li>
+    {{/each}}
+</script>
+<script>
+    $(function () {
+        $.ajax({
+            url: 'http://139.199.192.48:9090/api/getsitenav',
+            success: function (data) {
+                console.log(data);
+                var resultData = template('template_getbrandtitle', data);
+                $('.dl_content ul').html(resultData);
+            }
+        })
+    })
+</script>

@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>省钱控</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!--设置根节点-->
+    <script>
+        document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px'
+    </script>
+    <!--导入基本文件-->
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="css/xx_overseas_A.css">
+    <script src="../lib/zepto/zepto.js"></script>
+    <script src="../lib/zepto/event.js"></script>
+    <script src="../lib/zepto/ajax.js"></script>
+    <script src="../lib/zepto/touch.js"></script>
+    <script src="../lib/template-web.js/template-web.js"></script>
+    <!--导入基本文件-->
+</head>
+
+<body>
+    <!--头部开始-->
+    <header>
+        <div class="sxk_Header_Box">
+            <div class="goBack">
+                <a href="../index.html"><i class="glyphicon glyphicon-menu-left"></i></a>
+            </div>
+            <div class="top-Title">
+                <h1>海外折扣 -- 最新优惠</h1>
+            </div>
+            <div class="download-App">
+                <a href="javascript:void(0)"></a>
+            </div>
+        </div>
+    </header>
+    <!--头部结束-->
+    <!--内容区域 Start-->
+    <main>
+        <!--商品内容展示-->
+        <div class="content">
+            <ul>
+
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <!--功能按钮-->
+        <div class="btnBox">
+            <div class="perviousBtn"><a href="javascript:void(0);">上一页</a></div>
+            <div class="showPage">
+                <select></select>
+            </div>
+            <div class="nextBtn"><a href="javascript:void(0);">下一页</a></div>
+        </div>
+    </footer>
+    <!--内容区域 End-->
+    <!--底部通用样式-->
+    <!--   底部 通用 样式-->
+    <div class="xx_nav">
+        <div class="nav">
+            <a href="../index.html">首页 &nbsp;&gt;&nbsp;</a><a href="javascript:void(0)">超值推荐 &nbsp;&gt;&nbsp;</a>亚马逊海外购 Swaro...
+        </div>
+    </div>
+    <!--  广告  -->
+    <div class="xx_ad">
+        <div class="xx_man">
+            <img src="./images/man_logo.png" alt="">
+        </div>
+        <div class="xx_right clearfix">
+            <h3>慢慢买APP</h3>
+            <div class="xx_open">
+                <a href="javascript:void(0)">立即打开</a>
+            </div>
+            <p>专注全网比价,每一次购买都在为你省钱!</p>
+        </div>
+    </div>
+    <div class="xx_foor">
+        <div class="foor_top">
+            <a href="../login/login.html">登录</a>
+            <a href="../login/regester.html">注册</a>
+            <a href="javascript:void(0)">返回顶部</a>
+        </div>
+        <p class="foor_bottom_A"><a href="javascript:void(0)" class="xx_download">手机APP下载</a> <a href="javascript:void(0)">慢慢买手机版</a> -- 掌上比价平台 </p>
+        <p class="foor_bottom_B"><a href="javascript:void(0)">m.manmanbuy.com</a></p>
+    </div>
+</body>
+
+</html>
+<!--模板-->
+<script type="text/html" id="template">
+    {{each result}}
+
+    <a href="./xx_overseas_B.html?productId={{$value.productId}}">
+        <li class="clearfix">
+            <!--商品图片-->
+            <div class="img">{{#$value.productImgLg }}
+            </div>
+            <!--右边内容盒子-->
+            <div class="right_Content">
+                <!--商品描述-->
+                <div class="title">
+                    <a href="./xx_overseas_B.html?productId={{$value.productId}}">
+                        <p>{{$value.productName}}<span>{{$value.productPinkage}}</span></p>
+                    </a>
+                    <!--<p>{{$value.productName}}<span>{{$value.productPinkage}}</span></p>-->
+                </div>
+                <!--商品底部 信息-->
+                <div class="info">
+                    <!--商品来自哪里-->
+                    <div class="from"><span>{{$value.productFrom}} | {{$value.productTime}}</span>
+                        <!--评论-->
+                        <span class="pinglun">
+                                <i class="glyphicon glyphicon-comment">&nbsp;{{$value.productComCount}}</i>
+                            </span></div>
+                </div>
+            </div>
+        </li>
+
+    </a>
+    {{/each}}
+</script>
+<!--模板-->
+<script>
+    $(function() {
+        ///  设置底部  点击返回 顶部  事件
+        $(".foor_top a").eq(2).click(function() {
+            console.log(11111)
+            $(window).scrollTop(0);
+        })
+
+
+
+        //第一次请求ajax数据
+        $.ajax({
+            url: 'http://139.199.192.48:9090/api/getmoneyctrl',
+            success: function(data) {
+                console.log(data);
+                //获取总数据量，得出具体页数
+                var pageNum = Math.ceil(data.totalCount / data.pagesize);
+                console.log(pageNum);
+                //根据返回的数量动态生成option数量。
+                for (var i = 1; i <= pageNum; i++) {
+                    var newOption = document.createElement('option');
+                    newOption.innerHTML = i + "/" + pageNum;
+                    $('.showPage select').append(newOption);
+                }
+                var result = template('template', data);
+                //提取图片的双引号
+                result = result.replace(/&#60;/g, "<");
+                result = result.replace(/&#62;/g, ">");
+                result = result.replace(/&#34;/g, "'");
+                $('.content ul').append(result);
+                //功能按钮实现
+
+                var num = 1;
+                // num 控制 上下一页时的页数状态,select change后val2也要与之对应。
+                //下一页功能按钮实现
+                $('.nextBtn a').on('click', function() {
+                        if (num == 15) {
+                            alert("最后一页了");
+                            return;
+                        }
+                        num++;
+                        $.ajax({
+                            url: 'http://139.199.192.48:9090/api/getmoneyctrl',
+                            data: {
+                                pageid: num
+                            },
+                            success: function(data) {
+                                //把返回数据重新渲染在页面
+                                var result = template('template', data);
+                                $('.content ul').html(result);
+                                //有selected这个类的option加上num显示当前所在页数
+                                $('.showPage option').eq(num - 1).attr("selected", "selected").siblings().removeAttr("selected");
+                            }
+                        })
+                    }) //下一页功能实现完毕
+
+                //中间option 改变时跳转到相应的页面中.
+                $('.showPage select').on('change', function() {
+                    var val = $(this).val();
+                    //定义val2 把val中获取到的 n / 15 不规则的字符串去掉
+                    var val2 = null;
+                    //判断字符串长度来截取相应的长度。
+                    if (val.length == 4) {
+                        val2 = val.slice(0, 1);
+                    } else {
+                        val2 = val.slice(0, 2);
+
+                    }
+
+                    $.ajax({
+                        url: "http://139.199.192.48:9090/api/getmoneyctrl",
+                        data: {
+                            pageid: val2
+                        },
+                        success: function(data) {
+                            var result = template('template', data);
+                            $('.content ul').html(result);
+                            num = val2;
+                            console.log(num);
+                        }
+                    })
+                })
+
+                //上一页按钮功能
+                $('.perviousBtn a').on('click', function() {
+                        if (num == 1) {
+                            alert("已经是第一页了哟");
+                            return;
+                        }
+                        num--;
+                        $.ajax({
+                            url: 'http://139.199.192.48:9090/api/getmoneyctrl',
+                            data: {
+                                pageid: num
+                            },
+                            success: function(data) {
+                                //把返回数据重新渲染在页面
+                                var result = template('template', data);
+                                $('.content ul').html(result);
+                                $('.showPage option').eq(num - 1).attr("selected", "selected").siblings().removeAttr("selected");
+                            }
+                        })
+                    }) //上一页功能实现完毕
+            }
+        })
+    })
+</script>

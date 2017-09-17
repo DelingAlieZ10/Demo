@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .useradmin,
+        .userpsd,
+        .username {
+            width: 200px;
+            height: 30px;
+            outline: none;
+            border: 1px solid #000;
+            margin-bottom: 20px;
+        }
+        
+        input[type='submit'] {
+            width: 100px;
+            height: 30px;
+            font-size: 26px;
+            color: green;
+            background-color: paleturquoise;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <input class="useradmin" type="text" name="" value=""><span class='error'>提示</span>
+        <br>
+        <input class="userpsd" type="password"><span>提示1</span>
+        <br>
+        <input type="text" class='username'>
+        <input type="submit">
+    </form>
+</body>
+<script>
+    var useradmin = document.querySelector('.useradmin');
+    var userpsd = document.querySelector('.userpsd');
+    var username = document.querySelector('.username');
+    var error = document.querySelector('.error');
+    useradmin.onblur = function() {
+        var xml;
+        //查询兼容
+        if (window.XMLHttpRequest) {
+            xml = new XMLHttpRequest();
+        } else {
+            xml = ActiveXObject('Microsoft.XMLHTTP');
+        }
+
+        xml.open('get', 'regester.php?usertxt=' + useradmin.value + '&userpsd=' + userpsd.value + '&username=' + username.value);
+
+        xml.onload = function() {
+            error.innerHTML = xml.responseText;
+        }
+
+        xml.send(null);
+    }
+</script>
+
+</html>

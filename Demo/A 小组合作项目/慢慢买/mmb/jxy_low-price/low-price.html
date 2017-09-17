@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        // 这里除以的份数 取决于 我们在设计图中转换时 除以的分数 这里以10来计算会方便一些
+        document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px';
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../lib/swiper/css/swiper.css" />
+    <link rel="stylesheet" href="../lib/Font-Awesome-3.2.1/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/low_price.css" />
+</head>
+
+<body>
+    <div class="returnTop icon-double-angle-up"></div>
+    <!--头部-->
+    <div class="dl_header">
+        <div class="dl_back">
+            <a href="../dl/dl_index.html" class="glyphicon glyphicon-menu-left"></a>
+        </div>
+        <h1 class='low_price_header'>白菜价-淘宝内部券</h1>
+        <div class="dl_downlod">
+            <a href="http://m.manmanbuy.com/?o=download"></a>
+        </div>
+        <li class='glyphicon glyphicon-th-list' id='search_icon'></li>
+
+        <div class='search'>
+            <input type="text" placeholder="搜索商品即可查内部券" />
+            <label class='alertMessage'>搜索</label>
+        </div>
+    </div>
+
+    <!--弹出提示框-->
+    <div class="message">
+        非常抱歉!!当前没有该商品的优惠券活动信息。。。
+    </div>
+    <!--当滚动条触底，显示加载的图标-->
+    <div class="load_Icon"><i class="icon-spinner icon-spin"></i></div>
+    <!--循环获取顶部导航栏-->
+
+    <div id="low-invest">
+
+        <!-- 导航栏 -->
+        <div class="swiper-container">
+            <ul class="nav nav-tabs navList swiper-wrapper" role="tablist">
+
+                <li role="presentation" class="active navList_li swiper-slide">
+
+                    <a href="#titleId0" aria-controls="titleId0" role="tab" data-toggle="tab">全部</a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- 商品详情 -->
+        <div class="low-content tab-content navTable_info"></div>
+
+
+
+    </div>
+
+
+    <!--*************************************************-->
+
+</body>
+
+</html>
+<script src="../lib/jQuery/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+<script src="../lib/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../lib/template-web.js/template-web.js" type="text/javascript" charset="utf-8"></script>
+<script src="../lib/swiper/js/swiper.jquery.js" type="text/javascript" charset="utf-8"></script>
+
+<!--获取商品列表的模板-->
+<script type="text/html" id='low_info_template'>
+    {{each result}}
+    <div role="tabpanel" class="tab-pane active" id="titleId{{$value.titleId}}">
+        <div class="items">
+            <div class="item">
+
+                <div class="media">
+                    <div class="media-left itemLeft">
+                        <a href="#">{{#$value.productImg}}</a>
+                    </div>
+                    <div class="media-body itemText">
+                        <h4 class="media-heading">{{#$value.productName}}</h4>
+                        <p>{{#$value.productPrice}}</p>
+                        <p>{{#$value.productCoupon}}</p>
+                        <p>{{#$value.productCouponRemain}}</p>
+                    </div>
+                </div>
+                <button class="btn btn-danger">{{#$value.productHref}}</button>
+
+
+            </div>
+        </div>
+    </div>
+
+    {{/each}}
+</script>
+
+
+
+<script type="text/javascript">
+    $(function() {
+
+        var LiArr = new Array();
+        var LI0 = $('.navList').find('li');
+        LiArr.push(LI0);
+
+        //页面打开，获取全部导航栏下的商品信息		
+        $.ajax({
+            type: "get",
+            url: "http://139.199.192.48:9090/api/getbaicaijiaproduct",
+            data: {
+                titleid: 0
+            },
+            success: function(data) {
+
+                var res = template('low_info_template', data);
+                $('.navTable_info').html(res);
+
+            },
+        });
+        // 导航栏页面获取。并获取该导航栏下面的商品信息
+        nav();
+
+        // 导航栏页面获取函数***************************************8
+        function nav() {
+            $.ajax({
+                type: "get",
+                url: "http://139.199.192.48:9090/api/getbaicaijiatitle",
+                success: function(data) {
+                    var arr = data.result;
+                    for (var i = 1; i < arr.length; i++) {
+                        var newLi = $('<li role="presentation " class="navList_li  swiper-slide"></li>');
+                        $('.navList').append(newLi);
+                        var NewA = $('<a href="#titleId' + i + '"aria-controls="titleId' + i + ' " role="tab" data-toggle="tab">' + arr[i].title + '</a>');
+                        newLi.append(NewA);
+                        //					LiArr.push(newLi);
+
+                    }
+
+                    info();
+
+                    getMorePage(0);
+
+                    ///导航栏滚动
+                    var mySwiper = new Swiper('.swiper-container', {
+                        freeMode: true,
+                    })
+
+                },
+
+            });
+
+        }
+
+        // 获取每个导航栏下面的页面信息*****************************************
+        function info() {
+            var step = 0;
+            $('.navList').children('li').click(function() {
+                // 将头部内容改成导航栏中的内容********************************
+                var index = $(this).index();
+                if (index == 0) {
+                    $('.low_price_header').html('白菜价-淘宝内部券');
+                } else {
+                    $('.low_price_header').html('白菜价-' + $(this).children('a').html())
+                }
+
+                // 请求当前索引下的商品信息	****************************************	
+                getInfoAjax(index);
+                getMorePage(index);
+
+                //导航条移动****************************************************
+                if ($(this).index() == 0) {
+                    $('.navList').css({
+                        'transform': 'translateX(0px)'
+                    });
+                } else
+                if (($(this).offset().left <= 0 && $(this).index() != 0) || $(this).index() == $('.navList').children('li').length - 1) {
+                    step -= $(this).width();
+                    $('.navList').css({
+                        'transform': 'translateX(' + (-step) + 'px)'
+                    });
+
+                } else
+                if (window.innerWidth - ($(this).offset().left + $(this).width()) < $('#search_icon').width()) {
+
+                    step += $(this).width();
+
+                    $('.navList').css({
+                        'transform': 'translateX(' + (-step) + 'px)'
+                    });
+
+                }
+
+            })
+
+        }
+
+        //搜索框的点击事件*************************************************
+        $('#search_icon').click(function() {
+            $('.search').show();
+            if ($(this).hasClass('glyphicon-remove')) {
+                $(this).addClass('glyphicon-th-list').removeClass('glyphicon-remove');
+                $('.search').slideUp();
+            } else {
+                $(this).addClass('glyphicon-remove').removeClass('glyphicon-th-list');
+            }
+
+        })
+
+    })
+
+    // 点击显示并延迟关闭提示框************************************************
+    $('.alertMessage').click(function() {
+        $('.search').slideUp();
+        $('.message').show().delay(3000).slideUp();
+        $('#search_icon').addClass('glyphicon-th-list').removeClass('glyphicon-remove');
+
+    })
+
+    // 获取页面内容的Ajax封装***********************************************
+
+    function getInfoAjax(index) {
+
+        $.ajax({
+            type: "get",
+            url: "http://139.199.192.48:9090/api/getbaicaijiaproduct",
+            data: {
+                titleid: index
+            },
+            success: function(data) {
+
+                var res = template('low_info_template', data);
+                $('.navTable_info').append(res);
+                flag = true;
+            },
+        });
+
+    }
+
+    //滚动加载页面********************************************************
+
+    function getMorePage(index) {
+        var flag = true;
+        $(window).scroll(function() {
+            if (document.body.scrollTop > $('.dl_header').height()) {
+                $('.returnTop').show().click(function() {
+                    document.body.scrollTop = 0;
+                })
+
+            }
+            var infoHeight = $('.navTable_info').height();
+            if (document.body.scrollTop + window.innerHeight > infoHeight && flag) {
+                flag = false;
+                $('.load_Icon').show().delay(2000).fadeOut();
+                setTimeout(function() {
+
+                    console.log('触发了');
+                    getInfoAjax(index);
+                    flag = true;
+
+                }, 2000);
+            }
+
+        })
+
+    }
+</script>
+
+<script>
+    $(function() {
+        var tran = $(".nav").css("transform")
+        console.log(tran);
+    })
+</script>

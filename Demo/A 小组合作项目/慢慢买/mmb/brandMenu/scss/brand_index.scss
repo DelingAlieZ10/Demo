@@ -1,0 +1,438 @@
+@import '../../sass/normalize6.0.scss';
+@import '../../sass/base.scss';
+// rem转化公式
+@function p2r ($size) {
+    @return $size/37.5*1rem;
+}
+
+// 头部
+.dl_header {
+    height: p2r(51);
+    background: $bgc;
+    padding-left: p2r(5);
+    .dl_index_logo {
+        padding: p2r(12);
+        a {
+            display: block;
+            width: p2r(186);
+            height: p2r(25);
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .dl_downlod {
+        width: p2r(50);
+        height: 100%;
+        a {
+            display: block;
+            width: p2r(50);
+            height: 100%;
+            text-decoration: none;
+            background: url('../images/header_app.png') no-repeat center center/p2r(34) p2r(34);
+        }
+    }
+}
+
+// 首页搜索栏
+.dl_search {
+    width: 100%;
+    height: p2r(51);
+    padding: p2r(10);
+    position: relative;
+    border-bottom: 1px solid #e6e6e6;
+    input:nth-of-type(1) {
+        width: 100%;
+        height: p2r(31);
+        padding-left: 5%;
+        border-radius: p2r(15);
+        background: #f1f1f1;
+        color: initial;
+        outline: none;
+    }
+    input[type="button"] {
+        width: p2r(63);
+        height: p2r(30);
+        color: #fff;
+        background: $bgc;
+        font-size: p2r(16);
+        border-radius: p2r(15);
+        position: absolute;
+        right: p2r(10);
+        top: p2r(10);
+        outline: none;
+    }
+}
+
+// 品牌大全列表页
+.container {
+    // height: 4000px;
+    background-color: #f2f2f2;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif !important; // 导航
+    .nav {
+        width: p2r(375);
+        height: p2r(38);
+        font-size: 0;
+        border-bottom: 2px solid #ccc;
+        padding-left: p2r(8);
+        background-color: #ebebeb;
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#ebebeb));
+        a {
+            display: inline-block;
+            height: 100%;
+            line-height: p2r(38);
+            font-size: p2r(14);
+            color: #5a5a5a;
+        }
+        a.current {
+            color: #000;
+        }
+        span {
+            font-size: p2r(14);
+            margin: 0 p2r(4);
+        }
+    } // 标题
+    .title {
+        h3 {
+            width: 100%;
+            height: p2r(36);
+            line-height: p2r(36);
+            font-size: p2r(14);
+            font-weight: 400;
+            color: #874604;
+            padding-left: p2r(10);
+            border-bottom: 1px solid #c8c8c8;
+            background-color: #f3f3f3;
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#ebebeb));
+        }
+    } // 品牌列表模块
+    .brand_list {
+        li {
+            padding: p2r(10);
+            border-bottom: 1px solid #e7e7e7;
+            background-color: #f3f3f3;
+            a {
+                display: flex;
+                .left {
+                    display: flex;
+                    flex: 1;
+                    .num {
+                        display: block;
+                        width: p2r(20);
+                        height: p2r(20);
+                        background-color: #c9c9c9;
+                        color: #ffffff;
+                        font-size: p2r(14);
+                        text-align: center;
+                        line-height: p2r(20);
+                        overflow: hidden;
+                    }
+                    .details {
+                        margin-left: p2r(10);
+                        h4 {
+                            height: p2r(18);
+                            font-size: p2r(17);
+                            color: #000;
+                            font-weight: 400;
+                        }
+                        p {
+                            // width: p2r(137);
+                            margin-top: p2r(6);
+                            height: p2r(14);
+                            font-size: p2r(12);
+                            color: #ccc;
+                            line-height: p2r(14);
+                            font-weight: 400;
+                        }
+                    }
+                }
+                .right {
+                    display: block;
+                    width: p2r(20);
+                    height: 100%;
+                    font-size: p2r(25);
+                    font-weight: 400;
+                    line-height: p2r(35);
+                    color: #ccc;
+                }
+            }
+        }
+        li.list1 {
+            a {
+                .left {
+                    .num {
+                        background-color: red;
+                    }
+                }
+            }
+        }
+        li.list2 {
+            a {
+                .left {
+                    .num {
+                        background-color: #ff9314;
+                    }
+                }
+            }
+        }
+        li.list3 {
+            a {
+                .left {
+                    .num {
+                        background-color: #8adf5b;
+                    }
+                }
+            }
+        }
+    } // 产品排行
+    #product-ranking {
+        h3 {
+            height: p2r(36);
+            font-size: p2r(14);
+            line-height: p2r(36);
+            border-bottom: 1px solid #c8c8c8;
+            padding-left: p2r(8);
+            a {
+                color: #874604;
+            }
+        }
+        .product-ranking-list {
+            ul {
+                li {
+                    padding: p2r(10);
+                    a {
+                        display: flex !important;
+                        .left {
+                            img {
+                                width: p2r(100);
+                                height: p2r(100);
+                            }
+                        }
+                        .right {
+                            margin-left: p2r(10);
+                            h5 {
+                                font-size: p2r(16);
+                                font-weight: 400;
+                                color: #333333;
+                            }
+                            p.one {
+                                .price {
+                                    font-size: p2r(16);
+                                    color: #ea3900;
+                                }
+                                .start {}
+                            }
+                            p.two {
+                                font-size: p2r(12);
+                                color: #999999;
+                                .quoted-price {
+                                    margin-right: p2r(6);
+                                }
+                                .comment {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } // 最近评论
+    #lasted-comment {
+        h3 {
+            width: p2r(375);
+            height: p2r(36);
+            border-top: 1px solid #c8c8c8;
+            border-bottom: 1px solid #c8c8c8;
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 0;
+            padding-left: p2r(10);
+            a {
+                font-size: p2r(14);
+                color: #874604;
+            }
+        }
+        .lasted-comment-details {
+            .list {
+                li {
+                    // height: p2r(203);
+                    padding: p2r(10);
+                    a {
+                        .product {
+                            width: 100%;
+                            display: flex;
+                            .left {
+                                img {
+                                    width: p2r(80);
+                                }
+                            }
+                            .right {
+                                p {
+                                    font-size: p2r(16);
+                                    color: #999999;
+                                    margin-left: p2r(10);
+                                    line-height: p2r(22);
+                                }
+                            }
+                        }
+                    }
+                    .comment {
+                        // height: p2r(136);
+                        border: 1px solid #e7e7e7;
+                        background-color: #f8f8f8;
+                        padding: p2r(10);
+                        position: relative;
+                        margin-top: p2r(10);
+                        &::before {
+                            content: '';
+                            display: block;
+                            width: 0;
+                            border: p2r(10) solid transparent;
+                            border-bottom-color: #f8f8f8; // border-bottom-color: #000; 
+                            position: absolute;
+                            top: p2r(-20);
+                            left: p2r(30);
+                        }
+                        .comment-top {
+                            line-height: p2r(43);
+                            span {
+                                font-size: p2r(14);
+                            }
+                            span:nth-child(1) {
+                                float: left;
+                                color: #4f6900;
+                            }
+                            span:nth-child(3) {
+                                color: #999999;
+                                float: right;
+                            }
+                        }
+                        .comment-bottom {
+                            p {
+                                font-size: p2r(15);
+                                color: #999999;
+                                line-height: p2r(22);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//  底部 通用  样式
+.xx_nav {
+    width: 100%;
+    height: p2r(46);
+    background-color: #ebebeb;
+    padding-top: p2r(20);
+    .nav {
+        height: p2r(40);
+        font-size: p2r(14);
+        border-top: 1px solid #eeeeee;
+        border-bottom: 1px solid #eeeeee;
+        padding: 0 p2r(10);
+        background-image: linear-gradient(to bottom, white, #eee);
+        a {
+            line-height: p2r(40);
+            color: black;
+        }
+    }
+}
+
+//  广告   
+.xx_ad {
+    width: 100%;
+    height: p2r(84);
+    display: flex;
+    background-color: #434343;
+    padding: p2r(10)p2r(10);
+    margin-top: p2r(16);
+    .xx_man {
+        width: p2r(64);
+        height: p2r(64);
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .xx_right {
+        flex: 1;
+        position: relative;
+        padding-top: p2r(2);
+        padding-left: p2r(10);
+        h3 {
+            width: 100%;
+            font-size: p2r(18);
+            float: left;
+            color: white;
+        }
+        .xx_open {
+            width: p2r(80);
+            height: p2r(28);
+            font-size: p2r(16);
+            background-color: #6db110;
+            text-align: center;
+            line-height: p2r(28);
+            border-radius: p2r(4);
+            position: absolute;
+            right: p2r(2);
+            top: p2r(2);
+            a {
+                color: white;
+                z-index: 998;
+            }
+        }
+        p {
+            font-size: p2r(16);
+            color: #fee6c2;
+            padding-top: p2r(30);
+        }
+    }
+}
+
+.xx_foor {
+    width: 100%;
+    height: p2r(96);
+    padding-top: p2r(2);
+    background-color: #EFEFEF;
+    .foor_top {
+        width: 100%;
+        height: p2r(34);
+        display: flex;
+        border-top: 1px solid #c4c4c4;
+        border-bottom: 1px solid #c4c4c4;
+        a {
+            height: p2r(34);
+            line-height: p2r(34);
+            flex: 1;
+            font-size: p2r(14);
+            color: black;
+            text-align: center;
+        }
+        a:nth-child(2) {
+            border-left: 1px solid #c4c4c4;
+            border-right: 1px solid #c4c4c4;
+        }
+    }
+    .foor_bottom_A {
+        font-size: p2r(12);
+        text-align: center;
+        padding: p2r(10)0 0 p2r(5);
+        a {
+            font-size: p2r(12);
+            color: black;
+        }
+        .xx_download {
+            color: #FF0000;
+        }
+    }
+    .foor_bottom_B {
+        font-size: p2r(12);
+        text-align: center;
+        a {
+            color: black;
+        }
+    }
+}

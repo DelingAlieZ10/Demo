@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./scss/brand_index.css" />
+    <title>品牌大全</title>
+</head>
+<script>
+    document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px';
+</script>
+
+<body>
+
+    <!--头部-->
+    <div class="dl_header">
+        <div class="dl_index_logo fl">
+            <a href="../dl/dl_index.html">
+                <img src="images/index_logo.png" title="慢慢买比价网--手机版">
+            </a>
+        </div>
+        <div class="dl_downlod fr">
+            <a href="http://m.manmanbuy.com/?o=download"></a>
+        </div>
+    </div>
+    <!--首页搜索栏-->
+    <form action="">
+        <div class="dl_search">
+
+            <input type="search" name="" placeholder="请输入你想比价的商品">
+            <input type="button" name="" value="搜索">
+        </div>
+    </form>
+
+
+
+
+
+
+    <div class="container">
+        <!--导航模块-->
+        <div class="nav">
+            <a href="../dl/dl_index.html">首页</a><span>></span>
+            <a href="javascript:void(0)">品牌大全</a><span>></span>
+            <a href="javascript:void(0)" class="current">平板电视哪个牌子好</a>
+        </div>
+        <!--标题模块-->
+        <div class="title">
+            <h3>平板电视哪个牌子好</h3>
+        </div>
+        <!--品牌列表模块-->
+        <ul class="brand_list">
+        </ul>
+        <!--产品排行模块-->
+        <div id="product-ranking">
+            <h3><a href="javascript:void(0)">LED电视产品销量排行</a></h3>
+            <div class="product-ranking-list">
+                <ul class="list">
+                    <li>
+                        <div class="left">
+                            <img src="" alt="">
+                        </div>
+                        <div class="right">
+                            <h5>TCL D43A810 42英寸 高清720P 智能网络LED液晶电视</h5>
+                            <p class="one"><span class="price">￥1999.00</span><span class="start"></span></p>
+                            <p class="two">
+                                <span class="quoted-price">报价(7)</span>
+                                <span class="comment">全网评论(52207)</span>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--最新评论-->
+        <div id="lasted-comment">
+            <h3><a href="javascript:void(0)">平板电视最新评论</a></h3>
+            <div class="lasted-comment-details">
+                <ul class="list">
+                    <li>
+                        <a href="javascript:void(0)">
+                            <div class="product">
+                                <div class="left">
+                                    <img src="http://www.zuyushop.com:8013/ProPic/20172/small80/Thumb_2017020010262862032.jpg" alt="">
+                                </div>
+                                <div class="right">
+                                    <p>海信(Hisense) LED55EC550UA 55英寸 超高清4K HDR 智能液晶电视</p>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="comment">
+                            <div class="comment-top clearfix">
+                                <span>j***t：</span>
+                                <span></span>
+                                <span>2017/7/2</span>
+                            </div>
+                            <div class="comment-bottom">
+                                <p>不错，刚开始还有点担心，不过还好总算不会失望，海信还是没有让我失望</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!--   底部 通用 样式-->
+    <div class="xx_nav">
+        <div class="nav">
+            <a href="javascript:void(0)">首页 &nbsp;&gt;&nbsp;</a><a href="javascript:void(0)">超值推荐 &nbsp;&gt;&nbsp;</a>亚马逊海外购 Swaro...
+        </div>
+    </div>
+    <!--  广告  -->
+    <div class="xx_ad">
+        <div class="xx_man">
+            <img src="./image/man_logo.png" alt="">
+        </div>
+        <div class="xx_right clearfix">
+            <h3>慢慢买APP</h3>
+            <div class="xx_open">
+                <a href="javascript:void(0)">立即打开</a>
+            </div>
+            <p>专注全网比价,每一次购买都在为你省钱!</p>
+        </div>
+    </div>
+    <div class="xx_foor">
+        <div class="foor_top">
+            <a href="../login/login.html">登录</a>
+            <a href="../login/regester.html">注册</a>
+            <a href="javascript:void(0)">返回顶部</a>
+        </div>
+        <p class="foor_bottom_A"><a href="javascript:void(0)" class="xx_download">手机APP下载</a> <a href="javascript:void(0)">慢慢买手机版</a> -- 掌上比价平台 </p>
+        <p class="foor_bottom_B"><a href="javascript:void(0)">m.manmanbuy.com</a></p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+<script type="text/javascript" src="../lib/jQuery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="../lib/template-web.js/template-web.js"></script>
+<!--品牌列表模板-->
+<script type='text/html' id='brand_list'>
+    {{each result}}
+    <li>
+        <a href="javascript:void(0)">
+            <div class="left">
+                <span class="num"></span>
+                <div class="details">
+                    <h4>{{$value.brandName}}</h4>
+                    <p>{{$value.brandInfo}}</p>
+                </div>
+            </div>
+            <div class="right"> ></div>
+        </a>
+    </li>
+    {{/each}}
+</script>
+<!--产品销量排行-->
+<script type="text/html" id="brand_rank_list">
+
+    <li>
+        <a href="javascript:void(0)">
+            <div class="left">
+                {{#$value.productImg}}
+            </div>
+            <div class="right">
+                <h5>{{$value.productName}}</h5>
+                <p class="one"><span class="price">{{$value.productPrice}}</span><span class="start"></span></p>
+                <p class="two">
+                    <span class="quoted-price">{{$value.productQuote}}</span>
+                    <span class="comment">{{$value.productCom}}</span>
+                </p>
+            </div>
+        </a>
+    </li>
+</script>
+<!--最新评论-->
+<script type="text/html" id="lasted-comment-list">
+    {{each result}}
+    <li>
+        <a href="javascript:void(0)">
+            <div class="product">
+                <div class="left">
+                    <img src="" alt="">
+                </div>
+                <div class="right">
+                    <p>海信(Hisense) LED55EC550UA 55英寸 超高清4K HDR 智能液晶电视</p>
+                </div>
+            </div>
+        </a>
+        <div class="comment">
+            <div class="comment-top clearfix">
+                <span>{{$value.comName}}</span>
+                <span></span>
+                <span>{{$value.comTime}}</span>
+            </div>
+            <div class="comment-bottom">
+                <p>{{$value.comContent}}</p>
+            </div>
+        </div>
+    </li>
+    {{/each}}
+</script>
+<script>
+    $(function() {
+        var num = Math.floor(Math.random() * 50);
+        console.log(num);
+        // ajax请求列表页的数据
+        $.ajax({
+                url: 'http://139.199.192.48:9090/api/getbrand',
+                data: {
+                    brandtitleid: num
+                },
+                success: function(data) {
+                    var result = template('brand_list', data);
+                    $('.brand_list').append(result);
+                    $('.brand_list').children().each(function(idx, element) {
+                        element.className = 'list' + (idx + 1);
+                        $(element).find('.num').html(idx + 1);
+                    })
+                }
+            })
+            // 产品销量排行
+        var tempalteString = ' <li>' +
+            '<div class = "left" >' +
+            '<img src = "http://www.zuyushop.com:8013/ProPic/201612/Thumb/Thumb_2016120016544962743.jpg" alt = "" >' +
+            '</div>' +
+            '<div class = "right">' +
+            '<h5> TCL D43A810 42 英寸 高清720P 智能网络LED液晶电视 </h5>' +
+            '<p class = "one" > <span class = "price" > ￥1999.00 </span><span class="start"></span>' +
+            '</p>' +
+            '<p class = "two">' +
+            '<span class = "quoted-price"> 报价(7) </span>' +
+            '<span class = "comment"> 全网评论(52207) </span>' +
+            '</p>' +
+            '</div>' +
+            '</li>';
+        var strArr = [];
+        for (var i = 0; i < 4; i++) {
+            strArr.push(tempalteString);
+        }
+        // console.log(strArr.join(''));
+        // console.log(document.querySelector('#lasted-comment .list').innerHtml);
+        $('#product-ranking .list').html(strArr.join(''));
+        $.ajax({
+                url: 'http://139.199.192.48:9090/api/getbrandproductlist',
+                data: {
+                    brandtitleid: num,
+                    pagesize: 4
+                },
+                success: function(data) {
+                    var result = template('brand_rank_list', data);
+                    $('').append(result);
+
+                }
+            })
+            // 最新评论
+        var imgArr = ['http://www.zuyushop.com:8013/ProPic/201612/small80/Thumb_2016120016545049735.jpg',
+            'http://pro.zuyushop.com:8015/ProPic/20169/small80/Thumb_2016090008504840382.jpg',
+            'http://www.zuyushop.com:8013/ProPic/20172/small80/Thumb_2017020014273069843.jpg',
+            'http://www.zuyushop.com:8013/ProPic/20172/small80/Thumb_2017020014273069843.jpg',
+            'http://www.zuyushop.com:8013/ProPic/20172/small80/Thumb_2017020010262862032.jpg',
+            'http://pro.zuyushop.com:8015/ProPic/20169/small80/Thumb_2016090012580179883.jpg'
+        ]
+        $.ajax({
+            url: 'http://139.199.192.48:9090/api/getproductcom',
+            data: {
+                productid: Math.floor(Math.random() * 10)
+            },
+            success: function(data) {
+                console.log(data);
+                var result = template('lasted-comment-list', data);
+                $('#lasted-comment .list').append(result);
+                $('#lasted-comment .list img').each(function(idx, element) {
+                    element.src = imgArr[Math.floor(Math.random() * 6)];
+                })
+            }
+        })
+    });
+</script>
+
+</html>

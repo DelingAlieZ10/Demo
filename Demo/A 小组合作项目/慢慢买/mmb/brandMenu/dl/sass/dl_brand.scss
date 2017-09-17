@@ -1,0 +1,93 @@
+@import 'normalize6.0.scss';
+@import 'base.scss';
+@function p2r($size) {
+    @return ($size/41.4*1rem)
+};
+
+html,body,.dl_mmm {
+    // position: relative;
+    height: 100%;
+    font-size: p2r(16);
+    // overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.dl_mmm {
+    .topSearch {
+        height: p2r(100);
+    } // 最外面的容器 dl_brand
+    .dl_brand {
+        height: 100%;
+        background: #eee;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        // position: relative;
+        .dl_top {
+            height: p2r(96);
+            position: relative;
+            // 导航部分
+            .dl_nav {
+                border-top: 1px solid #ebebeb;
+                border-bottom: 1px solid #ccc;
+                padding-left: p2r(3);
+                height: p2r(36);
+                line-height: p2r(36);
+                background: linear-gradient(top, #fff, #ebebeb);
+                a {
+                    font-size: p2r(14);
+                    color: #5a5a5a;
+                    padding: p2r(5);
+                }
+            } // 热门品牌排行
+            .dl_title {
+                height: p2r(60);
+                padding: p2r(10) p2r(5);
+                background: #eee;
+                h2 {
+                    margin: 0;
+                    padding-left: p2r(10);
+                    height: p2r(40);
+                    line-height: p2r(40);
+                    font-size: 16px;
+                    color: #874604;
+                    border: 1px solid #ccc;
+                }
+            }
+        } // 主体部分
+        .dl_main {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            // display: flex;
+            // flex-direction: column;
+            // position: relative;
+            //  内容
+            .dl_content {
+                height: 100%;
+                ul {
+                    width: 100%;
+                    padding: 0 p2r(10);
+                    height: auto;
+                    .dl_col {
+                        height: p2r(40);
+                        line-height: p2r(40);
+                        a {
+                            text-decoration: none;
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            color: #000;
+                            font-size: p2r(16);
+                            font-weight: bold;
+                            border-bottom: 1px solid #ccc;
+                            background: url("http://www.zuyushop.com/wap/images/arrow1.gif") right center no-repeat;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

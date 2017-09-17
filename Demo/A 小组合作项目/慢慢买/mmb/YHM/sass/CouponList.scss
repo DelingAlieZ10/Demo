@@ -1,0 +1,247 @@
+// 引入 其他的scss
+@import '../../sass/base.scss';
+@import '../../sass/normalize6.0.scss';
+// 抽取函数 来实现rem的转换
+// px - > rem
+// px to rem
+@function p2r($size) {
+    @return ($size/41.4*1rem);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.head {
+    width: 100%;
+    height: p2r(44);
+    background-color: #F4483E;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    .back,
+    .home {
+        width: p2r(50);
+        height: p2r(44);
+        text-align: center;
+    }
+    .back {
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        a::before {
+            font-size: p2r(26);
+            color: white;
+        }
+    }
+    h1 {
+        font-size: p2r(20);
+    }
+    .home {
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: url(../images/header_app.png) no-repeat center;
+            background-size: 60%;
+        }
+    }
+}
+
+.main {
+    width: 100%;
+    p {
+        font-size: p2r(12);
+        color: gray;
+        text-align: center;
+        margin: p2r(8) 0;
+    }
+    .menu {
+        ul li {
+            position: relative;
+            a {
+                display: block;
+                display: flex;
+                justify-content: space-around;
+                border-bottom: 1px solid lightgray;
+                padding: p2r(10) 0;
+                .pic {
+                    width: p2r(100);
+                    height: p2r(80);
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .info {
+                    width: p2r(274);
+                    .tit {
+                        h3 {
+                            font-size: p2r(14);
+                            line-height: p2r(20);
+                            font-weight: normal;
+                            color: #333;
+                        }
+                        h2 {
+                            font-size: p2r(14);
+                            line-height: p2r(24);
+                            color: #333;
+                        }
+                    }
+                    .time {
+                        font-size: 12px;
+                        color: #EE7700;
+                        margin-top: 10px;
+                    }
+                }
+            }
+            a::before {
+                position: absolute;
+                right: 0;
+                top: 45%;
+                font-size: p2r(27);
+                color: lightgray;
+            }
+        }
+    }
+    .nav {
+        margin-top: p2r(20);
+        padding-left: p2r(8);
+        height: p2r(36);
+        font-size: p2r(14);
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ebebeb;
+        background-color: #ebebeb;
+        a {
+            line-height: p2r(36);
+            font-size: p2r(14);
+            color: #000;
+        }
+    }
+}
+
+.foot {
+    background-color: #efefef;
+    padding-top: p2r(25);
+    .foot-top {
+        height: p2r(36);
+        border-bottom: 1px solid #c4c4c4;
+        border-top: 1px solid #c4c4c4;
+        display: flex;
+        justify-content: space-around;
+        a {
+            display: block;
+            width: 30%;
+            height: 100%;
+            font-size: p2r(14);
+            color: #000;
+            text-align: center;
+            line-height: p2r(36);
+            border-right: 1px solid #c4c4c4;
+        }
+        a:nth-child(3) {
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                width: p2r(15);
+                height: p2r(15);
+            }
+        }
+    }
+    .footer {
+        text-align: center;
+        font-size: 12px;
+        color: gray;
+        padding: p2r(15) 0;
+        p {
+            a:nth-of-type(1) {
+                color: red;
+            }
+            a:nth-of-type(2) {
+                color: gray;
+            }
+        }
+    }
+}
+
+.pop-up {
+    .placehoder {
+        background-color: rgba(#000, 0.8);
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+    }
+    .swiper {
+        position: fixed;
+        width: p2r(200);
+        height: p2r(160);
+        top: 35%;
+        left: 25%;
+        z-index: 150;
+        .inner ul {
+            li {
+                position: absolute;
+                width: p2r(200);
+                height: p2r(160);
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .arrow span {
+            width: p2r(30);
+            height: p2r(50);
+            border-radius: p2r(5);
+            // background-color: rgba(#, 0.8);
+            position: absolute;
+            top: 35%;
+            font-size: p2r(50);
+            font-weight: 400;
+            line-height: p2r(40);
+            text-align: center;
+            color: white;
+            z-index: 199;
+        }
+        .left {
+            left: -30%;
+            animation: for 1s linear infinite;
+        }
+        .right {
+            right: -30%;
+            animation: fos 1s linear infinite;
+        }
+    }
+}
+
+@keyframes for {
+    0% {}
+    ;
+    50% {
+        transform: translateX(-30px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes fos {
+    0% {}
+    ;
+    50% {
+        transform: translateX(30px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}

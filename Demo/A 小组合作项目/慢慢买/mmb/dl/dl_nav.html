@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <!-- ie 按照 最新的 方式渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 视口 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+    <title>商城导航 -- 慢慢买</title>
+
+    <!-- bootstrap的 样式 -->
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- 兼容 ie9
+    html5shiv html5的新语义标签
+    respond 低版本的ie中 不支持 媒体查询 @media
+   -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="../css/base.css">
+    <!--导入自己的css-->
+    <link rel="stylesheet" type="text/css" href="css/dl_nav.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" class="ico" />
+
+    <!--px rem 转换-->
+    <script>
+        document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px';
+    </script>
+</head>
+
+<body>
+    <!--顶部广告-->
+    <div class="dl_topBanner">
+        <div class="dl_logo">
+            <img src="http://m.manmanbuy.com/download/images/logo.png" alt="">
+        </div>
+        <div class="dl_title">慢慢买比价客户端
+            <div class="dl_subTitle">
+                <p>掌控价格不在买贵</p>
+                <p>500万人正在使用</p>
+            </div>
+        </div>
+        <div class="dl_btn">
+            <a href="javascript:void(0)" class="dl_close glyphicon glyphicon-remove"></a>
+            <a href="javascript:void(0)" class="dl_download">立即安装</a>
+        </div>
+    </div>
+    <!--头部-->
+    <div class="dl_header">
+        <div class="dl_back">
+            <a href="../dl/dl_index.html" class="glyphicon glyphicon-menu-left"></a>
+        </div>
+        <h1>商城导航</h1>
+        <div class="dl_downlod">
+            <a href="http://m.manmanbuy.com/?o=download"></a>
+        </div>
+    </div>
+    <!--内容-->
+    <div class="dl_content">
+        <ul>
+
+        </ul>
+    </div>
+    <!--   底部 通用 样式-->
+    <div class="xx_nav">
+        <div class="nav">
+            <a href="../dl/dl_index.html">首页 &nbsp;&gt;&nbsp;</a><a href="javascript:void(0)">超值推荐 &nbsp;&gt;&nbsp;</a>亚马逊海外购 Swaro...
+        </div>
+    </div>
+    <!--  广告  -->
+    <div class="xx_ad">
+        <div class="xx_man">
+            <img src="./image/man_logo.png" alt="">
+        </div>
+        <div class="xx_right clearfix">
+            <h3>慢慢买APP</h3>
+            <div class="xx_open">
+                <a href="javascript:void(0)">立即打开</a>
+            </div>
+            <p>专注全网比价,每一次购买都在为你省钱!</p>
+        </div>
+    </div>
+    <div class="xx_foor">
+        <div class="foor_top">
+            <a href="javascript:void(0)">登录</a>
+            <a href="javascript:void(0)">注册</a>
+            <a href="javascript:void(0)">返回顶部</a>
+        </div>
+        <p class="foor_bottom_A"><a href="javascript:void(0)" class="xx_download">手机APP下载</a> <a href="javascript:void(0)">慢慢买手机版</a> -- 掌上比价平台 </p>
+        <p class="foor_bottom_B"><a href="javascript:void(0)">m.manmanbuy.com</a></p>
+    </div>
+</body>
+
+</html>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="../lib/jQuery/jquery-1.12.4.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- 模板引擎 -->
+<script src="../lib/template-web.js/template-web.js"></script>
+<script type='text/html' id='template_getbrandtitle'>
+    {{each result}}
+    <li>
+        <a href="{{$value.navHref}}"><img src="{{$value.navImg}}" alt="">{{$value.navTitle}}</a>
+    </li>
+    {{/each}}
+</script>
+<script>
+    $(function() {
+        $.ajax({
+            url: 'http://139.199.192.48:9090/api/getsitenav',
+            success: function(data) {
+                console.log(data);
+                var resultData = template('template_getbrandtitle', data);
+                $('.dl_content ul').html(resultData);
+            }
+        })
+    })
+</script>
+<script>
+    $(function() {
+        $('.dl_header').click(function() {
+            $('.dl_topBanner').slideDown();
+        });
+        $('.dl_close').click(function() {
+            $(this).parents('.dl_topBanner').slideUp();
+        })
+    })
+</script>
+<script>
+    $(function() {
+        $(".foor_top a").eq(2).click(function() {
+            console.log(11111)
+            $(window).scrollTop(0);
+        })
+    })
+</script>

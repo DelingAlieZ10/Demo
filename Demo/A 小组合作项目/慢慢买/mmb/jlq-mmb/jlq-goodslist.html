@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1.0">
+    <title>商品列表</title>
+    <script>
+        document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px';
+    </script>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+
+<body>
+    <!--头部-->
+    <div class="dl_header">
+        <div class="dl_index_logo fl">
+            <a href="http://m.manmanbuy.com/">
+                <img src="images/index_logo.png" title="慢慢买比价网--手机版">
+            </a>
+        </div>
+        <div class="dl_downlod fr">
+            <a href="http://m.manmanbuy.com/?o=download"></a>
+        </div>
+    </div>
+    <!--首页搜索栏-->
+    <form action="">
+        <div class="dl_search">
+
+            <input type="search" name="" placeholder="请输入你想比价的商品">
+            <input type="button" name="" value="搜索">
+        </div>
+    </form>
+
+
+
+
+
+    <div class="goods-layout">
+        <!--三级菜单-->
+        <div class="jlq-goodsmenu">
+            <ul class="clearfix">
+                <li class="fl"><a href="../dl/dl_index.html">首页&nbsp;</a></li>
+                <li class="fl">>&nbsp;</li>
+                <li class="fl"><a href="jlq-index.html">全部分类&nbsp;</a></li>
+                <li class="fl">>&nbsp;</li>
+                <li class="fl"></li>
+                <li class="fl">&nbsp;></li>
+            </ul>
+        </div>
+        <!--货物列表信息-->
+        <div class="jlq-goodslist">
+            <ul>
+            </ul>
+        </div>
+        <!--底部按钮-->
+        <div class="jlq-goodsbottom">
+            <input type="button" value="上一页" class='goodsbottom-prev'>
+            <div class="dropup">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <ul id='jlq-page'>
+            <li class="fl">1</li>
+            <li class="fl">/</li>
+            <li class="fl"></li>
+          </ul>
+          <span class="caret"></span>
+        </button>
+                <ul class="dropdown-menu btn-menu" aria-labelledby="dropdownMenu2" id='checkPage'>
+                    <!--<li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>-->
+                </ul>
+            </div>
+            <input type="button" value="下一页" class='goodsbottom-next'>
+        </div>
+    </div>
+
+    <!--   底部 通用 样式-->
+    <div class="xx_nav">
+        <div class="nav">
+            <a href="../index.html">首页 &nbsp;&gt;&nbsp;</a><a href="javascript:void(0)">超值推荐 &nbsp;&gt;&nbsp;</a>亚马逊海外购 Swaro...
+        </div>
+    </div>
+    <!--  广告  -->
+    <div class="xx_ad">
+        <div class="xx_man">
+            <img src="./image/man_logo.png" alt="">
+        </div>
+        <div class="xx_right clearfix">
+            <h3>慢慢买APP</h3>
+            <div class="xx_open">
+                <a href="javascript:void(0)">立即打开</a>
+            </div>
+            <p>专注全网比价,每一次购买都在为你省钱!</p>
+        </div>
+    </div>
+    <div class="xx_foor">
+        <div class="foor_top">
+            <a href="../login/login.html">登录</a>
+            <a href="../login/regester.html">注册</a>
+            <a href="javascript:void(0)">返回顶部</a>
+        </div>
+        <p class="foor_bottom_A"><a href="javascript:void(0)" class="xx_download">手机APP下载</a> <a href="javascript:void(0)">慢慢买手机版</a> -- 掌上比价平台 </p>
+        <p class="foor_bottom_B"><a href="javascript:void(0)">m.manmanbuy.com</a></p>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="lib/template-web.js"></script>
+<script type="text/javascript" src="js/jlq-goodslist.js"></script>
+
+<!--货物列表内容模板-->
+<script type="text/html" id='jlq-goodslist'>
+    {{each result}}
+    <a href="jlq-goodsinfo.html?={{$value.productId}}">
+        <li class='clearfix'>
+            <div class="goodslist-left fl">{{@$value.productImg}}</div>
+            <div class="goodslist-right fl">
+                <h2>{{$value.productName}}</h2>
+                <p class="jlq-price">{{$value.productPrice}}</p>
+                <p class="fl">{{$value.productQuote}}</p>
+                <p class="fr">{{$value.productCom}}</p>
+            </div>
+        </li>
+    </a>
+    {{/each}}
+</script>
+
+
+<script>
+    $(function() {
+        ///  设置底部  点击返回 顶部  事件
+        $(".foor_top a").eq(2).click(function() {
+            console.log(11111)
+            $(window).scrollTop(0);
+        })
+    })
+</script>
