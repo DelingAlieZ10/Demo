@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    img {
+      vertical-align: top;
+    }
+    
+    .box {
+      width: 490px;
+      height: 170px;
+      margin: 100px auto;
+      padding: 5px;
+      border: 1px solid #ccc;
+      
+    }
+    
+    .inner {
+      width: 490px;
+      height: 170px;
+      background-color: pink;
+      position: relative;
+    }
+    
+    .inner ul {
+      width: 1000%; /*让ul足够的宽，可以放下所有浮动的li*/
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    
+    .inner li {
+      float: left;
+      /*li标签的宽高是靠子盒子撑起来*/
+    }
+    
+    .square {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+    }
+    
+    .square span {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+      background-color: #fff;
+      text-align: center;
+      cursor: pointer;
+    }
+    
+    .square span.current {
+      background-color: orangered;
+      color: #fff;
+    }
+  </style>
+  <script>
+    window.onload = function(){
+        //1.获得要操作的对象
+      var box = document.getElementById("box");
+      var inner = box.children[0];
+      var ul = inner.children[0];
+      var spans = document.getElementsByTagName("span");
+      var imgWidth = inner.offsetWidth;  // 图片的宽度
+      //2.给事件源注册事件  当鼠标移入对应小方块的时候，让ul向左移动对应小方块索引个图片宽度的距离
+      for(var i = 0; i < spans.length; i++) {
+         spans[i].setAttribute('index',i);
+           spans[i].onmouseover = function (){
+             for(var j=0;j<spans.length;j++){
+               spans[j].className = '';// 先将所有的span标签的背景样式给清掉
+             }
+             this.className = 'current'; // 以后鼠标移入的当前的li标签添加类current
+              var index =   this.getAttribute('index'); // 获取当前点击的span标签的索引值
+              var target = -imgWidth*index; // 计算要移动到的目标位置
+              animate(ul,target);
+           }
+      }
+      /**
+       * 封装了一个匀速移动的函数
+       * @param obj
+       * @param target
+       */
+      function animate(obj,target){   // 动态的弱类型语言   可以随时的给对象添加属性或是方法
+        // 保证当前对象在运动的时候，只开启一个定时器，就是在开启定时器的时候，把timeId存在对象的属性当中
+        clearInterval(obj.timeId);
+        obj.timeId = setInterval(function (){
+          var leader =obj.offsetLeft;//先获得盒子当前的位置
+          var step = 20;
+          step= leader<target?step:-step;
+          if(Math.abs((leader-target))>Math.abs(step)){
+            leader = leader + step;
+            obj.style.left = leader +'px';
+          }else {
+            clearInterval(obj.timeId);
+            obj.style.left = target + 'px';
+          }
+        },15);
+      }
+    }
+  </script>
+</head>
+<body>
+<div class="box" id="box">
+  <div class="inner">
+    <ul>
+      <li><a href="#"><img src="images/01.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/02.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/03.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/04.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/05.jpg" alt=""/></a></li>
+    </ul>
+    <div class="square">
+      <span class="current">1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+      <span>5</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

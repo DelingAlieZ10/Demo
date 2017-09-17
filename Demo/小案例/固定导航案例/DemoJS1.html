@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            vertical-align: top;
+        }
+
+        .top {
+            margin: 0 auto;
+            width: 1423px;
+        }
+
+        .nav {
+            width: 1423px;
+            margin: 0 auto;
+        }
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+            margin-top: 10px;
+        }
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="top" id="topPart">
+        <img src="images/top.png" alt=""/>
+    </div>
+    <div class="nav" id="navBar">
+        <img src="images/nav.png" alt=""/>
+    </div>
+    <div class="main" id="mainPart">
+        <img src="images/main.png" alt=""/>
+    </div>
+    <script>
+        window.onload = function(){
+            // 1. 获得要操作的对象
+            var  top = document.getElementById("topPart");
+            var nav = document.getElementById("navBar");
+            var main = document.getElementById("mainPart");
+            // 2. 当页面滚动的时候 计算页面滚动的距离 当滚动的距离 大于第一个盒子的高度的时候，让导航固定起来
+            window.onscroll  =function(){
+                //console.log(scroll().top);
+                if(scroll().top>top.offsetHeight ){
+                    // 让导航固定
+                    nav.className = "nav fixed"; // nav添加了固定定位之后，元素就脱标了，就不占用标准流的位置了，因为下面的盒子就一下子跳上去了
+                    // 需要给下面的盒加一个nav的高度
+                    main.style.paddingTop = nav.offsetHeight+'px';
+                }else {  // 页面卷去的距离 小于第一个盒子的高度的时候
+
+                    nav.className = "nav";
+                    main.style.paddingTop = "0px"; // 再把原来加上的高度给去掉就可以
+                }
+            }
+            /**
+             * 封装了一个兼容性的滚动的函数
+             * @returns {{top: (Number|number), left: (Number|number)}}
+             */
+            function scroll(){
+                return {   // 直接返回一个对象，只不过对象没有名字而已
+                    top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+                    left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

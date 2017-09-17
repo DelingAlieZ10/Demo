@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="400" height="300" style="border: 1px solid #f00;background:url(./images/beautify/rBACFFH1-B7DFB4PAAAYpkS1Sv4882_200x200_3.jpg)no-repeat center center/cover"></canvas>
+    <script src="js/jquery-3.1.0.js"></script>
+    <script>
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'lightgray';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.globalCompositeOperation = 'destination-out';
+        $(canvas).on('mousedown', function () {
+            $(this).on('mousemove', function (e) {
+                console.log(e);
+                var x = e.pageX - canvas.offsetLeft;
+                var y = e.pageY - canvas.offsetTop;
+                ctx.beginPath();
+                ctx.arc(x,y, 50, 0, 2 * Math.PI);
+                ctx.fill();
+                var data = ctx.getImageData(0,0,canvas.width,canvas.height).data;
+                var count =0;
+                for(var i = 0; i< data.length; i+=4){
+                    if(data[i]==0&&data[i+1]==0&&data[i+2]==0&&data[i+3]==0){
+                        count++;
+                    }
+                if(count >= canvas.width*canvas.height/2){
+                    ctx.clearRect(0,0,canvas.width,canvas.height);
+                    $(this).off('mousedown mouseup mousemove');
+                }
+                }
+            })
+        }).on('mouseup',function(){
+            $(this).off('mousemove');
+        })
+    </script>
+</body>
+
+</html>

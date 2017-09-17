@@ -1,0 +1,136 @@
+@font-face {
+    font-family: 'BLOODSUC';
+    src: url('../font/BLOODSUC.TTF');
+    url('../font/BLOODSUC.TTF') format('BLOODSUC');
+    font-weight: normal;
+    font-style: normal;
+}
+/*播放按钮*/
+.play{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: fixed;
+    top: 80px;
+    left: 80px;
+    background:  #ef7800;
+    color: #ffffff;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+/*背景图*/
+.bg_main {
+    width: 100%;
+    height: 100%;
+    background: url("../images/bg_main.jpg") no-repeat center #000;
+    -webkit-background-size: contain;
+    background-size: contain;
+    display: block;
+    position: absolute;
+    z-index: -1;
+}
+
+/*logo图片*/
+.content_main h1 {
+    height: 189px;
+    line-height: 189px;
+    text-align: center;
+    padding-top: 248px;
+}
+
+/*.content_main h1 img {*/
+    /*width: 480px;*/
+    /*z-index: 10;*/
+/*}*/
+.content_main p{
+    font-family: 'BLOODSUC';
+    font-size: 80px;
+    color: red;
+    height: 60px;
+    line-height: 60px;
+    /*font-weight: bold;*/
+}
+.content_main .s1{
+    color: #ef7800;
+    margin-left: -16px;
+}
+.content_main .s2{
+    font-size: 30px;
+    margin-left: -21px;
+}
+.content_main .s3{
+    font-size: 12px;
+    margin-left: -21px;
+}
+/*语言筛选*/
+.language {
+    height: 30px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.language .language_sel {
+    overflow: hidden;
+    width: 352px;
+    height: 30px;
+    color: #ffffff;
+    padding-left: 5px;
+    border: 1px solid #a9a9a9;
+    background: rgba(0, 0, 0, 0.6) url("../images/bg_languageSel.png") no-repeat 320px center;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+/*进入建*/
+.enter {
+    width: 348px;
+    height: 58px;
+    margin: 80px auto;
+}
+
+.enter a {
+    display: block;
+    width: 348px;
+    height: 58px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ef7800;
+    border: 2px solid #ef7800;
+    font-size: 20px;
+    line-height: 58px;
+    text-align: center;
+}
+
+.enter a:after {
+    content: "＞";
+    font-size: 28px;
+    float: right;
+    margin-right: 5px;
+}
+
+/*页脚区域开始了*/
+.footer {
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid #666666;
+    text-align: center;
+    font-size: 12px;
+    width: 100%;
+}
+
+.footer .productLogo {
+    margin: 10px auto;
+}
+
+.footer .productLogo a {
+    display: inline-block;
+    width: 106px;
+}
+
+.footer .productLogo img {
+    width: 106px;
+}
+
+.footer .copy {
+    margin-bottom: 18px;
+}

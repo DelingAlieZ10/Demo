@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body,ul,ol,li,img {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #box {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            /*background-color: red;*/
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+        .ad {
+            width: 500px;
+            height: 200px;
+            position: relative;
+        }
+        #box img {
+            width: 500px;
+        }
+        .ad ul li{
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+        .ad ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3000px;
+        }
+        .ad ul li.current {
+            background: yellow;
+        }
+        .ad ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+        .ad ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .ad ol li.current {
+            background: yellow;
+        }
+        #arr {
+            display: none;
+        }
+        #arr span {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            position: absolute;
+            /*left: 5px;*/
+            top: 50%;
+            margin-top: -20px;
+            background-color: #000;
+            cursor: pointer;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+        #arr #left{
+            left: 5px;
+        }
+        #arr #right {
+            right: 5px;
+            /*left: auto;*/
+        }
+    </style>
+    <script>
+        window.onload = function (){
+            var box = document.getElementById("box");
+            var ad = document.getElementsByClassName("ad")[0];
+            var ul = document.getElementById("imgs");
+            var lis = ul.children;
+            var ol = document.getElementsByTagName("ol")[0];
+            var arr = document.getElementById("arr");
+            var left = document.getElementById("left");
+            var right = document.getElementById("right");
+            var imgWidth = ad.offsetWidth;
+
+//创建li标签
+            for(var i = 0 ; i < lis.length; i++){
+            var li = document.createElement("li");
+                li.innerHTML = i+1;
+                ol.appendChild(li)
+            }
+
+             var olLis = ol.children;
+            olLis[0].className = "current";
+
+//给li中的标签设置值、下标索引
+            for(var i = 0 ; i < olLis.length; i++){
+                olLis[i].setAttribute("index",i);
+                olLis[i].onmouseover = function(){
+                    for(var j = 0 ; j < olLis.length; j++){
+                      olLis[j].className = "";
+                    }
+                    this.className = "current";
+                    var index = this.getAttribute("index");
+                    pic =square=index;
+
+
+
+                    var target = -imgWidth*index;
+                    animate(ul,target);
+                    }
+            }
+
+
+
+            box.onmouseover = function(){
+                arr.style.display = "block";
+                clearInterval(timer);
+            }
+            box.onmouseout = function(){
+                arr.style.display = "none";
+                timer = setInterval(playnext,2000);
+            }
+
+
+
+            //克隆第一张放在最后面
+            ul.appendChild(lis[0].cloneNode(true));
+            var pic = 0;
+            var square = 0;
+            left.onclick = function(){
+                if(pic == 0){
+                ul.style.left = -imgWidth*(lis.length-1)+"px";
+                    pic = lis.length-1;
+            }
+                pic--;
+                var target = -imgWidth *pic;
+                animate(ul,target);
+                if(square >0){
+                    square--;
+                }else{
+                    square = olLis.length-1;
+                }
+
+            for(var i = 0 ; i < olLis.length; i++){
+              olLis[i].className="";
+            }
+            olLis[square].className = "current";
+        }
+
+
+
+
+            right.onclick = function(){
+                playnext();
+
+
+//                if(pic ==lis.length-1){
+//                    ul.style.left = "0px";
+//                    pic = 0;
+//                }
+//                pic++;
+//                var target = -imgWidth *pic;
+//                animate(ul,target);
+//                if(square <olLis.length-1){
+//                    square++;
+//                }else{
+//                    square = 0;
+//                }
+//
+//                for(var i = 0 ; i < olLis.length; i++){
+//                    olLis[i].className="";
+//                }
+//                olLis[square].className = "current";
+            }
+
+           var timer= setInterval(playnext,2000);
+            //自动轮播与点击右键事件一致 所以封装一个函数直接调用就行了
+            function playnext(){
+                if(pic ==lis.length-1){
+                    ul.style.left = "0px";
+                    pic = 0;
+                }
+                pic++;
+                var target = -imgWidth *pic;
+                animate(ul,target);
+                if(square <olLis.length-1){
+                    square++;
+                }else{
+                    square = 0;
+                }
+
+                for(var i = 0 ; i < olLis.length; i++){
+                    olLis[i].className="";
+                }
+                olLis[square].className = "current";
+            }
+
+
+            /**
+             * 封装的左右移动
+             * @param obj
+             * @param target
+             */
+            function animate(obj,target){
+                clearInterval(obj.timer);
+                obj.timer = setInterval(function() {
+                    var leader = obj.offsetLeft;   //leader 当前位置
+                    var step = 20;   // 每次加的步长
+                    step = leader < target ? step : -step;   //target 目标
+                    if(Math.abs(leader-target)> Math.abs(step)){
+                        leader = leader + step;
+                        obj.style.left = leader+"px";
+                    }else{
+                        clearInterval(obj.timer);
+                        obj.style.left = target+"px";
+                    }
+                },15);
+            }
+
+
+
+
+
+
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+<div id="box" class="all">
+    <div class="ad">
+        <ul id="imgs">
+            <li><img src="images/1.jpg" width='500' height='200' alt=""/></li>
+            <li><img src="images/2.jpg" width='500' height='200' alt=""/></li>
+            <li><img src="images/3.jpg" width='500' height='200' alt=""/></li>
+            <li><img src="images/4.jpg" width='500' height='200' alt=""/></li>
+            <li><img src="images/5.jpg" width='500' height='200' alt=""/></li>
+        </ul>
+        <ol></ol>
+    </div>
+    <div id="arr">
+        <span id="left">&lt;</span>
+        <span id="right">&gt;</span>
+    </div>
+</div>
+
+
+</body>
+</html>

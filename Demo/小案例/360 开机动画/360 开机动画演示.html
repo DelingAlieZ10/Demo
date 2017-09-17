@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>360 开机动画演示</title>
+    <style>
+        .box {
+            width: 322px;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            overflow: hidden;
+        }
+        span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 20px;
+            /*background-color: red;*/
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function (){
+            var box = document.getElementById("box");
+            var close = document.getElementById("closeButton");
+            var hd = document.getElementById("headPart");
+            var bd = document.getElementById("bottomPart");
+
+            close.onclick = function (){
+              animate(bd,{
+                  height:0
+              },function (){
+                animate(box,{
+                    width:0
+                })
+              })
+            }
+
+
+            /**
+             * 封装currentStyle与getComputedStyle获取属性的兼容
+             * @param obj
+             * @param attr
+             * @returns {*}
+             */
+
+            function getStyle(obj,attr){
+                if(obj.currentStyle){
+                    return obj.currentStyle[attr];
+                }else{
+                    return window.getComputedStyle(obj,null)[attr];
+                }
+            }
+
+            /**
+             * 封装多属性缓速移动
+             * @param obj
+             * @param jason
+             * @param fun
+             */
+            function animate (obj,jason,fun){
+                clearInterval(obj.timer);
+                obj.timer = setInterval(function(){
+                    var flag = true;
+                    for(var key in jason){
+
+                        var leader = parseInt(getStyle(obj,key)) || 0; //短路运算，当没有属性时让它默认为0
+                        var target = jason[key];
+
+                        var step = (target - leader)/10;
+
+                        step = step < 0 ? Math.floor(step) : Math.ceil(step);
+                        leader += step;
+                        obj.style[key] = leader +"px";
+                        if(leader != target){
+                           flag = false;
+                        }
+                    }
+                    if(flag){
+                        clearInterval(obj.timer);
+                        if(typeof fun =="function"){
+                            fun();
+                        }
+                    }
+
+                },15)
+            }
+
+
+
+
+        }
+    </script>
+
+</head>
+<body>
+<div class="box" id="box">
+    <span id="closeButton"></span>
+    <div class="hd" id="headPart">
+        <img src="images/t.jpg" alt=""/>
+    </div>
+    <div id="bottomPart" class="bd">
+        <img src="images/b.jpg" alt=""/>
+    </div>
+</div>
+<script>
+
+</script>
+</body>
+</html>

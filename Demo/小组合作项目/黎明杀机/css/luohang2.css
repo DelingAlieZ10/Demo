@@ -1,0 +1,230 @@
+@charset "UTF-8";
+
+
+
+
+
+
+
+.footer{
+    width: 100%;
+    /*height: 795px;*/
+}
+.dbd-brokentop{
+     width: 100%;
+     height: 70px;
+     background: url("../images/dbd-brokentop.png") no-repeat;
+     background-size: cover;
+ }
+/*.dbd-brokenbottom{*/
+    /*width: 100%;*/
+    /*height: 65px;*/
+    /*background: url("../images/dbd-brokenbottom.png") no-repeat;*/
+    /*background-size: cover;*/
+/*}*/
+
+
+.dbd-bgnewfooter{
+    width: 100%;
+    height: 550px;
+    background: url("../images/dbd-footerbgnew.jpg") no-repeat;
+    background-size: cover;
+}
+.footer-left{
+    height: 100%;
+    width: 50%;
+    /*margin-right: 55px;*/
+    /*margin-right: 25px;*/
+    position: relative;
+}
+.dbd-com{
+    width: 396px;
+    height: 208px;
+}
+.footer-left-top{
+    width: 396px;
+    height: 208px;
+    margin-right: 0px;
+    position: absolute;
+    top: 40px;
+    left: 200px;
+    /*position: relative;*/
+}
+.footer-left-bottom{
+    width: 300px;
+    height: 100px;
+    position: absolute;
+    top: 254px;
+    left: 290px;
+    color: #777659;
+    text-align: right;
+}
+/*.footer-left-bottom span{*/
+    /*float: right;*/
+/*}*/
+.footer-right{
+    height: 100%;
+    width: 50%;
+    color: #fff;
+    /*margin-left: 25px;*/
+}
+.footer-right h1{
+    font-size: 26px;
+    color: #fff;
+    font-weight: 900;
+}
+.footer-right-top input{
+    width: 245px;
+    height: 33px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-color: #3f3f3f;
+}
+.footer-right-top input:hover{
+    background-color: #e6e6e6;
+}
+.footer-right-top h1{
+    margin-top: 90px;
+}
+.footer-right-top p{
+    margin-top: 28px;
+}
+.footer-email{
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+.footer-right-top button{
+    width: 90px;
+    height: 31px;
+    background-color: #000;
+    color: #fff;
+    font-size: 12px;
+    line-height: 31px;
+    margin-top: 10px;
+    border:1px solid #fff;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    cursor: pointer;
+}
+.footer-right-top span{
+    color: red;
+    opacity: 0;
+}
+.footer-right-top button:hover{
+    background-color: #3f3f6f;
+}
+.footer-right-buttom button{
+    width: 111px;
+    height: 31px;
+    background-color: #000;
+    color: #fff;
+    font-size: 12px;
+    line-height: 31px;
+    margin-top: 22px;
+    border:1px solid #fff;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    cursor: pointer;
+}
+.footer-right-buttom button:hover{
+    color: lawngreen;
+}
+.footer-right-buttom h1{
+    margin-top: 73px;
+    margin-bottom: 30px;
+}
+.footer-bglogo{
+    position: absolute;
+    top: 440px;
+    left: 340px;
+    opacity: 0;
+}
+.footer-bglogo img{
+    width: 200px;
+    height: 200px;
+}
+.dbd-realfooter{
+    width: 100%;
+    /*height: 148px;*/
+    padding-top: 20px;
+    padding-bottom: 5px;
+    overflow: hidden;
+    background: url("../images/dbd-realfooter.jpg") no-repeat bottom center;
+    background-size: cover;
+    position: relative;
+    text-align: center;
+    backface-visibility: hidden;
+    /*vertical-align: middle;*/
+}
+
+/*.dbd-realfooter-left{*/
+    /*width: 133px;*/
+    /*height: 123px;*/
+    /*background-color: #868687;*/
+    /*position: absolute;*/
+    /*left: 320px;*/
+    /*top: 0px;*/
+    /*background: url("../images/dbd-ftr-be.png") no-repeat center;*/
+/*}*/
+/*.dbd-realfooter-center{*/
+    /*width: 133px;*/
+    /*height: 123px;*/
+    /*background-color: #868687;*/
+    /*position: absolute;*/
+    /*left: 480px;*/
+    /*top: -4px;*/
+    /*background: url("../images/dbd-ftr-sbz.png") no-repeat center;*/
+/*}*/
+.dbd-realfooter-logo{
+    margin-right: 1000px;
+}
+.dbd-realfooter a{
+    opacity: 0.5;
+    color: #BFBFBF;
+    margin-left: 100px;
+    vertical-align: bottom;
+
+    /*margin: 0 20px;*/
+}
+.dbd-realfooter a:hover{
+    opacity: 1;
+}
+
+.dbd-realfooter span{
+    display: block;
+    width: 300px;
+    color: #fff;
+    position: absolute;
+    top: 60px;
+    left: 55%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

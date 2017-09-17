@@ -1,0 +1,265 @@
+blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul{margin:0;padding:0}
+body,button,input,select,textarea{font:12px/1.5 "Microsoft YaHei", "微软雅黑", SimSun, "宋体", sans-serif;color: #000;}
+ol,ul{list-style:none}
+a{text-decoration:none}
+fieldset,img{border:0;vertical-align:top;}
+a,input,button,select,textarea{outline:none;}
+a,button{cursor:pointer;}
+input{margin: 0;padding:0;}
+body {
+    background: url(../chat/images/bg.jpg) no-repeat;
+    background-size: cover;
+    /*background-size: cover;*/
+}
+
+/*大盒子*/
+.bigbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    background-color: transparent;
+}
+.bigbox .list {
+    position: absolute;
+    width: 250px;
+    height: 600px;
+    padding: 10px;
+    margin-left: 200px;
+    background-color: #2e3238;
+}
+/* list 头部*/
+.bigbox .list_head {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    border-bottom: 2px solid #c0c0c0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    background: url(images/logo.png) no-repeat center;
+}
+
+/*每个列表单项*/
+.bigbox .list_p p {
+    position: relative;
+    width: 100%;
+    height: 45px;
+    padding:5px;
+    padding-right: 0;
+    padding-left: 0;
+    overflow: hidden;
+}
+.bigbox .list_p i {
+    position: absolute;
+    z-index: 5;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.bigbox .list_p s {
+    position: absolute;
+    z-index: 3;
+    width: 5px;
+    height: 46px;
+    background-color: #2e3238;
+}
+.bigbox .list_p .user {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left:55px;
+    color:#fff;
+    display: inline-block;
+    font-size: 1.3em;
+    width: 100px;
+    height: 25px;
+    line-height: 25px;
+}
+.bigbox .list_p .qianming {
+    position: absolute;
+    z-index: 0;
+    top: 30px;
+    left:55px;
+    display: inline-block;
+    width: 400px;
+    color: black;
+    height: 20px;
+    line-height: 20px;
+}
+.bigbox .list_p p {
+    margin-bottom: 5px;
+}
+/* 头像图类*/
+.oneimg {
+    background: url(images/1.jpg);
+}
+
+.twoimg {
+    background: url(images/2.jpg);
+}
+.threeimg {
+    background: url(images/3.jpg);
+}
+.fourimg {
+    background: url(images/4.jpg);
+}
+.specimg {
+    background: url(images/33.jpg);
+}
+.fiveimg {
+    background: url(images/5.gif);
+}
+.siximg {
+    background: url(images/6.jpg);
+}
+.sevenimg {
+    background: url(images/7.jpg);
+}
+.eightimg {
+    background: url(images/8.jpg);
+}
+.nineimg {
+    background: url(images/9.jpg);
+}
+.tenimg {
+    background: url(images/10.jpg);
+}
+/* 头像图类*/
+
+/* 右聊天框 S */
+.bigbox .chatbox {
+    position: absolute;
+    left:470px;
+    width: 700px;
+    height: 620px;
+    background-color: #eeeeee;
+}
+.chatbox .chat_top {
+    width: 660px;
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #d6d6d6;
+    overflow: hidden;
+    margin-left: 20px;
+}
+.chatbox .chat_top p {
+    text-align: center;
+    float: left;
+    margin-left: 20px;
+    font-size: 20px;
+}
+.chatbox .chat_top span {
+    width: 100px;
+    float: left;
+   margin-top: 15px;
+    margin-left: 15px;
+    font-size: 12px;
+}
+.chatbox .chatcon {
+    width: 100%;
+    height: 400px;
+    overflow-y: scroll;
+    margin-top: 5px;
+}
+.chatbox .chatcon p {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    background-color: #b2e281;
+}
+.chatbox .chatcon i {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.chatbox .chatcon .chata {
+    width: 100%;
+    height: 50px;
+}
+.chatbox .chatsend {
+    width: 100%;
+    height: 100px;
+}
+.chatbox .chatsend textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    text-indent: 2em;
+    border:0;
+}
+.chatcon .textright {
+    text-align: right;
+    margin-bottom: 10px;
+}
+.chatcon .textright i {
+    margin-left: 10px;
+}
+.chatbox .sendarea {
+    width: 100%;
+    height: 50px;
+    background-color: #fff;
+}
+.chatbox .sendarea i {
+    display: inline-block;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    margin-left: 80%;
+    color: #000000;
+    font-family: "Microsoft YaHei";
+    font-size: 1.5em;
+    font-style:normal;
+    text-align: center;
+    margin-top: 5px;
+    border:1px solid #c0c0c0;
+    border-radius: 3px;
+    cursor: pointer ;
+}
+/* 右聊天框 E */
+
+/* 弹出框 */
+.tan {
+    background-color:rgba(255,255,255,1);
+    position: relative;
+    top: 75px;
+    height: 450px;
+    width: 0;
+    margin-top: -125px;
+    margin-left: -75px;
+}
+.tan span {
+    position: absolute;
+    right: 0px;
+    border:1px solid #ccc;
+    top: 200px;
+    z-index: 20;
+    font-size: 48px;
+    color: #ccc;
+    opacity: 0.6;
+    cursor: pointer;
+}
+.tan p {
+    position: absolute;
+    right: 60%;
+    top: 40%;
+    z-index: 20;
+}
+.tan s {
+    position: absolute;
+    z-index: 20;
+    top: 30px;
+    right: 40px;
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    background-color: greenyellow;
+    background: url(images/kefu1.jpg);
+}
+

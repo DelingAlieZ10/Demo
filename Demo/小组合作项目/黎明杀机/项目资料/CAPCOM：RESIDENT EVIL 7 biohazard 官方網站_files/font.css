@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*----------------------------------------------
+
+	繁体文字
+
+-----------------------------------------------*/
+
+@font-face {
+  font-family: 'Noto Sans TC';
+  font-style: normal;
+  font-weight: 100;
+  src: url(../font/NotoSansCJKtc-Thin.otf) format('opentype');
+}
+
+
+@font-face {
+   font-family: 'Noto Sans TC';
+   font-style: normal;
+   font-weight: 400;
+   src: url(../font/NotoSansCJKtc-Regular.otf) format('opentype');
+}
+@font-face {
+   font-family: 'Noto Sans TC';
+   font-style: normal;
+   font-weight: 500;
+   src: url(../font/NotoSansCJKtc-Medium.otf) format('opentype');
+}
+
+body {
+	font-family: 'Noto Sans TC', 'メイリオ',Meiryo,'ＭＳ Ｐゴシック','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro', verdana, Helvetica,Arial, sans-serif;
+}
+
+nav {
+  font-family: 'Oswald', 'Noto Sans TC';
+  font-weight:500;
+}
+
+#contents article h2 {
+  font-family: 'Oswald', 'Noto Sans TC';
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            vertical-align: top;
+        }
+        .top {
+            margin: 0 auto;
+            width: 1423px;
+        }
+        .nav {
+            width: 1423px;
+            margin: 0 auto;
+        }
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+            margin-top: 10px;
+        }
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            margin-left: -712px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top" id="topPart">
+        <img src="images/top.png" alt=""/>
+    </div>
+    <div class="nav" id="navBar">
+        <img src="images/nav.png" alt=""/>
+    </div>
+    <div class="main" id="mainPart">
+        <img src="images/main.png" alt=""/>
+    </div>
+<script>
+    var topPart = document.getElementById("topPart"); //顶部
+    var navBar = document.getElementById("navBar"); // 导航栏
+    var mainPart = document.getElementById("mainPart"); // 底部
+
+    // 页面滚动的时候，判断 scroll().top的值,是否大于topPart的高度
+    // 如果大于了，就改变navBar的样式
+    // 如果小于了，就恢复原来的
+    window.onscroll = function(){
+        //判断 scroll().top和topPart数值大小
+        if(scroll().top >topPart.offsetHeight){
+            // 改变navBar的样式
+            //navBar.style.position = "fixed";
+            navBar.className = 'nav fixed';
+            // 为了防止下面的页面突然掉上来
+            // 给下面的页面加一个paading-top
+            mainPart.style.paddingTop = navBar.offsetHeight + 'px';
+        }else {   // 恢复原来的样式，没有固定了，也就跟着浏览器的滚动条走了
+            navBar.className = 'nav';
+            // 回去之后，把padding-top去掉
+            mainPart.style.paddingTop = '0px';
+        }
+    }
+    /**
+     * 封装scroll函数
+     * @returns {{top: (Number|number), left: (Number|number)}}
+     */
+    function scroll(){
+        return {   // 直接返回一个对象，只不过对象没有名字而已
+            top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+            left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,462 @@
+@charset "UTF-8";
+
+/*main部分开始*/
+.main{
+    width: 100%;
+    height: 480px;
+}
+.bigBg{
+    width: 100%;
+    height: 480px;
+    position: absolute;
+}
+.bigBg a{
+    display: block;
+    width: 100%;
+    height: 480px;
+    background: url("../images/background.png") no-repeat center center;
+}
+.main_inner{
+    height: 480px;
+    position: relative;
+    margin: 0 auto;
+}
+/*菜单*/
+.menu{
+    width: 190px;
+    height: 464px;
+    background-color: #6E6568;
+    margin-right: 10px;
+    padding-top: 16px;
+}
+.menu ul li{
+    padding-left: 10px;
+}
+.menu ul li:hover{
+    background-color: rgba(255,255,255,0.5);
+}
+.menu ul li a{
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    font-size: 14px;
+}
+.menu ul li a:hover{
+    color: #c81623;
+}
+.menu ul li span{
+    color: #fff;
+    padding: 0 3px;
+}
+/*轮播图*/
+.main_inner .slider{
+    width: 790px;
+    height: 480px;
+}
+.slider_Top{
+    width: 790px;
+    height: 340px;
+    /*background-color: yellow;*/
+    /*background: url;*/
+    margin-bottom: 10px;
+    position: relative;
+    /*display: none;*/
+}
+.point{
+    width: 166px;
+    height: 12px;
+    background-color: rgba(255,255,255,0.4);
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    margin-left: -91px;
+    bottom: 20px;
+    padding: 4px 8px;
+}
+.point li{
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-right: 10px;
+    float: left;
+}
+.point .last{
+    margin-right: 0;
+}
+.point .one{
+    background-color: #F10215;
+}
+/*左右按钮开始*/
+.arrow{
+    display: none;
+}
+.slider_Top .arrow .left,.slider_Top .arrow .right{
+    width: 30px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: 50%;
+    margin-bottom: -30px;
+    font: 20px/60px "Microsoft YaHei";
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+.arrow .left{
+    left:0px;
+}
+.arrow .right{
+    right: 0px;
+}
+.slider_Top .arrow .left:hover,.slider_Top .arrow .right:hover{
+    background: rgba(0,0,0,0.5);
+}
+.slider_Top:hover .arrow{
+    display: block;
+}
+/*左右按钮结束*/
+
+.slider_Bottom_l{
+    width: 390px;
+    height: 130px;
+    background-color: red;
+}
+.slider_Bottom_r{
+    width: 390px;
+    height: 130px;
+    background-color: #000;
+}
+
+/*右边*/
+.main_inner .main_inner_Right{
+    width: 190px;
+    height: 480px;
+    background-color: #fff;
+    overflow: hidden;
+}
+/*右边上面登录部分*/
+.main_inner_Right_top{
+    width: 158px;
+    height: 84px;
+    /*background-color: pink;*/
+    padding: 15px 17px 16px 15px;
+    border-bottom: 1px solid #E7E7E7;
+}
+.main_inner_Right_top_t{
+    height: 50px;
+    margin-bottom: 10px;
+}
+.main_inner_Right_top_tl a{
+    width: 50px;
+    height: 50px;
+    background: url("../images/sprite_userinfo@1x.png") -70px 0;
+    border-radius: 50%;
+    float: left;
+    margin-right: 8px;
+}
+.main_inner_Right_top_tl a img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 5px;
+
+}
+.main_inner_Right_top_tr p{
+    line-height: 20px;
+    padding-top: 2px;
+}
+.main_inner_Right_top_b{
+    margin-right: -10px;
+    overflow: hidden;
+}
+.main_inner_Right_top_b a{
+    width: 70px;
+    height: 20px;
+    border: 2px solid #F10215;
+    color: #F10215;
+    font: 12px/20px "Microsoft YaHei";
+    float: left;
+    text-align: center;
+    margin-right: 10px;
+}
+.main_inner_Right_top_b a:hover{
+    color: #fff;
+    background: #F10215;
+}
+/*右边上面中间信息部分*/
+.main_inner_Right_center{
+    width: 162px;
+    height: 154px;
+    /*background-color: green;*/
+    border-bottom: 1px solid #E6E6E6;
+    padding: 0 15px 0 13px;
+}
+.main_inner_Right_center_T{
+    height: 18px;
+    border-bottom: 1px solid #E6E6E6;
+    padding-top: 6px;
+    padding-bottom: 2px;
+    position: relative;
+}
+
+.main_inner_Right_center_T .sale{
+    padding-right: 13px;
+    font: 12px/18px "Microsoft YaHei";
+    color: #333;
+    border-right: 1px solid #DFE0E1;
+    /*margin-bottom: 2px;*/
+}
+.main_inner_Right_center_T .notice{
+    padding-left: 13px;
+    font: 12px/18px "Microsoft YaHei";
+    color: #333;
+}
+.main_inner_Right_center_T .more{
+    font: 12px/18px "Microsoft YaHei";
+}
+.line{
+    width: 28px;
+    height: 0px;
+    border: 1px solid #F10215;
+    position: absolute;
+    left: -1px;
+    bottom: -1px;
+}
+.main_inner_Right_center_B{
+    padding-top: 13px;
+}
+.main_inner_Right_center_B a{
+    line-height: 24px;
+}
+/*右边下面菜单导航部分*/
+.main_inner_Right_bottom{
+    /*width: 190px;*/
+    height: 209px;
+    /*background-color: pink;*/
+    margin-right: -1px;
+    margin-left: -1px;
+}
+.Right_bottom_menu{
+    float: left;
+    text-align: center;
+    width: 47px;
+    height: 57px;
+    border: 1px solid #E7E7E7;
+    padding-top: 12px;
+    margin-left: -1px;
+    margin-top: -1px;
+    position: relative;
+    /*margin-right: -1px;*/
+
+}
+.Right_bottom_menu i{
+    width: 25px;
+    height: 27px;
+    display: block;
+    margin: 0 auto;
+    background: url("../images/sprite_fs@1x.png") 0 -86px;
+}
+.Right_bottom_menu .icon2{
+    background-position: 0 -42px;
+}
+.Right_bottom_menu .icon3{
+    background-position: -44px -86px;
+}
+.Right_bottom_menu .icon4{
+    background-position: -88px 0;
+}
+.Right_bottom_menu .icon5{
+    background-position: -86px -42px;
+}
+.Right_bottom_menu .icon6{
+    background-position: 0 0;
+}
+.Right_bottom_menu .icon7{
+    background-position: -42px -42px;
+}
+.Right_bottom_menu .icon8{
+    background-position: -90px -86px;
+}
+.Right_bottom_menu .icon9{
+    background-position: -132px 0;
+}
+.Right_bottom_menu .icon10{
+    background-position: -132px -44px;
+}
+.Right_bottom_menu .icon11{
+    background-position: -132px -86px;
+}
+.Right_bottom_menu .icon12{
+    background-position: -44px 0;
+}
+.corner{
+    width: 12px;
+    height: 16px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: red;
+}
+.corner i{
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: #E01121;
+    font: 12px/12px "Microsoft YaHei";
+    color: #fff;
+}
+.corner em{
+    display: block;
+    /*width: px;*/
+    height: 2px;
+    border-width: 2px 6px;
+    border-style: solid;
+    border-color: #E01121 #E01121 transparent #E01121;
+}
+/*右边结束*/
+/*main部分结束，seckill部分开始*/
+.seckill{
+    height: 305px;
+    margin-top: 10px;
+    /*background: #FFFFFF;*/
+}
+.seckill_Top{
+    height: 55px;
+    padding-left: 72px;
+    padding-right: 21px;
+    background: url("../images/seckill_hd.png");
+    position: relative;
+}
+.seckill_Top .seckill_l .iconOne{
+    width: 20px;
+    height: 20px;
+    /*display: block;*/
+    background: url("../images/sprite_index@1x.png") -194px -52px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.seckill_Top .seckill_l .iconTwo{
+    width: 34px;
+    height: 40px;
+    background: url("../images/sprite_index@1x.png") 0 -40px;
+    position: absolute;
+    left: 30px;
+    top: 8px;
+}
+.seckill_Top .seckill_l h2{
+    font-size: 24px;
+    line-height: 55px;
+    /*font-weight: bold;*/
+    float: left;
+    color: #fff;
+    margin-right: 12px;
+}
+.seckill_Top .seckill_l a{
+    line-height: 55px;
+    color: #fff;
+    float: left;
+    position: relative;
+}
+.seckill_Top .seckill_l a i{
+    width: 16px;
+    height: 16px;
+    /*display: block;*/
+    background: url("../images/sprite_index@1x.png") -154px -40px;
+    position: absolute;
+    right: -20px;
+    top: 20px;
+}
+.seckill_Top .seckill_r span{
+    font: 14px/60px "Microsoft YaHei";
+    color: #fff;
+}
+.seckill_Top .seckill_r img{
+    margin:0 8px 10px;
+}
+/*秒杀下面部分*/
+.seckill_Bottoom{
+    height: 250px;
+    background: #fff;
+    padding:12px 0 13px;
+}
+.seckil_Bottom_l{
+    width: 1000px;
+    height: 225px;
+}
+/*秒杀内容*/
+.seckill_Content{
+    width: 170px;
+    height: 225px;
+    padding: 0 14px 0 15px;
+    border-right: 1px solid #E7E7E7;
+    text-align: center;
+    position: relative;
+}
+/*秒杀图标*/
+.seckill_Icon{
+    width: 30px;
+    height: 40px;
+    background: url("../images/sprite_index@1x.png") -54px -40px;
+    position: absolute;
+    left: 15px;
+    top: 0;
+}
+.seckill_Icon i{
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+
+}
+.seckill_Icon span{
+    display: inline-block;
+    line-height: 14px;
+    font-size: 12px;
+    color: #fff;
+    padding-top: 2px;
+    vertical-align: 2px;
+
+}
+/*秒杀图片*/
+.seckill_Content img{
+    margin: 17px 0 18px 0;
+    width: 130px;
+    cursor: pointer;
+}
+.seckill_Content .shadow {
+    width: 170px;
+    height: 20px;
+    background: url("../images/sprite_index@1x.png");
+    position: absolute;
+    left: 10px;
+    bottom: 70px;
+}
+.seckill_Content p{
+    color: #999;
+}
+.price{
+    padding-top: 5px;
+}
+.price .one{
+     color: #F10215;
+ }
+.price .one em{
+    font-size: 20px;
+    font-weight: bold;
+}
+/*秒杀右边*/
+.seckill_Bottom_r{
+    width: 190px;
+    height: 225px;
+}
+.seckill_Bottom_r a{
+    display: block;
+    width: 180px;
+    height: 225px;
+    padding-right: 10px;
+}
+.seckill_Bottom_r img{
+    width: 180px;
+}

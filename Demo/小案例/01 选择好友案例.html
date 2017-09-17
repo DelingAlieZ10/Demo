@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        select {
+            width: 100px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+<select name="" id="left" multiple>
+    <option value="">林志玲</option>
+    <option value="">范冰冰</option>
+    <option value="">陈奕迅</option>
+    <option value="">周杰伦</option>
+    <option value="">胡歌</option>
+    <option value="">爱谁谁</option>
+</select>
+<input type="button" value=">>" id="btn1"/>
+<input type="button" value="<<" id="btn2"/>
+<input type="button" value=">" id="btn3"/>
+<input type="button" value="<" id="btn4"/>
+<select name="" id="right" multiple>
+</select>
+<script src="common.js"></script>
+<script>
+    var btn1 = id("btn1");
+    var btn2 = id("btn2");
+    var btn3 = id("btn3");
+    var btn4 = id("btn4");
+    var left = id("left");
+    var right = id("right");
+//    var options = left.children;
+//    var options1 = right.children;
+//     btn1.onclick = function(){
+//         for(var i = 0; i <options.length; i++){
+//             right.appendChild(left.children[i]);
+//             i--;
+//         }
+//     }
+//    btn2.onclick = function(){
+//        for(var i = 0; i < options1.length; i++){
+//            left.appendChild(right.children[i]);
+//            i--;
+//        }
+//    }
+
+   function all(btn,one,two){
+       btn.onclick = function(){
+           var options = one.children;
+         for(var i = 0; i <options.length; i++){
+             two.appendChild(one.children[i]);
+             i--;
+         }
+     }
+
+    }
+
+    all(btn1,left,right);
+    all(btn2,right,left);
+
+//    btn3.onclick = function(){
+//        for(var i = 0; i < options.length; i++){
+//            if(options[i].selected){
+//                right.appendChild(left.children[i]);
+//                i--;
+//            }
+//        }
+//    }
+//    btn4.onclick = function(){
+//        for(var i = 0; i < options1.length; i++){
+//            if(options1[i].selected){
+//                left.appendChild(right.children[i]);
+//                i--;
+//            }
+//        }
+//    }
+
+    function selected(btn,one,two){
+        btn.onclick = function(){
+            var options1 = one.children;
+        for(var i = 0; i < options1.length; i++){
+            if(options1[i].selected){
+                two.appendChild(one.children[i]);
+                i--;
+            }
+        }
+    }
+
+    }
+
+    selected(btn3,left,right);
+    selected(btn4,right,left);
+
+</script>
+
+</body>
+</html>

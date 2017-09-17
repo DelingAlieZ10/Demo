@@ -1,0 +1,129 @@
+* {margin:0;padding:0}
+ul li {list-style: none}
+
+/*轮播图上小背景 S */
+.topBg {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    background-color: #000;
+    background: url(../images/dbd-brokentop.png) no-repeat;
+    background-size: cover;
+    /*z-index: 5;*/
+    top:-65px;
+    /*opacity: 0.9;*/
+}
+/*轮播图上小背景 D */
+
+/*轮播图大盒子 S */
+.showLunbo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: -96px;
+}
+/*.showLunbo .img_lunbo {*/
+    /*position: relative;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*margin-top: -96px;*/
+/*}*/
+.showLunbo .img_lunbo ul {
+    position: relative;
+    height: 950px;
+    background-color: black;
+    overflow: hidden;
+}
+.showLunbo .img_lunbo .one_li {
+    position: absolute;
+    width: 100%;
+    opacity: 1;
+    height: 950px;
+    background: url(../images/1.jpg) no-repeat;
+    background-size: cover;
+}
+.showLunbo .img_lunbo .two_li {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 950px;
+    background: url(../images/2.jpg) no-repeat;
+    background-size: cover;
+}
+.showLunbo .img_lunbo .three_li {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 950px;
+    background: url(../images/3.jpg) no-repeat;
+    background-size: cover;
+}
+
+/* 轮播图里文本 S */
+.showLunbo .box_p {
+    position: absolute;
+    right: 0px;
+    top: 310px;
+    width: 561px;
+    height: 610px;
+    background: url(../images/dbd-textcover1.png)no-repeat 50% 50%;
+    text-align: left;
+    color: #d0d0d0;
+}
+.box_p .box_p_p1 {
+    margin-top: 30px;
+}
+.showLunbo .box_p h3 {
+    margin-top: 70px;
+}
+.showLunbo .box_p p,h3,h5{
+    line-height: 18px;
+    letter-spacing: 0px;
+    font-size: 12px;
+    margin-left: 235px;
+    font-family: "Microsoft YaHei";
+}
+
+.showLunbo .box_p h5{
+    margin-top: 30px;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+/* 轮播图里文本 E */
+/* 轮播图里的小方块 S */
+.showLunbo .square {
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    bottom: 10px;
+    margin-left: -50px;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+}
+.showLunbo .square i{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: url(../images/kuloulogo1.jpg);
+    opacity: 0;
+    cursor: pointer;
+
+}
+/* 轮播图里的小方块 E */
+/*轮播图大盒子 E */
+
+/*轮播图下小盒子 s */
+.bottom_Bg {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background: url(../images/dbd-brokentop.png) no-repeat;
+    background-size:cover;
+    margin-top: -65px;
+    z-index: 0;
+}
+/*轮播图下小盒子 E */
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .nodeSmall1 {
+            width: 50px;
+            height: 50px;
+            background: url(images/bgs.png) no-repeat -159px -51px;
+            position: fixed;
+            right: 10px;
+            top: 40%;
+        }
+
+        .erweima {
+            position: absolute;
+            top: 0;
+            left: -150px;
+        }
+
+        .nodeSmall1 a {
+            display: block;
+            width: 50px;
+            height: 50px;
+            /*background-color: red;*/
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="nodeSmall1" id="node_small1">
+    <a href="#"></a>
+    <div class="erweima hide " id="er1">
+        <img src="images/456.png" alt="">
+    </div>
+</div>
+<script src="common.js"></script>
+<script>
+    var node_small1 = id("node_small1");
+    var er1 = id("er1");
+
+    node_small1.onmouseover = function(){
+       er1.className = er1.className.replace("hide","show");
+    }
+    node_small1.onmouseout = function(){
+        er1.className = er1.className.replace("show","hide");
+    }
+</script>
+</body>
+</html>

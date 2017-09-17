@@ -1,0 +1,93 @@
+function startVideo() {
+	
+    // jQuery('#lbp-inline-href-1 iframe').attr('src', 'https://www.youtube-nocookie.com/embed/l9FMwsbsQek?rel=0&amp;showinfo=0&autoplay=1');
+}
+
+function playHoverSound(){
+	var aud = document.getElementById('dbdaudiohover');
+    	aud.load();
+    	aud.play();
+
+}
+
+function playClickSound(){
+	/*
+	var randme = Math.floor(Math.random() * 4) + 1;
+    	var aud = document.getElementById('dbdaudioclick' + randme);
+    	aud.load();
+    	aud.play();
+    	*/
+
+    	var aud = document.getElementById('dbdaudioclick');
+    	aud.load();
+    	aud.play();
+}
+
+jQuery( document ).ready(function() {
+
+     jQuery('#menu-right-menu').append('<li class="adm-topsocial"><span><a href="https://www.facebook.com/DeadByDaylight/" target="_blank"><i class="fa fa-facebook-square"></i></a><a href="http://twitter.com/deadByBHVR" target="_blank"><i class="fa fa-twitter-square"></i></a><a href="https://www.youtube.com/channel/UCaSgsFdGbwjfdawl3rOXiwQ" target="_blank"><i class="fa fa-youtube-square"></i></a><a href="http://store.steampowered.com/app/381210/" target="_blank"><i class="fa fa-steam-square"></i></a><a href="https://www.twitch.tv/deadbydaylight" target="_blank"><i class="fa fa-twitch" aria-hidden="true"></i></a></span></li>');
+
+     jQuery('#menu-mobile-menu').append('<li><a href="https://www.facebook.com/DeadByDaylight/" target="_blank"><i class="fa fa-facebook-square"></i> Facebook</a></li>     <li><a href="http://twitter.com/deadByBHVR" target="_blank"><i class="fa fa-twitter-square"></i> Twitter</a>     </li> <li><a href="https://www.youtube.com/channel/UCaSgsFdGbwjfdawl3rOXiwQ" target="_blank"><i class="fa fa-youtube-square"></i> YouTube</a></li>     <li><a href="http://store.steampowered.com/app/381210/" target="_blank"><i class="fa fa-steam-square"></i> Steam Community</a></li><li><a href="https://www.twitch.tv/deadbydaylight" target="_blank"><i class="fa fa-twitch" aria-hidden="true"></i></a></li>');
+	 
+	 
+	 
+		var xOffset = 200;
+		var thisURLX = window.location.pathname;
+	 
+	/*
+		if (thisURLX == "/lbdnp/" || thisURLX == "/thelastbreath/") {
+				xOffset = 0;
+			}
+				
+				jQuery('a:not(.image-linkx)').click(function(){
+
+					if (jQuery.attr(this, 'href') != "#") {
+
+						var thisHref =jQuery.attr(this, 'href');
+						thisHref = thisHref.replace('/#', '#');
+						thisHref = thisHref.replace('#', '');
+
+						if(jQuery("#" + thisHref).length > 0) {
+
+							jQuery('html, body').animate({
+								scrollTop: jQuery('#' + thisHref ).offset().top - xOffset
+							}, 500);
+							return false;
+							} 
+
+
+					   }
+
+				});
+	
+	
+	*/
+		
+	
+	
+	
+	
+
+    jQuery('#slide-3-layer-1').addClass('lbp-inline-link-1');
+
+
+    jQuery('.adm-custom-cont-inner a, #dbdplayvid img, .tp-leftarrow, .tp-rightarrow, .devdiaryclactive, .adm-topsocial a').mouseover(function() {
+    		playHoverSound();
+    });
+
+    jQuery('.adm-custom-cont-inner a, #dbdplayvid img, .tp-leftarrow, .tp-rightarrow, .devdiaryclactive, .adm-topsocial a').mousedown(function() {
+			playClickSound();
+    });
+
+
+    jQuery('#cboxClose').click(function() {
+        alert('asdf');
+    });
+
+    jQuery('#newpostsbox .fusion-row').prepend('<p class="newpoststitle"><b>Recent Posts</b> / <a href="/posts/">View all Posts</a></p>');
+
+
+   
+
+
+});

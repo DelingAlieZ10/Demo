@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="css/jquery.fullpage.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery.fullpage.min.js"></script>
+
+    <script>
+        $(function(){
+            $("#fullpage").fullpage({
+                afterLoad:function(anchorLink,index){
+                    setTimeout(function(){
+                        $(".section").removeClass("animation").eq(index-1).addClass("animation");
+                    },100);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="fullpage">
+        <!--第一页-->
+        <div class="section sectionA">
+            <div class="logo"></div>
+            <div class="text">
+                <img src="images/text_1.png" alt="">
+                <img src="images/text_2.png" alt="">
+                <img src="images/text_3.png" alt="">
+                <img src="images/text_4.png" alt="">
+                <img src="images/text_5.png" alt="">
+                <img src="images/text_6.png" alt="">
+                <img src="images/text_7.png" alt="">
+                <img src="images/text_8.png" alt="">
+            </div>
+            <div class="info"></div>
+        </div>
+        <!--第二页-->
+        <div class="section sectionB">
+            <div class="shield">
+                <img src="images/shield_1.png" alt="">
+                <img src="images/shield_2.png" alt="">
+                <img src="images/shield_3.png" alt="">
+                <img src="images/shield_4.png" alt="">
+                <img src="images/shield_5.png" alt="">
+                <img src="images/shield_6.png" alt="">
+                <img src="images/shield_7.png" alt="">
+                <img src="images/shield_8.png" alt="">
+                <img src="images/shield_9.png" alt="">
+            </div>
+            <div class="info"></div>
+        </div>
+        <!--第三页-->
+        <div class="section sectionC">
+            <div class="info"></div>
+            <div class="circle"></div>
+            <div class="rocket"></div>
+        </div>
+        <!--第四页-->
+        <div class="section sectionD">
+            <div class="box">
+                <div class="search"></div>
+                <div class="key"></div>
+                <div class="result"></div>
+            </div>
+            <div class="info"></div>
+        </div>
+        <!--第五页-->
+        <div class="section sectionE">
+            <div class="info"></div>
+            <div class="box">
+                <div class="line top"></div>
+                <div class=" line bottom"></div>
+                <div class=" line left"></div>
+                <div class=" line right"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

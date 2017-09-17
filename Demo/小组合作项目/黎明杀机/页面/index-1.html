@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+       body{
+           background-color: #000;
+
+           color:#fff;
+           font:normal 16px "microsoft yahei"
+       }
+       a{
+           color:#fff;
+           text-decoration: none;
+       }
+        .top{
+            width: 100%;
+            height: 900px;
+            background:url("images/3.jpg")no-repeat;
+        }
+
+       .top .top_txt{
+
+           padding-top:20px ;
+           padding-left:20px;
+           position: relative;
+       }
+      .top .top_smallImg{
+
+          width: 20px;
+          height: 20px;
+          vertical-align: top;
+      }
+
+      .top  .top_bigImg{
+         position: absolute;
+          right:100px;
+          top:150px;
+      }
+        .top  .top_bigImg img{
+            width: 400px;
+            height: 500px;
+        }
+      .top .top_footImg{
+          position: absolute;
+          right:100px;
+          bottom:70px;
+      }
+        .top .top_footImg img{
+            width: 330px;
+        }
+        .arrows{
+            font-size: 40px;
+            position: absolute;
+            left:800px;
+            bottom:200px;
+        }
+        .bottom{
+            width: 100%;
+            height: 100px;
+            background: url("images/dbd-brokentop.png");
+            position: relative;
+            top:-70px;
+
+        }
+/*-------------------------------------*/
+
+        .mid {
+            height: 900px;
+            margin-top: -80px;
+            position: relative;
+            background:url(images/1.jpg)
+        }
+
+        .mid .mid_img{
+
+          position: absolute;
+            left:200px;
+            top:-10px;
+        }
+        .mid .mid_img img{
+            width: 400px;
+            height: 500px;
+        }
+        .mid .mid_txt p{
+           display: block;
+            width: 500px;
+            float: left;
+            font-size: 14px;
+
+        }
+        .mid .mid_txt{
+           position: absolute;
+            right:100px;
+            top:20px;
+        }
+        .mid .mid_txt span{
+            display: block;
+            width: 8px;
+            height: 70px;
+            background-color: #fff;
+            float: left;
+            margin-right:5px;
+        }
+
+        .mid .mid_foot{
+            position: absolute;
+            right:0px;
+            bottom:30px;
+        }
+        .mid .mid_foot img{
+            width: 330px;
+        }
+
+ /*--------------------------------*/
+   .foot{
+       height: 600px;
+       position: relative;
+       padding-top: 50px;
+       margin-top: -80px;
+       background:url("images/2.jpg");
+
+   }
+        .foot .list{
+            margin-left: 200px;
+        }
+
+    .foot .list li{
+        list-style: none;
+        float: left;
+        margin-right:10px;
+        margin-top: 10px;
+    }
+        .foot .list1{
+            height: 300px;
+            margin-bottom: 20px;
+        }
+        .foot .list1 img{
+            width: 150px;
+            height: 300px;
+        }
+        .foot .line{
+            display: block;
+            width: 3px;
+            height: 60px;
+            background-color: #fff;
+            float: left;
+            margin-right: 8px;
+        }
+        .foot .list p{
+            margin-bottom: 10px;
+        }
+        .foot .big{
+            font-size: 20px;
+        }
+
+        .foot .bigMan{
+            position: absolute;
+            top:10px;
+            left:580px;
+        }
+        .foot .bigMan img{
+            width: 400px;
+            height: 670px;
+        }
+        .foot .small_Img{
+            position: absolute;
+            top:0;
+            right:0;
+        }
+        .foot .small_Img img{
+            width: 150px;
+        }
+        .foot .foot_footImg{
+            position: absolute;
+            right:0px;
+            bottom:30px;
+        }
+        .foot .foot_footImg img{
+            width: 330px;
+        }
+/*------------------------------*/
+        .fix{
+            position: fixed;
+            top: 360px;
+            left:0;
+            font-size: 14px;
+
+        }
+        .fix b{
+            width: 30px;
+            height: 2px;
+            background-color: #fff;
+            display: block;
+            position: absolute;
+
+
+        }
+        .fix .int{
+            position: absolute;
+            top:-8px;
+            left:40px;
+            cursor: pointer;
+
+        }
+
+        .fix .blo{
+            position: absolute;
+            top:30px;
+            left:40px;
+            cursor: pointer;
+        }
+
+        .backTop{
+            position: fixed;
+            right:0;
+            bottom:0
+        }
+        .backTop p{
+            display: block;
+            width: 30px;
+            height: 30px;
+            font-weight: bold;
+            font-size: 24px;
+            margin-left:40px;
+            cursor: pointer;
+            color: orangered;
+        }
+    </style>
+    <script src="js/jquery-1.12.2.js"></script>
+    <script>
+        $(function(){
+            var topHeight=parseInt($(".top").css("height"));
+            var midHeight=parseInt($(".mid").css("height"));
+            console.log(topHeight);
+            console.log(midHeight);
+            var b1Wid =$(".b1").width();
+            var b2Wid =$(".b2").width();
+
+            $(window).on("scroll",function(){
+                console.log($(window).scrollTop());
+                if($(window).scrollTop()>topHeight){
+                    $(".b1").animate({width:100},10)
+                }else{
+                    $(".b1").animate({width:b1Wid},10)
+                }
+                if($(window).scrollTop()>topHeight+midHeight){
+                    $(".b2").animate({width:100},10);
+                    $(".b1").animate({width:b1Wid},10)
+                }else {
+                    $(".b2").animate({width: b2Wid}, 10)
+                }
+            });
+
+            $(".int").on("click",function(){
+                $(window).scrollTop(topHeight);
+                $(".b1").animate({width:100},10);
+                $(".b2").animate({width:b2Wid},100);
+            });
+            $(".blo").on("click",function(){
+                $(window).scrollTop(topHeight+midHeight);
+                $(".b2").animate({width:100},10);
+               $(".b1").animate({width:b1Wid},100)
+            });
+
+                move();
+
+            function move(){
+               var arrowsB=$(".arrows").css("bottom");
+                $(".arrows").animate({bottom:100,opacity:0},1000,function(){
+                    $(".arrows").css({bottom:arrowsB,opacity:1});
+                     move();
+                });
+
+                $(".arrows").hover(function(){
+                    $(".arrows").stop(true,false);
+                    $(this).css({opacity:1})
+                },function(){
+                    move()
+                })
+            }
+
+            $(".backTop p").on("click",function(){
+
+                $(window).scrollTop(0);
+            })
+            $(".list1 li").hover(function(){
+                $(this).animate({
+                    opacity:0.5
+                },500)
+            },function(){
+                $(this).animate({
+                    opacity:1
+                })
+            })
+            $(".list2 li").hover(function(){
+                $(this).animate({
+                    opacity:0.5
+                },500)
+            },function(){
+                $(this).animate({
+                    opacity:1
+                })
+            })
+            $(".bigMan img").hover(function(){
+                $(this).animate({
+                    opacity:0.5
+                },500)
+            },function(){
+                $(this).animate({
+                    opacity:1
+                })
+            })
+        })
+
+    </script>
+</head>
+<body>
+<div class="top">
+    <div class="top_txt"><span><img src="images/dbd-toplogosmall 1.png" alt="" class="top_smallImg"/></span> <a
+            href="../lmsj.html">Main Website</a>
+        </div>
+    <div class="top_bigImg"><img src="images/bloodstainsacklogored.png" alt=""/></div>
+    <div class="top_footImg"><img src="images/money-tag.png" alt=""/></div>
+    <span class="arrows"> ∨ </span>
+</div>
+<div class="bottom"></div>
+<div class="mid">
+    <div class="mid_img"><img src="images/bloodstainsacklogored.png" alt=""/></div>
+    <div class="mid_txt">
+        <span></span>
+        <p class="firstP">
+            t started as a whisper in the trees, a rippling swish in the water. Then the earth started to rumble with a deep moan, turning into a raging tremor. The evil within the fog was losing motivation, chasing and killing endlessly in the same uniform. Did the Entity hear their plea? Were they rewarded because of the countless sacrifices they fed the Entity? No one knows for sure how and why it appeared but it isn’t farfetched to think of it as a token of gratitude: a shapeless thing, soaked in blood, holding unholy gifts for the creatures of nightmares.
+        </p>
+        <br/>
+        <p>The Bloodstained Sack will allow you to pick up your favourite killing outfit before you start your next chase.</p>
+    </div>
+    <div class="mid_foot"><img src="images/money-tag.png" alt=""/></div>
+</div>
+<div class="bottom"></div>
+<div class="foot">
+    <div class="small_Img"><img src="images/bloodstainedlogosmall.png" alt=""/></div>
+   <div class="list">
+       <span class="line"></span><p>THE</p><p class="big">TRAPPER</p>
+       <ul class="list1">
+           <li><img src="images/trapperonev1.png" alt=""/></li>
+           <li><img src="images/trapperportwo.png" alt=""/></li>
+       </ul>
+       <ul class="list2">
+           <li><img src="images/thumbhillbilly.png" alt=""/></li>
+           <li><img src="images/thumbtrapper.png" alt=""/></li>
+           <li><img src="images/thumbwrath.png" alt=""/></li>
+       </ul>
+   </div> 
+    <div class="bigMan"><img src="images/blood-trapper-1.png" alt=""/></div>
+    <div class="foot_footImg"><img src="images/money-tag.png" alt=""/></div>
+</div>
+<div class="bottom"></div>
+<div class="fix">
+    <b class="b1"></b><span class="int">Introduction</span>
+    <br/>
+    <br/>
+    <b class="b2"></b><span class="blo">Bloodstained Sack</span>
+</div>
+<div class="backTop">
+    <p>╱╲</p>
+    <img src="images/u=8777852,1380414730&fm=23&gp=0.jpg.gif" alt=""/>
+</div>
+</body>
+</html>

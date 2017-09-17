@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .con {
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            width: 752px;
+            padding: 10px 0 0 10px;
+        }
+
+        .con ul {
+            overflow: hidden;
+        }
+
+        .con ul li {
+            float: left;
+            margin: 0 10px 10px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .con ul li img {
+            display: block;
+        }
+
+        .con ul p {
+            position: absolute;
+            bottom: -25px;
+            color: white;
+            background: url(images/nav/110png.png) no-repeat 15px 0;
+            padding-left: 35px;
+            width: 143px;
+            height: 25px;
+            line-height: 25px;
+        }
+
+        .con ul div {
+            position: absolute;
+            bottom: -25px;
+            background: #000;
+            width: 178px;
+            height: 25px;
+        }
+    </style>
+    <script src="./js/jquery.min.js"></script>
+    <script src="jQuery-plugins/jquery-ui.js"></script>
+    <script src=""></script>
+    <script>
+        $(function(){
+
+
+//改变li中的p标签的背景坐标
+//            var num = 0;
+            $("ul li").each(function(index,ele){
+//                num = index*-25;
+                $(ele).children("p").css({
+                    "background-position-y": (index*-25) +"px"
+                })
+            })
+
+//鼠标移入移出改变下部标签高度
+            $(".con ul li").on("mouseenter",function(){
+                $(this).children("div").css({
+                    opacity:0.5
+                })
+                $(this).children("div,p").stop().animate({
+                    bottom:0,
+                },300)
+
+            })
+            $(".con ul li").on("mouseleave",function(){
+                $(this).children("div,p").stop().animate({
+                    bottom:-25
+                })
+            })
+//拖动li标签改变排序位置
+            $("ul").sortable()
+
+
+
+        })
+    </script>
+</head>
+<body>
+<div class="con">
+    <ul>
+        <li>
+            <img src="images/nav/01.JPG" width="178" height="125"/>
+
+            <div></div>
+            <p>百度一下你就知道</p>
+        </li>
+        <li>
+            <img src="images/nav/02.JPG" width="178" height="125"/>
+
+            <div></div>
+            <p>百度一下你就知道</p>
+        </li>
+        <li>
+            <img src="images/nav/03.JPG" width="178" height="125"/>
+
+            <div></div>
+            <p>百度一下你就知道</p>
+        </li>
+        <li>
+            <img src="images/nav/04.JPG" width="178" height="125"/>
+
+            <div></div>
+            <p>百度一下你就知道</p>
+        </li>
+        <li>
+            <img src="images/nav/05.JPG" width="178" height="125"/>
+
+            <div></div>
+            <p>百度一下你就知道</p>
+        </li>
+        <li>
+            <img src="images/nav/06.JPG" width="178" height="125"/>
+
+            <div></div>
+            <p>百度一下你就知道</p>
+        </li>
+        <li>
+            <img src="images/nav/07.JPG" width="178" height="125"/>
+
+            <div></div>
+            <p>百度一下你就知道</p>
+        </li>
+        <li>
+            <img src="images/nav/08.JPG" width="178" height="125"/>
+
+            <div></div>
+            <p>百度一下你就知道</p>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

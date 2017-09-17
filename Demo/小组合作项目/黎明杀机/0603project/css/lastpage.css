@@ -1,0 +1,488 @@
+@font-face {
+    font-family: 'BLOODSUC';
+    src: url('../font/BLOODSUC.TTF');
+url('../font/BLOODSUC.TTF') format('BLOODSUC');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*固定导航栏*/
+.louti {
+    position: fixed;
+    top: 400px;
+    left: 10px;
+    z-index: 999;
+    font-size: 20px;
+    width: 221px;
+    height: 97px;
+    line-height: 24px;
+    text-align: center;
+    padding-left: 60px;
+}
+
+.louti a {
+    display: block;
+    background: url("../images/louti_bg.png") no-repeat 0 12px;
+    color: #ffffff;
+}
+.louti a:hover{
+    color: #cccccc; ;
+}
+/*固定下标*/
+.freecontentupdate{
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    font-size: 18px;
+    color: #ffffff;
+    z-index: 999;
+}
+/*楼层一==========================*/
+.huizhuye{
+    padding: 20px;
+}
+.huizhuye img{
+    width: 40px;
+}
+.huizhuye a{
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    color: #ffffff;
+    font-size: 20px;
+}
+.huizhuye a:hover{
+    color: #ccc;
+}
+/*中心部分*/
+.ceng1 {
+    height: 100vh;
+    width: 100%;
+    background-image: url(../images/ceng1_bg1.png), url(../images/ceng1_bg2.jpg);
+    background-position: 0px 0px, center center;
+    background-size: auto auto, cover;
+    background-repeat: repeat, no-repeat;
+    position: relative;
+    z-index: 100;
+    animation: lbtitleani 30s linear infinite;
+}
+.lastpage_logo{
+    position: absolute;
+    right: 80px;
+    bottom: 80px;
+}
+.lastpage_logo .logo{
+    width: 768px;
+}
+.lastpage_logo .xiarende{
+    position: absolute;
+    bottom: 0;
+    left: -900px;
+    height: 800px;
+}
+/*层1下拉箭头*/
+.slidedown{
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    font-size: 46px;
+    color: white;
+}
+
+/*第二层==========================*/
+#ceng2{
+    height: 855px;
+    width: 100%;
+    background-image: url(../images/ceng2-bg1.png), url(../images/ceng2-bg2.jpg);
+    background-position: 0px 0px, center center;
+    background-size: auto auto, cover;
+    background-repeat: repeat, no-repeat;
+    position: relative;
+    box-shadow: 0px 100px 80px -50px black inset !important;
+    z-index: 90;
+    animation: lbnurseani 60s linear infinite;
+}
+#ceng2 .xiarende2{
+    position: absolute;
+    bottom: -40px;
+    left: 280px;
+}
+#ceng2 .xiarende2 img{
+    width: 360px;
+}
+#ceng2 .logo2{
+    position: absolute;
+    top: 30px;
+    right: 60px;
+}
+#ceng2 .logo2 img{
+    width: 280px;
+}
+/*第二层文本区域*/
+#ceng2 .text2{
+    position: absolute;
+    top: 100px;
+    right: 400px;
+    width: 600px;
+}
+.text2 h2{
+    height: 80px;
+    font-size: 48px;
+    color: #ffffff;
+}
+.text2 span{
+    font-size: 30px;
+    line-height: 48px;
+}
+.text2>p{
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.text2 .bottom-inf{
+    margin-top: 300px;
+}
+.text2 .bottom-inf .left{
+    float: left;
+    width: 90px;
+    margin-right: 30px;
+}
+.bottom-inf .left img{
+    width: 90px;
+}
+.text2 .bottom-inf .right{
+    float: right;
+    width: 480px;
+}
+.text2 .bottom-inf .right p{
+    color: #ffffff;
+    font-size: 16px;
+}
+/*第三层==========================*/
+#ceng3{
+    height: 855px;
+    width: 100%;
+    background-image: url(../images/ceng2-bg1.png), url(../images/ceng2-bg2.jpg);
+    background-position: 0px 0px, center center;
+    background-size: auto auto, cover;
+    background-repeat: repeat, no-repeat;
+    position: relative;
+    box-shadow: 0px 100px 80px -50px black inset !important;
+    z-index: 90;
+    animation: lbnurseani 60s linear infinite;
+}
+#ceng3 .logo3{
+    position: absolute;
+    top: 30px;
+    right: 60px;
+}
+#ceng3 .logo3 img{
+    width: 280px;
+}
+/*左侧文本区域*/
+.maincontent3  .text3{
+    width: 600px;
+    position: absolute;
+    top: 100px;
+    left: 400px;
+}
+.text3 h2{
+    height: 80px;
+    font-size: 48px;
+    color: #ffffff;
+}
+.text3 span{
+    font-size: 30px;
+    line-height: 48px;
+}
+.text3>p{
+    color: #ffffff;
+    font-size: 16px;
+}
+.text3 h3{
+    color: #ffffff;
+    margin: 30px 0;
+    font-size: 48px;
+}
+.text3 h3 span:hover{
+    color: #ccc;
+    cursor: pointer;
+}
+/*.text3 .pic{*/
+    /*display: none;*/
+/*}*/
+.text3 .pic img{
+    margin-right: 40px;
+}
+/*文本部分定位*/
+.introduce{
+    display: none;
+}
+.introduce .item{
+    padding-bottom: 150px;
+}
+.introduce .item img{
+    width: 100px;
+}
+.introduce .item .right{
+    width: 480px;
+}
+.introduce .item h4{
+    color: #ffffff;
+    font-size:24px;
+}
+.introduce .item .p1{
+    color: #ffffff;
+    font-size: 16px;
+    margin:20px 0 20px 20px ;
+
+}
+.introduce .item .p2{
+    color: #ffffff;
+    font-size: 16px;
+    text-align: right;
+}
+    /*右侧人像定位*/
+.maincontent3 .mainpic{
+    position: absolute;
+    bottom: 0;
+    right:400px;
+}
+.maincontent3 .mainpic img{
+    width: 300px;
+}
+/*第四层==========================*/
+#ceng4{
+    height: 855px;
+    width: 100%;
+    background-image: url(../images/ceng2-bg1.png), url(../images/ceng4-bg2.jpg);
+    background-position: 0px 0px, center center;
+    background-size: auto auto, cover;
+    background-repeat: repeat, no-repeat;
+    position: relative;
+    box-shadow: 0px 100px 80px -50px black inset !important;
+    z-index: 90;
+    animation: lbnurseani 60s linear infinite;
+}
+#ceng4 .logo4{
+    position: absolute;
+    top: 30px;
+    right: 60px;
+}
+#ceng4 .logo4 img{
+    width: 280px;
+}
+/*主要内容部分*/
+.maincontent4 {
+    width: 600px;
+    position: absolute;
+    top: 100px;
+    right: 400px;
+}
+.maincontent4 h2{
+    height: 80px;
+    font-size: 48px;
+    color: #ffffff;
+}
+.maincontent4 h2 span{
+    font-size: 30px;
+    line-height: 48px;
+}
+.maincontent4>p{
+    color: #ffffff;
+    font-size: 16px;
+}
+/*轮播图部分=================================开始了*/
+.lunbotu {
+    width: 640px;
+    height: 360px;
+    margin: 100px auto;
+    position: relative;
+}
+
+.lunbotu .anniu .leftbut {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    top: 122px;
+    left: 10px;
+    background: url(../images/icons.png) no-repeat 0 0;
+    cursor: pointer;
+}
+
+.lunbotu .anniu .rightbut {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    top: 122px;
+    right: 10px;
+    background: url(../images/icons.png) no-repeat 0 -45px;
+    cursor: pointer;
+}
+
+.lunbotu .maonimen {
+    -webkit-perspective: 600px;
+}
+
+.lunbotu .maonimen p {
+    position: absolute;
+    width: 160px;
+    height: 120px;
+    background-image: url(../images/0.jpg);
+    background-position: 0 0;
+    font-size: 40px;
+}
+
+.lunbotu .maonimen.fei p {
+    opacity: 0;
+}
+
+.lunbotu .maonimen.fei p:nth-child(1) {
+    -webkit-transform: rotateX(30deg) rotateY(10deg) translateZ(400px);
+}
+
+.lunbotu .maonimen.fei p:nth-child(2) {
+    -webkit-transform: rotateX(330deg) rotateY(10deg) translateZ(400px);
+}
+
+.lunbotu .maonimen.fei p:nth-child(3) {
+    -webkit-transform: rotateX(3450deg) rotateY(10deg) translateZ(400px);
+}
+
+.lunbotu .maonimen.fei p:nth-child(4) {
+    -webkit-transform: rotateX(-30deg) rotateY(-10deg) translateZ(400px);
+}
+
+.lunbotu .maonimen.fei p:nth-child(5) {
+    -webkit-transform: rotateX(330deg) rotateY(10deg) translateZ(400px);
+}
+
+.lunbotu .maonimen.fei p:nth-child(6) {
+    -webkit-transform: rotateX(40deg) rotateY(20deg) translateZ(400px);
+}
+
+.lunbotu .maonimen.fei p:nth-child(7) {
+    -webkit-transform: rotateX(340deg) rotateY(10deg) translateZ(400px);
+}
+
+.lunbotu .maonimen.fei p:nth-child(8) {
+    -webkit-transform: rotateX(3450deg) rotateY(60deg) translateZ(400px);
+}
+
+.lunbotu.maonimen.fei p:nth-child(9) {
+    -webkit-transform: rotateX(230deg) rotateY(10deg) translateZ(400px);
+}
+
+.lunbotu .maonimen.fei p:nth-child(10) {
+    -webkit-transform: rotateX(20deg) rotateY(20deg) translateZ(400px);
+}
+
+.lunbotu .maonimen.fei p:nth-child(11) {
+    -webkit-transform: rotateX(30deg) rotateY(10deg) translateZ(400px);
+}
+
+.lunbotu .maonimen.fei p:nth-child(12) {
+    -webkit-transform: rotateX(10deg) rotateY(10deg) translateZ(400px);
+}
+/*轮播图部分=================================结束了*/
+/*第五层==========================*/
+#ceng5{
+    height:1400px;
+    width: 100%;
+    background-image: url(../images/ceng2-bg1.png), url(../images/ceng5-bg2.jpg);
+    background-position: 0px 0px, center center;
+    background-size: auto auto, cover;
+    background-repeat: repeat, no-repeat;
+    position: relative;
+    box-shadow: 0px 100px 80px -50px black inset !important;
+    z-index: 90;
+    animation: lbnurseani 60s linear infinite;
+}
+#ceng5 .logo5{
+    position: absolute;
+    top: 30px;
+    right: 60px;
+}
+#ceng5 .logo5 img{
+    width: 280px;
+}
+/*文本部分内容*/
+.maincontent5 .left{
+    width:400px;
+    position: absolute;
+    top: 30px;
+    left: 380px;
+}
+.maincontent5 .right{
+    width: 600px;
+    position: absolute;
+    top: 30px;
+    right: 380px;
+}
+.maincontent5{
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 28px;
+}
+.maincontent5 li{
+    list-style: circle;
+}
+.maincontent5 h3{
+    font-size: 24px;
+}
+#ceng5_h3{
+    margin-top: 20px;
+}
+
+/*页脚部分=================================*/
+.footer{
+    background-color: #000;
+    border-color: #fff;
+    border-top-width: 12px;
+    background-image: url(../images/footer-bg.jpg);
+    background-repeat: repeat-x;
+    background-position: bottom center;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+.friend{
+    width: 438px;
+    height: 123px;
+    line-height: 123px;
+    display: inline-block;
+}
+.friend a{
+    display: inline-block;
+    width: 133px;
+    height: 123px;
+    margin-right: 20px;
+}
+.friend a:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.copy{
+    width: 468px;
+    height: 123px;
+    line-height: 123px;
+    color: #ffffff;
+    font-size: 16px;
+    display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

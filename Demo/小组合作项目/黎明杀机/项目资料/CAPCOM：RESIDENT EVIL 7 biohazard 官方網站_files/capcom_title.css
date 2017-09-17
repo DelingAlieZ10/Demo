@@ -1,0 +1,136 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*-------------------------*/
+/*logo&link
+/*-------------------------*/
+
+#title_header {
+	margin:0;
+	padding:0;
+	width:100%;
+	background:#000;
+	height:30px;
+	border-bottom:solid 1px #444;
+	font-family: -apple-system, ‘Helvetica Neue’, ‘Hiragino Kaku Gothic ProN’, ‘游ゴシック’, ‘メイリオ’, meiryo, sans-serif;
+	overflow:hidden;
+	position:relative;
+}
+
+#title_header #capcom_logo{
+	position:absolute;
+	top:5px;
+	left:10px;
+}
+
+#title_header ul#title_menu {
+	position:absolute;
+	top:5px;
+	left:120px;
+}
+
+#title_header ul#title_menu li{
+	display:inline-block;
+	font-size:10px;
+	border-left:solid 1px #444;
+	padding:0 10px;
+}
+
+#title_header ul#title_menu li:first-child{
+	border:none;
+}
+
+#title_header a {
+	color:#CCC;
+	text-decoration:none;
+	font-size:10px;
+}
+#title_header a:hover {
+	color:#CCC;
+	text-decoration:underline;
+}
+#title_header a:visited {
+	color:#CCC;
+}
+
+
+/*-------------------------*/
+/*snsbtn
+/*-------------------------*/
+
+#title_header #share {
+	position:absolute;
+	right:6px;
+	top:4px;
+}
+
+#title_header #share li{
+	display:inline-block;
+}
+
+#title_header #share li img{
+	margin-left:8px;
+}
+
+/*-------------------------*/
+/*footer
+/*-------------------------*/
+#title_footer {
+	margin:0;
+	padding-bottom:10px;
+	background:#000;
+	font-family: -apple-system, ‘Helvetica Neue’, ‘Hiragino Kaku Gothic ProN’, ‘游ゴシック’, ‘メイリオ’, meiryo, sans-serif;
+	font-size:10px;
+	text-align:center;
+	color:#444;
+	line-height:1.5em;
+	border-top:1px solid #444;
+}
+
+
+#title_footer #productlogo{
+	width:100%;
+	border-bottom:1px solid #444;		
+}
+
+#title_footer #productlogo img{	
+	padding:12px;
+	vertical-align:middle;
+}
+
+#title_footer #capcon_menu{
+	padding:10px 0;
+}
+
+#title_footer #capcon_menu li{
+	display:inline-block;
+	text-decoration:none;
+	padding:0 12px;
+	border-left:solid 1px #444;
+}
+
+#title_footer #capcon_menu li.first{
+	padding-left:0;
+	border:none;
+}
+
+#title_footer #copyright01 img{
+	vertical-align:middle;
+}
+
+#title_footer #copy_capcom{
+	padding-top:10px;
+}
+
+#title_footer a {
+	text-decoration:none;
+	color:#CCC;
+}
+#title_footer a:hover {
+	color:#CCC;
+	text-decoration:underline;
+}
+#title_footer a:visited {
+	color:#CCC;
+}
+

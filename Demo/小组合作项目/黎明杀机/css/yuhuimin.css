@@ -1,0 +1,107 @@
+
+.nav{
+    width: 100%;
+    position:fixed;
+    top: 0;
+    z-index:99999999;
+}
+.nav-top{
+    width: 100%;
+    height: 80px;
+    margin-top: -15px;
+    background: url("../images/dbd-topnavtop2.png") ;
+}
+.nav-center{
+    width: 100%;
+    position: relative;
+
+}
+/*此处为筋斗云样式*/
+.nav-center>span{
+    position: absolute;
+    top: 30px;
+    width: 50px;
+    height: 50px;
+    background: url("../images/nav-cloud.png") no-repeat 0px 0px;
+    display: none;
+
+}
+.nav-bottom{
+    width: 100%;
+    height: 37px;
+    margin-top: -8px;
+    background: url("../images/dbd-topnavbottom2.png") no-repeat;
+}
+.nav-center-left{
+    float: left;
+    width: 22%;
+    height: 40px;
+    padding: 40px 0;
+    margin-top: 5px;
+    margin-left: 14%;
+
+}
+.nav-center-left>li{
+    width: 33%;
+    float: right;
+    line-height: 20px;
+    font-weight: 400;
+    text-align: center;
+}
+.nav-center-left>li>a{
+    font-family: "microsoft yahei";
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+}
+.nav-center>.logo{
+    /*position: absolute;*/
+    /*padding: 40px;*/
+    float: left;
+    width: 9%;
+    margin: 0 5% ;
+    text-align: center;
+    margin-top: 8px;
+    /*left:44%;*/
+}
+.nav-center-right{
+    float: right;
+    width: 45%;
+    height: 40px;
+    padding: 40px 0;
+    margin-top: 5px;
+
+}
+.nav-center-right>li{
+    width: 18.6%;
+    float: left;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+
+}
+.nav-center-right>.share{
+    float:right;
+
+    width: 44%;
+}
+
+.nav-center-right>li>a{
+    font-family:"microsoft yahei";
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+}
+.nav-center-right>li>span>a>i{
+    font-family:"microsoft yahei";
+    margin-right: 5px;
+    font-size: 27px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.nav-menu{
+    background:url("../images/dbd-topnavtop2.png");
+    display: none;
+    cursor: pointer;
+}

@@ -1,0 +1,252 @@
+/*css 初始化 */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+    margin: 0;
+    padding: 0;  /*清除元素的内外边距*/
+}
+
+fieldset, img, input, button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline-style: none;  /*外面环绕线*/
+}
+
+ul, ol {
+    list-style: none;
+}
+
+/*去掉原样式中的小黑点*/
+input {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: "SimSun", "宋体";  /*字体的自动识别*/
+}
+
+select, input {
+    vertical-align: middle;
+}
+
+/*输入字居中显示*/
+select, input, textarea {
+    font-size: 12px;
+    margin: 0;
+}
+
+/**/
+textarea {
+    resize: none;  /*不可以随意拖动*/
+}
+
+/*防止拖动*/
+img {
+    border: 0;
+    vertical-align: middle; /*  去掉图片底部默认的3像素空白缝隙*/
+}
+
+table {
+    border-collapse: collapse; /*合并外连线*/
+}
+
+body {
+    font: 12px/150% Arial, Verdana, "\5b8b\4f53"; /*unitedCode的写法，宋体的写法*/
+    font-family: 'Roboto';
+    font-weight: 400;/*150%基于当前字体尺寸的百分比行间距*/
+}
+
+.clearfix:before, .clearfix:after {
+    /*清除浮动，最好最标准的写法*/
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/  /*兼容IE6下的写法*/
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+a {
+    /*a 标签是不继承颜色 的*/
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 100%;
+}
+
+s, i, em ,b{  /*一般是起装饰作用*/
+    font-style: normal;  /*去掉原有的样式*/
+    text-decoration: none;  /*去掉下划线或是删除线*/
+}
+
+
+/*头部开始*/
+/*.heaterJ{*/
+    /*width: 100%;*/
+    /*height: 100px;*/
+    /*background-color: #000;*/
+/*}*/
+/*.navJ{*/
+    /*width: 95.5%;*/
+    /*padding: 20px 30px;*/
+    /*height: 60px;*/
+    /*text-transform: uppercase;*/
+    /*font-size: 14px;*/
+    /*position: relative;*/
+/*}*/
+/*.centre-img img{*/
+    /*width: 82px;*/
+    /*height: 60px;*/
+    /*position: absolute;*/
+    /*top: 25px;*/
+    /*left: 50%;*/
+    /*margin-left: -41px;*/
+/*}*/
+/*.nav-left{*/
+    /*padding-left: 40px;*/
+/*}*/
+/*.navJ li{*/
+    /*width: 170px;*/
+    /*height: 60px;*/
+    /*float: left;*/
+/*}*/
+/*.navJ li a {*/
+    /*text-align: center;*/
+    /*display: block;*/
+    /*line-height: 60px;*/
+    /*color: #fff;*/
+    /*font-weight: 400;*/
+/*}*/
+/*简吕奇的内容区*/
+.contentJ{
+    height: 666px;
+    /*background: url("../images/bgiJ.jpg") no-repeat center center;*/
+    position: relative;
+}
+.top-imgJ{
+    height: 37px;
+    z-index: 9;
+    position: absolute;
+    top: -7px;
+    left: 0;
+    width: 100%;
+    background: url("../images/top-imgJ.png") no-repeat center center;
+}
+.itemJ{
+    position: absolute;
+    top: 0;
+    left: 225px;
+    width: 71%;
+    height: 445px;
+    padding: 11% 0px 4%;
+    /*margin: 0 auto;*/
+    z-index: 998;
+}
+.newsposts{
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: white;
+}
+.newsposts a{
+    color: #516274;
+}
+.newsposts a:hover{
+    color: #aaa9a9;
+}
+.itemJ ul{
+    width: 101%;
+    height: 350px;
+}
+.itemJ ul li{
+    float: left;
+    padding: 0 1.5%;
+    width: 30.2%;
+    height: 331px;
+    font-weight: 600;
+    overflow: hidden;
+    /*position: relative;*/
+}
+.img-all{
+    width: 100%;
+    height: 158px;
+    position: relative;
+}
+.bg-imgJ{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -20px;
+    display: block;
+    width: 0;
+    height: 0;
+    background: url("../images/bg-imgJ.jpg") no-repeat center center;
+    cursor: pointer;
+}
+.itemJ ul li img{
+    width: 84.13%;
+    height: 158px;
+    cursor: pointer;
+}
+.itemJ ul li h4{
+    margin: 15px 0 3px 0;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+.itemJ ul li h4 a{
+    color: #ffffff;
+    font-weight: 600;
+}
+.itemJ ul li h4 a:hover{
+    color: #aaa9a9;
+}
+.itemJ ul li .meta{
+    margin-bottom: 13px;
+    color: #aaa9a9;
+}
+.itemJ ul li .detail{
+    margin-bottom: 20px;
+    color: #aaa9a9;
+    font-size: 13px;
+}
+.bottom-imgJ{
+    z-index: 9;
+    height: 37px;
+    position: absolute;
+    left: 0;
+    transform: rotate(180deg);
+    bottom: -7px;
+    width: 100%;
+    background: url("../images/top-imgJ.png") no-repeat center center;
+}
+.vid-wrapper{
+    width:100%;
+    position:relative;
+    height: 666px;/*需要用padding来维持16:9比例,也就是9除以16*/
+}
+.vid-wrapper video{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+/*.coverJ{*/
+    /*width: 1374px;*/
+    /*height: 666px;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*background-color: #000;*/
+    /*opacity: 0.4;*/
+    /*/!*z-index: 998;*!/*/
+/*}*/

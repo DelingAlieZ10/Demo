@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+<body>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus nam nobis qui obcaecati possimus rem sapiente labore aut quia iure delectus explicabo porro accusamus, fugit quam repellendus est omnis, pariatur in. Tempore dignissimos eius, atque, nisi, non itaque natus distinctio numquam perspiciatis laborum delectus! A, recusandae iusto dolores? Quidem nostrum quisquam numquam, voluptatum, soluta cumque laborum velit, explicabo similique ad nobis? Odit fugit nobis repellat officiis molestiae, odio recusandae, nulla quod facere ullam magnam vitae, nisi in maiores distinctio cupiditate harum unde rerum! Quos non debitis vero nisi provident quidem voluptatum necessitatibus cupiditate eum, repudiandae. In hic repellat distinctio incidunt soluta placeat facilis, itaque modi consequatur maiores aliquam commodi quibusdam saepe quis tempore officia a, numquam aperiam sequi voluptates nesciunt, similique magni quos! Labore natus, doloribus voluptas totam in corrupti corporis eius veniam omnis fugit pariatur culpa magnam a, molestiae magni itaque saepe explicabo consectetur eveniet nostrum tenetur mollitia ad laudantium incidunt! Eum harum architecto eos fugit vitae recusandae consequatur facere, soluta quis tempore dignissimos distinctio laborum omnis ut perspiciatis pariatur dolore nihil repellendus repellat sapiente inventore. Dolor, sapiente laudantium doloribus autem pariatur aut magni obcaecati minima beatae nulla ex repellat quasi adipisci cupiditate perspiciatis laboriosam odio saepe architecto tenetur voluptate itaque? Porro id vel provident autem culpa, commodi distinctio eum delectus, ratione, aliquam, ab quos! Maxime perspiciatis minima impedit iusto odio, sed quas aut? In similique sunt id ea modi commodi laboriosam voluptate, est suscipit eaque eum? Deserunt, possimus mollitia, atque sint ex, ut quaerat et omnis a voluptas ducimus, consequuntur ea iure ullam cumque. Ut rerum, enim blanditiis animi tenetur reiciendis sed sequi minus deleniti et possimus placeat aliquam saepe, quia aliquid? Cumque pariatur fugiat dolorum, fuga quasi nihil nostrum doloremque provident porro sunt ipsum odio neque odit voluptatibus eligendi doloribus quod veniam reprehenderit dolor laboriosam magnam similique!
+</body>
+<script src="js/zepto/zepto.js"></script>
+<script src="js/zepto/event.js"></script>
+<script src="js/zepto/touch.js"></script>
+<script>
+    $(function(){
+        $("body").swipeLeft(function(){
+         $(this).css("backgroundColor","red").swipeRight(function(){
+             $(this).css("background","yellow")
+         }).longTap(function(){
+             $(this).css("background","green")
+         })
+        })
+    })
+</script>"
+</html>

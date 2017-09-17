@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .add-bg {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            background: #000000;
+            /*filter: alpha(opacity=20);*/
+            opacity: 0.2;
+            display: none;
+            z-index: 9999;
+        }
+
+        .add {
+            width: 512px;
+            position: absolute;
+            border: #ebebeb solid 1px;
+            height: 280px;
+            left: 50%;
+            right: 50%;
+            background: #ffffff;
+            box-shadow: 0px 0px 20px #ddd;
+            z-index: 9999;
+            margin-left: -250px;
+            margin-top: 140px;
+            display: none;
+            z-index: 10000;
+        }
+
+        .add-title {
+            width: 100%;
+            margin: 10px 0px 0px 0px;
+            text-align: center;
+            line-height: 40px;
+            height: 40px;
+            font-size: 18px;
+            position: relative;
+            cursor: move;
+            -moz-user-select: none; /*火狐*/
+            -webkit-user-select: none; /*webkit浏览器*/
+            -ms-user-select: none; /*IE10*/
+            -khtml-user-select: none; /*早期浏览器*/
+            user-select: none;
+        }
+
+        .add-button {
+            width: 50%;
+            margin: 30px auto 0px auto;
+            line-height: 40px;
+            font-size: 20px;
+            border: #ebebeb 1px solid;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .add-button a {
+            display: block;
+        }
+
+        a:hover {
+            background-color: blue;
+            color: #fff;
+
+        }
+
+        .add-input input.add-input, .add-input input {
+            float: left;
+            height: 35px;
+            width: 350px;
+            border: #ebebeb 1px solid;
+            text-indent: 5px;
+        }
+
+        .add-input input.add-input {
+            line-height: 35px;
+        }
+
+        /*.add-input input {*/
+            /*resize: none;*/
+            /*height: 65px;*/
+        /*}*/
+
+        .add-input {
+            overflow: hidden;
+            margin: 0px 0px 20px 0px;
+        }
+
+        .add-input label {
+            float: left;
+            width: 90px;
+            padding-right: 10px;
+            text-align: right;
+            line-height: 35px;
+            height: 35px;
+            font-size: 14px;
+        }
+
+        .add-title span {
+            position: absolute;
+            font-size: 12px;
+            right: -20px;
+            top: -30px;
+            background: #ffffff;
+            border: #ebebeb solid 1px;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+        }
+    </style>
+    <script src="common.js"></script>
+    <script>
+        window.onload = function(){
+            var add = document.getElementById("add");
+            var title = document.getElementById("title");
+            title.onmousedown = function(){
+                var titlex = page(event).pageX - add.offsetLeft;
+                var titley = page(event).pageY - add.offsetTop;
+                document.onmousemove = function(){
+                    var x = page(event).pageX - titlex +250;
+                    var y = page(event).pageY - titley -140;
+                    add.style.left = x +"px";
+                    add.style.top = y +"px";
+                }
+            }
+            title.onmouseup = function(){
+                document.onmousemove =null;
+            }
+
+
+            //4. 给左上角的按钮注册事件   弹出两个层来
+            btn.onclick = function (){
+                add.style.display = "block";
+                bg.style.display = "block";
+            }
+            // 5. 点击关闭按钮，关闭两个层
+            closeBtn.onclick = function (){
+                hide();
+            }
+            /**
+             * 关闭两个层的函数
+             * */
+            function hide(){
+                add.style.display = "none";
+                bg.style.display = "none";
+            }
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+<input type="button" id="btn" value="登录" style="float:left">
+<div id="add" class="add">
+    <div id="title" class="add-title">用户登录
+    <span>
+        <a id="closeBtn" href="javascript:void(0);" class="close-add">关闭</a>
+    </span>
+    </div>
+    <div class="add-input-content ">
+        <div class="add-input">
+            <label>用户名：</label>
+            <input type="text" placeholder="请输入用户名" name="info[username]" id="userName" class="add-input">
+        </div>
+        <div class="add-input">
+            <label>密码：</label>
+            <!--<textarea name="" id="txtContent" cols="50" rows="6"></textarea>-->
+            <input type="password" id="passWord"/>
+        </div>
+    </div>
+    <div id="loginBtn" class="add-button">
+        <a href="javascript:void(0);" id="add-button-submit">登录</a>
+    </div>
+</div>
+<div id="bg" class="add-bg"></div>
+</body>
+</html>

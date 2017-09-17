@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/demo.css"/>
+</head>
+<script>
+    window.onload = function(){
+        var wrap = document.getElementById("wrap");
+        var slide = document.getElementById("slide");
+        var ul = slide.children[0];
+        var lis = ul.children;
+        var arrow = document.getElementById("arrow");
+        var left = document.getElementById("arrLeft");
+        var right = document.getElementById("arrRight");
+        var flag = true;
+
+        var config=[{
+            "zIndex":2,
+            "width":400,
+            "top":20,
+            "left":50,
+            "opacity":0.3
+        },//0
+            {
+            "zIndex":3,
+            "width":600,
+            "top":70,
+            "left":0,
+            "opacity":0.6
+        },//1
+            {
+            "zIndex":4,
+            "width":800,
+            "top":120,
+            "left":200,
+            "opacity":1
+        },//2
+            {
+            "zIndex":3,
+            "width":600,
+            "top":70,
+            "left":600,
+            "opacity":0.6
+        },//3
+             {
+            "zIndex":2,
+            "width":400,
+            "top":20,
+            "left":750,
+            "opacity":0.3
+        },//4
+        ];
+
+        assign();
+        function assign(){
+            for(var i = 0; i < config.length; i++){
+                animate(lis[i],config[i],function(){
+                    flag = true;
+                });
+            }
+        }
+
+        left.onclick = function(){
+//            for(var i = 0 ; i < lis.length; i++){
+                if(flag){
+                    falg = false;
+                    config.push(config.shift());
+                    assign();
+                }
+//            }
+
+        }
+//        right.onclick = function(){
+//
+//            for(var i = 0; i < config.length ; i++){
+//                animate(lis[])
+//            }
+//        }
+
+        wrap.onmouseover = function(){
+            animate(arrow,{
+                opacity:1
+            })
+        }
+        wrap.onmouseout = function(){
+            animate(arrow,{
+                opacity:0
+            })
+        }
+
+
+
+
+        /**
+         * 封装获取属性的函数的兼容性
+         * @param obj
+         * @param attr
+         * @returns {*}
+         */
+        function getstyle(obj,attr) {
+            if (obj.currentStyle) {
+                return obj.currentStyle[attr];
+            } else {
+                return window.getComputedStyle(obj, null)[attr];//getComputedStyle 后面可以是false 或者 null
+            }
+        }
+
+        /**
+         * 封装缓速移动函数
+         * @param obj
+         * @param target
+         */
+        function animate(obj,jason, fun) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var flag = true; //做标记 解决有的到指定位置有的没到
+                for (var key in jason) {
+
+
+                    if (key == "opacity") { //因为opacity的值为小数不好计算所以先乘以100，然后在除以100
+                        var leader = parseInt(getstyle(obj, key) * 100) || 0;//parseInt获取number部分因为下面要进行计算
+                        var target = jason[key] * 100;
+                        var step = (target - leader) / 10;
+                        step = step > 0 ? Math.ceil(step) : Math.floor(step); //左右移动为了取整 和到达准确位置
+                        leader = leader + step;
+                        obj.style[key] = leader / 100;
+
+
+                    } else if (key == "zIndex") {
+                        var leader = parseInt(getstyle(obj, key)) || 0;//parseInt获取number部分因为下面要进行计算
+                        var target = jason[key];
+                        var step = (target - leader) / 10;
+                        step = step > 0 ? Math.ceil(step) : Math.floor(step); //左右移动为了取整 和到达准确位置
+                        leader = leader + step;
+                        obj.style[key] = leader;
+
+
+                    } else {
+                        var leader = parseInt(getstyle(obj, key)) || 0;//parseInt获取number部分因为下面要进行计算
+                        var target = jason[key];
+                        var step = (target - leader) / 10;
+                        step = step > 0 ? Math.ceil(step) : Math.floor(step); //左右移动为了取整 和 到达准确位置
+                        leader = leader + step;
+                        obj.style[key] = leader + "px";
+                    }
+
+                    if (leader != target) {
+                        flag = false;
+                    }
+                }
+                if (flag) {
+                    clearInterval(obj.timer);
+                    if (typeof fun == "function") {
+                        fun();
+                    }
+                }
+
+            }, 15);
+        }
+    }
+</script>
+<body>
+<div class="wrap" id="wrap">
+    <div class="slide" id="slide">
+        <ul>
+            <li class="one"><a href="#"><img src="images/bingbing.jpg" alt=""/></a></li>
+            <li class="two"><a href="#"><img src="images/lingengxin.jpg" alt=""/></a></li>
+            <li class="three"><a href="#"><img src="images/yuanyuan.png" alt=""/></a></li>
+            <li class="four"><a href="#"><img src="images/slidepic4.jpg" alt=""/></a></li>
+            <li class="five"><a href="#"><img src="images/slidepic5.jpg" alt=""/></a></li>
+        </ul>
+        <div class="arrow" id="arrow">
+            <a href="javascript:;" class="prev" id="arrLeft"></a>
+            <a href="javascript:;" class="next" id="arrRight"></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+ul,ol,dl{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+    // 去掉img底部的基线
+
+img{
+    display: block;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.clearfix::before,.clearfix::after{
+    content:"";
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+//兼容IE6
+// .clearfix{
+//     zoom: 1;
+// }
+
+input{
+    border: none;
+    outline: none;
+}
+body{
+    background: #dedede;
+}
+
+.bdt{
+    border-top: 1px solid black;
+}
+.bdb{
+    border-bottom: 1px solid black;
+}
+.bdl{
+    border-left: 1px solid black;
+}
+.bdr{
+    border-right: 1px solid black;
+}
+.bdw{
+    border-color:  white;
+}
+
+
+//  约束 最小的宽度
+.jd_box{
+    //  320比较合适 目前 较小的 视网膜屏幕的css像素 iphone5 
+    //  早几年 一般设置的是 280
+    // 现在 还有 屏幕宽度比 320的 用户 一般是 舍不得换手机的用户 手机都不舍得换 我们就不要指望他能够充钱 指纹字符等等 放弃即可
+    min-width: 320px;
+    // 一般是 640； 
+    max-width: 640px;
+
+    // 居中
+    margin: 0 auto;
+} 

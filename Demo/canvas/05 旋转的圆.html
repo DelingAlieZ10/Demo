@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600" style="border: 1px solid #f00"></canvas>
+<script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    function color(){
+        var num = [];
+        for(var i = 0; i< 6;i++){
+        num.push(Math.floor(Math.random()*16).toString(16));
+        }
+        return '#'+num.join('');
+    }
+    // color();
+    function Chain(obj){
+        for(var key in obj){
+            this[key] = obj[key];
+        }
+        this.beginRadian = -Math.PI/2;
+        this.init();
+    }
+    Chain.prototype= {
+        constructor:Chain,
+        init:function(){
+            var _this = this;
+            var timer = setInterval(function(){
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            _this.bigCircle();
+            _this.smallCircles();
+            _this.beginRadian += 0.03*Math.PI;
+            },1000)
+        },
+        bigCircle:function(){
+            ctx.beginPath();
+            ctx.arc(this.bigX,this.bigY,this.bigRadius,0,2*Math.PI);
+            ctx.stroke();
+        },
+        smallCircles:function(){
+            // var beginRadian= -0.5*Math.PI;
+            for(var i = 0; i< this.data.length; i++){
+                this.index = i;
+             var radian= this.beginRadian +2*Math.PI/this.data.length*i;
+            this.singleSmallCircle(radian);
+            }
+        },
+        singleSmallCircle:function(radian){
+            // 求出小圆的中心点坐标
+            var h = this.bigRadius*Math.sin(radian);
+            var b = this.bigRadius*Math.cos(radian);
+            var smallX = this.bigX+b;
+            var smallY = this.bigY+h;
+            // 绘制小圆
+            ctx.beginPath();
+            ctx.fillStyle= color();
+            ctx.arc(smallX,smallY,this.smallRadius,0,2*Math.PI);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.font='25px SimHei';
+            ctx.textAlign='center';
+            ctx.textBaseline='middle';
+            ctx.fillStyle='white';
+            ctx.fillText(this.data[this.index],smallX,smallY);
+        }
+    }
+    var chain = new Chain({
+        bigX:400,
+        bigY:300,
+        bigRadius:150,
+        smallRadius:40,
+        data:[0,2,4,6,8,10]
+    })
+</script>
+</body>
+</html>

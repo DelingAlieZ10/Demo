@@ -1,0 +1,329 @@
+//  引入 base
+@import 'base.scss';
+// 页眉部分
+.wjs-header {
+    .row>div {
+        border: 1px solid gray;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        a {
+            font-size: 12px;
+            color: gray;
+            position: relative;
+            img {
+                display: none;
+                position: absolute;
+                left: -20px;
+                top: 30px;
+            }
+        }
+        a:hover img {
+            display: block;
+            z-index: 998;
+        }
+        button {
+            margin-right: 30px;
+        }
+    }
+}
+
+// 导航部分
+#wjs-nav {
+    .navbar-brand {
+        display: flex;
+        height: 100%;
+        line-height: 80px;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        span:first-child {
+            color: red;
+        }
+        span:last-child {
+            color: black;
+        }
+    }
+    .navbar-nav {
+        margin: 0;
+        a {
+            height: 80px;
+            padding-top: 0;
+            padding-bottom: 0;
+            line-height: 80px;
+        }
+        a:hover {
+            border-bottom: 3px solid red;
+        }
+    }
+}
+
+// 轮播图部分
+.wjs-slide {
+    .item a {
+        width: 100%;
+        display: block;
+        img {
+            width: 100%;
+        }
+    }
+    .item a[class^=slide-bg] {
+        height: 410px;
+    }
+    .item a.slide-bg-img1 {
+        background: url("../images/slide_01_2000x410.jpg")no-repeat center;
+    }
+    .item a.slide-bg-img2 {
+        background: url("../images/slide_02_2000x410.jpg")no-repeat center;
+    }
+}
+
+// 支付保障部分
+.wjs-protect {
+    padding: 40px 250px;
+    .media {
+        // margin-bottom: 20px;
+        padding: 20px 0;
+        a {
+            font-size: 50px;
+            color: gray;
+        }
+        .media-body {
+            .media-heading {
+                font-size: 18px;
+                color: gray;
+                text-decoration: none;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .media:hover {
+        cursor: pointer;
+        .media-body,
+        .media-body .media-heading,
+        a {
+            text-decoration: underline;
+            color: red;
+        }
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+// 预约部分
+.wjs-book {
+    padding: 10px 250px;
+    height: 40px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    .pull-left a {
+        color: red;
+        border-bottom: 1px dashed red;
+        text-decoration: none;
+    }
+    .pull-right,
+    .pull-right a {
+        color: gray;
+    }
+    .pull-right:hover,
+    .pull-right a:hover {
+        color: red;
+    }
+}
+
+// 内容导航部分
+#wjs-message {
+    .nav-tabs li a {
+        color: gray;
+        border-color: transparent;
+        &:hover {
+            border-color: transparent;
+            background-color: transparent;
+        }
+    }
+    li.active a {
+        // border-color: transparent;
+        border-bottom: 3px solid red;
+    } //内容主体部分
+    .tab-content {
+        .row>div {
+            padding: 20px;
+        }
+        .ticket {
+            height: 150px;
+            display: block;
+            display: flex;
+            box-shadow: 5px 5px 10px gray;
+            text-decoration: none;
+            color: gray;
+            .left {
+                flex: 1;
+                h2 {
+                    font-size: 18px;
+                    text-align: center;
+                }
+                .content {
+                    padding: 0 10px;
+                    display: flex;
+                    justify-content: space-between;
+                    .content-l p {
+                        text-align: left;
+                        margin-bottom: 0;
+                    }
+                    .content-r p {
+                        text-align: right;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            .right {
+                width: 108px;
+                text-align: center;
+                border-left: 1px dashed gray;
+                padding-top: 30px;
+                position: relative; // text-align: center;
+                &::before {
+                    content: "";
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background: white;
+                    position: absolute;
+                    top: -10px;
+                    left: -10px;
+                    border-bottom: 1px solid gray;
+                }
+                &::after {
+                    content: "";
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background: white;
+                    position: absolute;
+                    bottom: -10px;
+                    left: -10px;
+                    border-top: 1px solid gray;
+                }
+            }
+        }
+        .row>div:first-child .ticket {
+            background: red;
+            color: white;
+            .right {
+                border-color: white;
+            }
+        }
+        .row>div:nth-child(3) .ticket {
+            .right {
+                span {
+                    padding: 3px 2px;
+                    border: 1px solid red;
+                    color: red;
+                    font-weight: bold;
+                    margin-left: 10px;
+                }
+                span:nth-child(1) {
+                    border-color: yellowgreen;
+                    color: yellowgreen;
+                }
+                p:nth-child(3) {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
+
+// 新闻部分
+.wjs-news {
+    .wjs-row {
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        padding: 0 0 20px;
+        h2 {
+            text-align: center;
+            border-bottom: 1px solid #000;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            position: relative;
+            &::after {
+                content: "";
+                width: 10px;
+                height: 10px;
+                border: 1px solid #000;
+                position: absolute;
+                right: -10px;
+                bottom: -5px;
+                border-radius: 50%;
+            }
+        }
+        .container-fluid {
+            position: relative;
+            .line{
+                height: 300px;
+                border-left: 1px dashed #000;
+                position: absolute;
+                left: 65px;
+                top:15px;
+            }
+            ul {
+                border: none;
+                li {
+                    padding: 10px 0 20px 30px;
+                    text-align: center;
+                    a {
+                        padding: 0;
+                        height: 70px;
+                        width: 70px;
+                        line-height: 70px;
+                        border: none;
+                        border-radius: 50%;
+                        background: #d6d6d6;
+                        font-size: 40px;
+                        color: white;
+                        &:hover {
+                            background: red;
+                        }
+                    }
+                }
+                li.active a {
+                    background: red;
+                }
+            }
+        }
+        .col-md-5{
+            padding:0;
+        .tab-content ul{
+            margin-top: 30px;
+            li{
+                padding:10px 0;
+                a{
+                    color: gray;
+                }
+            }
+        }
+        }
+
+
+    }
+}
+
+// 页脚部分
+.wjs-footer{
+    text-align: center;
+    ul{
+        display: inline-block;
+        li{
+            a{
+                color: gray;
+                font-size: 100px;
+                padding:0 10px;
+                text-decoration: none;
+                &:hover{
+                    color:skyblue;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>聊天</title>
+    <link rel="stylesheet" href="chatcss.css">
+    <script src="../js/jquery-2.2.2.js"></script>
+    <script>
+        $(function () {
+            var friends = [
+                {
+                    'name': '王俊才',
+                    'qm': '我不管他帅不帅，牛不牛逼，社会不社会，我只知道他是我兄弟。',
+                    'zhiwu':'CT0',
+                    'class':'oneimg'
+                },
+                {
+                    'name': '包小旭',
+                    'qm': '我深知不能说爱你 不然连普通朋友都做不成',
+                    'zhiwu':'CE0',
+                    'class':'twoimg'
+                },
+                {
+                    'name': '江雪艳',
+                    'qm': '在这个冷暖自知的年代，遇见你们，真好！',
+                    'zhiwu':'程序员鼓励师',
+                    'class':'threeimg'
+                },
+                {
+                    'name': '喻慧敏 ',
+                    'qm': '很开心和男神一起吃夜宵 像是在做梦的感觉',
+                    'zhiwu':'程序员鼓励师',
+                    'class':'fourimg'
+                },
+                {
+                    'name': '罗航 ',
+                    'qm': '心有猛虎，细嗅蔷薇 ',
+                    'zhiwu':'开心的码农',
+                    'class':'fiveimg'
+                },
+                {
+                    'name': '李勇 ',
+                    'qm': '今晚8.30分和葬爱家族尬舞,欢迎大家来捧场',
+                    'zhiwu':'杀"码"特',
+                    'class':'siximg'
+                },
+                {
+                    'name': '曲世强 ',
+                    'qm': '谢谢你把我变得成熟而坚强，',
+                    'zhiwu':'高级程序员',
+                    'class':'sevenimg'
+                },
+                {
+                    'name': '简老师 ',
+                    'qm': '也许是成熟的不够快，眼看这乐趣变成负担！',
+                    'zhiwu':'高级程序员',
+                    'class':'eightimg'
+                },
+                {
+                    'name': '黄凌旋 ',
+                    'qm': '所谓成熟就是学会放弃的过程。',
+                    'zhiwu':'高级程序员',
+                    'class':'nineimg'
+                },
+                {
+                    'name': '邓林 ',
+                    'qm': '面对人生，面对挫折，面对一无所有，我懂的了生活的辛酸与无奈。',
+                    'zhiwu':'高级程序员',
+                    'class':'tenimg'
+                },
+            ];
+            var timer = null;
+            var touxiang;
+            var  flag = false;
+            var usertext = "";
+            var areaval = "";
+            for (var i = 0; i < friends.length; i++) {
+                var newp = $("<p><i class="+friends[i].class+"></i><s></s><span class='user'>"+friends[i].name+"</span><span class='qianming'>"+friends[i].qm+"</span></p>");
+                $(".list_p").append(newp);
+            }
+            var keywords = ['王宝强','绿','黑马'];
+            var returnkey = ['我也听说宝强戴绿帽子了','你是说王宝强吗？','黑马很不错哟'];
+            //弹出框
+            alert();
+            function alert(){
+                $(".tan").animate({
+                    'width':750
+                },3000,"swing")
+            };
+
+            //点击弹出框按钮收回弹出框
+            $(".tan_btn").on("click", function () {
+                $(".tan").animate({
+                    'width':0
+                })
+            })
+            //鼠标移入左边list变背景色
+            $(".list_p p").hover(function () {
+                $(this).siblings().css({
+                    'backgroundColor':''
+                })
+                $(this).css({
+                    'backgroundColor':'#666666'
+                })
+                /*  个性签名挨着滚动  */
+
+                $(".qianming").eq($(this).index()).stop().animate({
+                    'left':-100
+                },5000,'swing');
+            }, function () {
+                $(this).css({
+                    'backgroundColor':''
+                })
+                $(".qianming").eq($(this).index()).stop().animate({
+                    'left':55
+                },300,'swing');
+            })
+            //点击list右边上top改变对应的值 S
+            $(".list_p p").on("dblclick", function () {
+                $(".chat_top p").html("");
+                $(".chatcon").children().remove();
+                var index = $(this).index();
+                $(".chat_top p").text(friends[index].name);
+                touxiang = friends[index].class;
+                var newp = $('<div class=chata><i></i><p>你好!我叫'+friends[index].name+',我是一名'+friends[index].zhiwu+'，请问有什么问题</p></div>')
+                setTimeout(function () {
+                    $(".chatcon").append(newp);
+                    $(".chatcon .chata i").eq(0).removeClass(touxiang);
+                    $(".chatcon .chata i").eq(0).addClass(touxiang);
+                },1000);
+            })
+            //点击list右边上top改变对应的值 E
+//            var sendval;
+            //收到消息后判断并返回相应值。
+            function returntext(){
+                setTimeout(function () {
+                    for(var i = 0; i < keywords.length; i++){
+                        console.log(keywords[i].indexOf(areaval));
+                        console.log(i);
+                        console.log(keywords[i]);
+                        if(keywords[i].indexOf(areaval) != -1){
+                            console.log(3333);
+                            var admintext = $('<div class=chata><i class='+touxiang+'></i><p>'+returnkey[i]+'</p></div>')
+                            $(".chatcon").append(admintext);
+                            continue;
+                        }
+//                        else {
+//                            var moren =  $('<div class=chata><i class='+touxiang+'></i><p>你在说什么？难道代码又出bug了？</p></div>');
+//                            $(".chatcon").append(moren);
+//                            break;
+//                        }
+                    }
+
+//                    var admintext = $('<div class=chata><i class='+touxiang+'></i><p>123456789</p></div>')
+//                    $(".chatcon").append(admintext);
+
+                    clearInterval(timer);
+                    $(".chat_top span").text('');
+                },2000);
+                flag = false;
+            }
+            
+            // 回车键盘发送
+            $("#text").on('focus', function () {
+                document.onkeydown = function(e){
+                    var ev = document.all ? window.event : e;
+                    if(ev.keyCode==13) {
+                        send();
+                    }
+                }
+            })
+            //点击发送
+            $(".sendarea").on("click", function () {
+                send();
+            });
+        function send() {
+             areaval = $("#text").val();
+            usertext = $('<div class=textright><p>' + areaval + '</p><i class=specimg></i></div>');
+            $(".chatcon").append(usertext);
+            $("#text").val('');
+            //发送后显示正在输入
+            //正在输入效果
+            var dian = 0;
+            clearInterval(timer);
+            timer = setInterval(function () {
+                dian++;
+                switch (dian) {
+                    case 1:
+                        $(".chat_top span").text("正在输入.");
+                        break;
+                    case 2:
+                        $(".chat_top span").text("正在输入..");
+                        break;
+                    case 3:
+                        $(".chat_top span").text("正在输入...");
+                        break;
+                    case 4:
+                        $(".chat_top span").text("正在输入....");
+                        break;
+                    case 5:
+                        $(".chat_top span").text("正在输入.....");
+                        break;
+                    case 6:
+                        $(".chat_top span").text("正在输入......");
+                        break;
+                    case 7:
+                        dian = 0;
+                        break;
+                }
+            }, 300);
+            flag = true;
+            if (flag) {
+                returntext();
+            }
+        }
+        })
+    </script>
+</head>
+<body>
+<div class="bigbox">
+    <div class="mask"></div>
+    <div class="list">
+        <!--<div class="list_head">-->
+
+        <!--</div>-->
+        <div class="list_p"></div>
+    </div>
+    <div class="chatbox">
+        <div class="chat_top">
+            <p>黑马八期巅峰组为您服务</p>
+            <span></span>
+        </div>
+        <div class="chatcon">
+            <div class="tan">
+                <p>请点击左边选择客服咨询问题哟</p>
+                <span class="tan_btn"> > </span>
+                <s></s>
+            </div>
+            <div class="chata">
+
+            </div>
+        </div>
+        <div class="chatsend">
+            <textarea name="" id="text" cols="30" rows="10"></textarea>
+        </div>
+        <div class="sendarea">
+            <i>发送</i>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
